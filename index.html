@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>W3.CSS Template</title>
+    <title>In-House Queue</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/style.css">
     <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
@@ -18,14 +17,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <body>
 <style>
 
-.w3-theme-l5 {color:#000 !important; background-color:#fdf4f4 !important}
-.w3-theme-l4 {color:#000 !important; background-color:#f8dbda !important}
-.w3-theme-l3 {color:#000 !important; background-color:#f1b7b5 !important}
-.w3-theme-l2 {color:#000 !important; background-color:#ea9390 !important}
-.w3-theme-l1 {color:#fff !important; background-color:#e3706c !important}
 .w3-theme-d1 {color:#fff !important; background-color:#d7342e !important}
-.w3-theme-d2 {color:#fff !important; background-color:#c32a25 !important}
-.w3-theme-d3 {color:#fff !important; background-color:#ab2521 !important}
 .w3-theme-d4 {color:#fff !important; background-color:#93201c !important}
 .w3-theme-d5 {color:#fff !important; background-color:#7a1b17 !important}
 .w3-theme-d6 {color:#fff !important; background-color:#5865f2 !important}
@@ -41,14 +33,15 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Invite</a>
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Discord</a>
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Source Code</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Support Server</a>
     </div>
 
     <!-- Navbar on small screens -->
     <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Invite</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Discord</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Source Code</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Support Server</a>
     </div>
 </div>
 
@@ -66,13 +59,25 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <div class="w3-row-padding w3-padding-64 w3-container">
     <div class="w3-content">
         <div class="w3-twothird">
-            <h1 class="w400"> Your personal InHouse Game Manager</h1>
-            <h5 class="w3-padding-35"> A Discord Bot Designed to organise In-House games, allow the Bot do the work. </h5>
-            <h5 class="w3-padding-55"> Features; <b> Role Queue, Leaderboards, Match History and more!</b> </h5>
+            <h1 class="w400"> Your personal In-House Games manager</h1>
+            <h5 class="w3-padding-35"> A Discord Bot Designed to organise In-House custom games. Inspired by LoL Champions Queue. </h5>
+            <h5 class="w3-padding-35"> Currently, designed for League of Legends. But will work for any other 5v5 game. </h5>
+            <h5 class="w3-padding-55"> Features; </h5>
+            <h6>
+                <ul>
+                    <li> <b>Supports Brand-new Discord slash commands </b></li>
+                    <li> <b>Global Ranking system </b></li>
+                    <li> <b>Role assignment per Queue</b></li>
+                    <li> <b>Ready Up! Time to ready up appears in Timezone of the player </b></li>
+                    <li> <b>Game-specific Voice and Lobby channels created</b></li>
+                    <li> <b>Game-specific Voice and Lobby automatically deleted on game conclusion</b></li>
+                    <li> <b>Spectators - With a click of a button, spectators are allowed to join one team voice channel</b></li>
+                </ul>
+            </h6>
         </div>
 
         <div class="w3-third w3-center">
-            <img src="assets/ready.png" class="padding" alt="Ready">
+            <img src="assets/ready.png" style="padding:20px 20px 20px 20px" alt="Ready">
         </div>
     </div>
 </div>
@@ -81,46 +86,38 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
     <div class="w3-content">
         <div class="w3-third w3-center">
-            <img src="assets/img.png" width="150" height="150" alt="Ready">
+            <img src="assets/img.png" width="150" height="150"  alt="Ready">
         </div>
 
         <div class="w3-twothird">
             <h1>Take your server to the next level</h1>
-            <h5 class="w3-padding-32"> Provide a Competitive environment for your Discord server by allowing the Bot to handle creating, managing and tracking all In house games. Members are able to track their progress through the built-in leaderboard Stored in the database.</h5>
+            <h5 class="w3-padding-32"> Provide a Competitive environment for your Discord server. Sit back and let the Bot create, manage and track all In-House custom games. Members are able to track their progress through the built-in leaderboard.</h5>
         </div>
     </div>
 </div>
 
-
-<!-- First Grid -->
-<div class="w3-row-padding  w3-padding-64 w3-container">
+<!-- Third Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
     <div class="w3-content">
         <div class="w3-twothird">
-            <h1 class="w400"> More games to be supported </h1>
+            <h1 class="w400"> Are you ready to <i> really </i> improve?  </h1>
             <h5 class="w3-padding-35"> <b>Play, Practise</b> and <b> Progress</b> like the pros. </h5>
-            <h5 class="w3-padding-35"> Inspired by LoL Champions Queue. If you want to play like a pro, you've got to practise like one. </h5>
+            <h5 class="w3-padding-35"> If you want to play like a pro, you've got to scrim like one. </h5>
         </div>
-
         <div class="w3-third w3-center">
-            <img src="assets/match-start.png" class="padding" alt="Ready">
+            <img src="assets/match-start.png" style="padding:20px 20px 20px 15px" alt="Ready">
         </div>
     </div>
 </div>
 
 <div class="w3-container w3-theme-d1 w3-center w3-padding-64">
-    <h1 class="w3-margin w3-xlarge"> More games to be supported... </h1>
+    <h1 class="w3-margin w3-xlarge" style="padding:20px 20px 20px 15px"> Support for more games in the works </h1>
+    <div><button class="w3-button w3-theme-d6 w3-padding-large w3-large w3-round-large">Invite to Server</button></div>
 </div>
 
 <!-- Footer -->
 <footer class="w3-container w3-light-grey w3-padding-64 w3-center w3-opacity">
-    <div class="w3-xlarge w3-padding-32">
-        <i class="fa fa-facebook-official w3-hover-opacity"></i>
-        <i class="fa fa-discord w3-hover-opacity"></i>
-        <i class="fa fa-snapchat w3-hover-opacity"></i>
-        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-        <i class="fa fa-twitter w3-hover-opacity"></i>
-        <i class="fa fa-linkedin w3-hover-opacity"></i>
-    </div>
+    <p>Copyright © Henry Koleoso <a href="https://github.com/HenrySpartGlobal" target="_blank">GitHub</a></p>
 </footer>
 
 <script>
