@@ -1,0 +1,221 @@
+/*--------------------------------------------------------------
+# navbar
+--------------------------------------------------------------*/
+
+
+
+
+.navbar-area {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 99;
+	transition: all 0.3s ease-out 0s;
+	background-color: #fff;
+}
+
+.navbar {
+	padding: 0;
+	position: relative;
+	transition: all 0.3s ease-out 0s;
+	padding: 8px 0;
+	@media  (max-width: 991px) {
+		padding: 8px 0;
+	}
+
+	@media (max-width: 767px) {
+		padding: 8px 0;
+	}
+
+	.navbar-brand {
+		padding: 0;
+		img {
+			height: 40px;
+      transition: all .4s ease-in-out;
+			@media only screen and (max-width: 767px) {
+			height: 33px;
+			}
+		}
+    font-size: 24px;
+    text-decoration: none;
+    color: $secondary-color;
+    text-shadow: 0px 4px 18px rgba(0, 0, 0, 0.34);
+    span{
+      color: $primary-color;
+    }
+    @media only screen and (max-width: 767px) {
+     font-size: 22px;
+    }
+	}
+
+	.navbar-nav {
+		.nav-item {
+			position: relative;
+			margin-left: 23px;
+      &:first-child{
+        margin-left: 0;
+      }
+      @media only screen and (max-width: 991px) {
+       margin-left: 0;
+      }
+			a {
+        text-decoration: none;
+				font-size: 15px;
+				font-weight: 500;
+				color: $title-color;
+				transition: all 0.3s ease-out 0s;
+				padding: 10px 0;
+				position: relative;
+				&:hover,
+				&.active {
+					color: $primary-color;
+				}
+
+				@media only screen and (min-width: 768px) and (max-width: 991px) {
+					display: inline-block;
+				}
+        @media only screen and (max-width: 991px) {
+          padding: 2px 0;
+          margin: 6px 0px;
+        }
+				@media only screen and (max-width: 767px) {
+					display: inline-block;
+				}
+			}
+      .lni-shield{
+        color: greenyellow;
+        font-size: 16px;
+      }
+		}
+	}
+
+	.navbar-collapse {
+		@media only screen and (min-width: 768px) and (max-width: 991px) {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			width: 100%;
+			z-index: 9;
+      background-color: #fff;
+			box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1);
+
+		}
+    @media only screen and (max-width: 991px) {
+     padding: 8px 20px 18px 20px;
+    }
+
+		@media only screen and (max-width: 767px) {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			width: 100%;
+			z-index: 9;
+      background-color: #fff;
+			box-shadow: 0 15px 20px 0 rgba(43, 56, 109, 0.1);
+		}
+
+	}
+
+	.navbar-toggler {
+		padding: 0;
+
+		&:focus {
+			outline: none;
+			-webkit-box-shadow: none;
+			box-shadow: none;
+		}
+
+		.toggler-icon {
+			width: 30px;
+			height: 2px;
+			background-color: #000;
+			display: block;
+			margin: 5px 0;
+			position: relative;
+			-webkit-transition: all 0.3s ease-out 0s;
+			-o-transition: all 0.3s ease-out 0s;
+			transition: all 0.3s ease-out 0s;
+		}
+
+		&.active .toggler-icon {
+			&:nth-of-type(1) {
+				-webkit-transform: rotate(45deg);
+				-ms-transform: rotate(45deg);
+				transform: rotate(45deg);
+				top: 7px;
+			}
+
+			&:nth-of-type(2) {
+				opacity: 0;
+			}
+
+			&:nth-of-type(3) {
+				-webkit-transform: rotate(135deg);
+				-ms-transform: rotate(135deg);
+				transform: rotate(135deg);
+				top: -7px;
+			}
+		}
+	}
+}
+
+
+/** Medium devices (tablets, 768px and up) **/
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    transition: all 0.3s ease-out 0s;
+     box-shadow: 0 0.16rem 0.2rem 0 rgba(36, 39, 46, 0.05);
+    .navbar {
+
+      .navbar-toggler .toggler-icon {
+        background-color: #000;
+      }
+    }
+
+  }
+
+
+
+
+
+
+
+.nav-center {
+	/** Large devices (desktops, 992px and up) **/
+	@media (min-width: 992px) {
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%);
+	}
+}
+
+.social {
+
+  margin-left: 30px;
+  @media only screen and (max-width: 991px) {
+  padding-top: 0px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 0;
+  }
+  li{
+    a{
+      &:not(:last-child) {
+      margin-right: 10px;
+      }
+      img{
+        height: 30px;
+      }
+    }
+  }
+
+
+
+
+
+}
