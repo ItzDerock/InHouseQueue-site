@@ -25,20 +25,70 @@
 		}
 	};
 
-
-
-
-    //===== mobile-menu-btn
+	//===== mobile-menu-btn
 	let navbarToggler = document.querySelector(".navbar-toggler");
 	navbarToggler.addEventListener("click", function () {
 		navbarToggler.classList.toggle("active");
 	});
 
-   // WOW active
+	// WOW active
 	new WOW().init();
 
-
-
-
-
 })();
+
+
+// command page 
+function toggleCRC(thisChevron, thisID, thisHead) {
+	if ($(thisChevron).hasClass("on")) {
+		$(thisChevron).removeClass("on");
+		$(thisChevron).css("transform", "rotate(0deg)");
+	} else {
+
+		$(thisChevron).addClass("on");
+		$(thisChevron).css("transform", "rotate(180deg)");
+	}
+	$("#" + thisID).slideToggle(600, "swing", function () {
+	});
+}
+
+/* open accordian */
+$(".single-command-card-header").click(function () {
+
+	var expandThisID = $(this).data("section");
+	var thisHead = $('.single-command-card-header[data-section=' + expandThisID + ']');
+	var chevron = $('i[data-section=' + expandThisID + ']');
+	// close open chevrons
+	$(".crc-chevron").each(function () {
+		if ($(this).hasClass("on")) {
+		}
+	})
+	// close open accordions
+
+	$(".acc-body").each(function () {
+		if ($(this).data("section") != expandThisID && $(this).is(":visible")) {
+			$("#" + $(this).data("section")).slideToggle(600, "swing", function () {
+			});
+			$("i[data-section=" + $(this).data("section") + ']').removeClass("on");
+			$("i[data-section=" + $(this).data("section") + ']').css("transform", "rotate(0deg)");
+		}
+	});
+
+	toggleCRC(chevron, expandThisID, thisHead);
+});
+
+// command page end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
