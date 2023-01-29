@@ -148,7 +148,7 @@
                             fill="#303038" style="transition: fill 0.2s ease-in-out 0s;"></path>
                         </svg>
                       </span>
-                      <p class="list-item-item"><span>reset -</span>&nbsp;Reset your servers' leaderboard. Remove one person from the queue or ready up. Remove everyone from an ongoing queue.</p>
+                      <p class="list-item-item"><span>reset -</span>&nbsp;Reset your servers' leaderboard or remove everyone from an ongoing queue.</p>
                     </div>
                     <i class="fas fa-chevron-down crc-chevron" data-section="all-command_card1-admin"></i>
                   </div>
@@ -160,7 +160,6 @@
                         <p>Usage: </p>
                         <ul>
                           <li>/admin reset leaderboard</li>
-                          <li>/admin reset user [member]</li>
                           <li>/admin reset queue [gameid]</li>
                         </ul>
                       </div>
@@ -168,7 +167,6 @@
                         <p>Examples:</p>
                         <ul>
                           <li>/admin reset leaderboard</li>
-                          <li>/admin reset user @John</li>
                           <li>/admin reset queue 03134ff5</li>
                         </ul>
                       </div>
@@ -739,6 +737,42 @@
                   </div>
                 </div>
               </div>
+              <!-- ALL USER_DEQUEUE COMMAND -->
+              <div class="all-enable-commands-wrapper">
+                <div class="single-command-card-wrapper">
+                  <div class="single-command-card-header" data-section="all-command_card1-dequeue">
+                    <div class="title-row">
+                      <span class="icon">
+                        <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M3.11111 0C1.39289 0 0 1.39289 0 3.11111V24.8889C0 26.6072 1.39289 28 3.11111 28H24.8889C26.6072 28 28 26.6072 28 24.8889V3.11111C28 1.39289 26.6072 0 24.8889 0H3.11111ZM21.6214 8.42207L19.4216 6.22219L6.22222 19.4216L8.4221 21.6214L21.6214 8.42207Z"
+                                fill="#303038" style="transition: fill 0.2s ease-in-out 0s;"></path>
+                        </svg>
+                      </span>
+                      <p class="list-item-item"><span>user_dequeue -</span>&nbsp;Remove single user from an ongoing queue </p>
+                    </div>
+                    <i class="fas fa-chevron-down crc-chevron" data-section="all-command_card1-dequeue"></i>
+                  </div>
+
+                  <div id="all-command_card1-dequeue" class="single-command-card-body"
+                       data-section="all-command_card1-enable">
+                    <div class="content-row">
+                      <div class="content-col">
+                        <p>Usage: </p>
+                        <ul>
+                          <li>/admin user_dequeue [member]</li>
+                        </ul>
+                      </div>
+                      <div class="content-col">
+                        <p>Examples:</p>
+                        <ul>
+                          <li>/admin user_dequeue @John</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <!-- ALL COMMANDS End -->
 
@@ -757,7 +791,7 @@
                           fill="#303038" style="transition: fill 0.2s ease-in-out 0s;"></path>
                       </svg>
                     </span>
-                    <p class="list-item-item"><span>reset -</span>&nbsp;Remove single or all people from a queue or
+                    <p class="list-item-item"><span>reset -</span>&nbsp;Remove all people from a queue or
                       reset your server leaderboard.</p>
                   </div>
                   <i class="fas fa-chevron-down crc-chevron" data-section="command_card1-admin"></i>
@@ -769,7 +803,6 @@
                       <p>Usage: </p>
                       <ul>
                         <li>/admin reset leaderboard</li>
-                        <li>/admin reset user [member]</li>
                         <li>/admin reset queue [gameid]</li>
                       </ul>
                     </div>
@@ -777,7 +810,6 @@
                       <p>Examples:</p>
                       <ul>
                         <li>/admin reset leaderboard</li>
-                        <li>/admin reset user @John</li>
                         <li>/admin reset queue 03134ff5</li>
                       </ul>
                     </div>
@@ -1020,6 +1052,39 @@
                       <p>Examples:</p>
                       <ul>
                         <li>/admin disable @Moderators queue reset</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- admin-command-single-card9 - admin user_dequeue -->
+              <div class="single-command-card-wrapper">
+                <div class="single-command-card-header" data-section="command_card9-admin">
+                  <div class="title-row">
+                    <span class="icon">
+                      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M3.11111 0C1.39289 0 0 1.39289 0 3.11111V24.8889C0 26.6072 1.39289 28 3.11111 28H24.8889C26.6072 28 28 26.6072 28 24.8889V3.11111C28 1.39289 26.6072 0 24.8889 0H3.11111ZM21.6214 8.42207L19.4216 6.22219L6.22222 19.4216L8.4221 21.6214L21.6214 8.42207Z"
+                              fill="#303038" style="transition: fill 0.2s ease-in-out 0s;"></path>
+                      </svg>
+                    </span>
+                    <p class="list-item-item"><span>user_dequeue -</span>&nbsp;Remove single user from an ongoing queue</p>
+                  </div>
+                  <i class="fas fa-chevron-down crc-chevron" data-section="command_card9-admin"></i>
+                </div>
+
+                <div id="command_card9-admin" class="single-command-card-body" data-section="command_card9-admin">
+                  <div class="content-row">
+                    <div class="content-col">
+                      <p>Usage: </p>
+                      <ul>
+                        <li>/admin user_dequeue [member] </li>
+                      </ul>
+                    </div>
+                    <div class="content-col">
+                      <p>Examples:</p>
+                      <ul>
+                        <li>/admin user_dequeue @John</li>
                       </ul>
                     </div>
                   </div>
