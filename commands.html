@@ -125,8 +125,8 @@
             <button id="setup-tab" class="command-content-single-tabs" onclick="commandTab('Set-Up')">Set-Up</button>
             <button id="general-tab" class="command-content-single-tabs"
               onclick="commandTab('General')">General</button>
-            <button id="leagueoflegends-tab" class="command-content-single-tabs"
-              onclick="commandTab('League-of-Legends')">League of Legends</button>
+<!--            <button id="leagueoflegends-tab" class="command-content-single-tabs"-->
+<!--              onclick="commandTab('League-of-Legends')">League of Legends</button>-->
           </div>
 
           <div class="command-content-cards">
@@ -383,13 +383,13 @@
                       <div class="content-col">
                         <p>Usage: </p>
                         <ul>
-                          <li>/setchannel [#channelname]</li>
+                          <li>/setchannel [#channelname] [region]</li>
                         </ul>
                       </div>
                       <div class="content-col">
                         <p>Examples:</p>
                         <ul>
-                          <li>/setchannel #InHouseQueue</li>
+                          <li>/setchannel #InHouseQueue EUW</li>
                         </ul>
                       </div>
                     </div>
@@ -631,42 +631,42 @@
               </div>
 
               <!-- ALL LEAGUE OF LEGENDS COMMANDS -->
-              <div class="all-league-of-legends-commands-wrapper">
-                <div class="single-command-card-wrapper">
-                  <div class="single-command-card-header" data-section="all-command_card1-league-of-legends">
-                    <div class="title-row">
-                      <span class="icon">
-                        <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M3.11111 0C1.39289 0 0 1.39289 0 3.11111V24.8889C0 26.6072 1.39289 28 3.11111 28H24.8889C26.6072 28 28 26.6072 28 24.8889V3.11111C28 1.39289 26.6072 0 24.8889 0H3.11111ZM21.6214 8.42207L19.4216 6.22219L6.22222 19.4216L8.4221 21.6214L21.6214 8.42207Z"
-                            fill="#303038" style="transition: fill 0.2s ease-in-out 0s;"></path>
-                        </svg>
-                      </span>
-                      <p class="list-item-item"><span>opgg -</span>&nbsp;Multi op.gg link of Red or Blue team. Players Discord
-                        Name must be their IGN or prefixed with IGN:</p>
-                    </div>
-                    <i class="fas fa-chevron-down crc-chevron" data-section="all-command_card1-league-of-legends"></i>
-                  </div>
-  
-                  <div id="all-command_card1-league-of-legends" class="single-command-card-body"
-                    data-section="all-command_card1-league-of-legends">
-                    <div class="content-row">
-                      <div class="content-col">
-                        <p>Usage: </p>
-                        <ul>
-                          <li>/opgg [gameid] [team] [region]</li>
-                        </ul>
-                      </div>
-                      <div class="content-col">
-                        <p>Examples:</p>
-                        <ul>
-                          <li>/opgg 316d8cc7 Red euw</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+<!--              <div class="all-league-of-legends-commands-wrapper">-->
+<!--                <div class="single-command-card-wrapper">-->
+<!--                  <div class="single-command-card-header" data-section="all-command_card1-league-of-legends">-->
+<!--                    <div class="title-row">-->
+<!--                      <span class="icon">-->
+<!--                        <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                          <path fill-rule="evenodd" clip-rule="evenodd"-->
+<!--                            d="M3.11111 0C1.39289 0 0 1.39289 0 3.11111V24.8889C0 26.6072 1.39289 28 3.11111 28H24.8889C26.6072 28 28 26.6072 28 24.8889V3.11111C28 1.39289 26.6072 0 24.8889 0H3.11111ZM21.6214 8.42207L19.4216 6.22219L6.22222 19.4216L8.4221 21.6214L21.6214 8.42207Z"-->
+<!--                            fill="#303038" style="transition: fill 0.2s ease-in-out 0s;"></path>-->
+<!--                        </svg>-->
+<!--                      </span>-->
+<!--                      <p class="list-item-item"><span>opgg -</span>&nbsp;Multi op.gg link of Red or Blue team. Players Discord-->
+<!--                        Name must be their IGN or prefixed with IGN:</p>-->
+<!--                    </div>-->
+<!--                    <i class="fas fa-chevron-down crc-chevron" data-section="all-command_card1-league-of-legends"></i>-->
+<!--                  </div>-->
+<!--  -->
+<!--                  <div id="all-command_card1-league-of-legends" class="single-command-card-body"-->
+<!--                    data-section="all-command_card1-league-of-legends">-->
+<!--                    <div class="content-row">-->
+<!--                      <div class="content-col">-->
+<!--                        <p>Usage: </p>-->
+<!--                        <ul>-->
+<!--                          <li>/opgg [gameid] [team] [region]</li>-->
+<!--                        </ul>-->
+<!--                      </div>-->
+<!--                      <div class="content-col">-->
+<!--                        <p>Examples:</p>-->
+<!--                        <ul>-->
+<!--                          <li>/opgg 316d8cc7 Red euw</li>-->
+<!--                        </ul>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
               <!-- ALL ENABLE COMMAND -->
               <div class="all-enable-commands-wrapper">
                 <div class="single-command-card-wrapper">
@@ -769,6 +769,42 @@
                         <p>Examples:</p>
                         <ul>
                           <li>/admin user_dequeue @John</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ALL DUO_QUEUE COMMAND -->
+              <div class="all-duo-queue-commands-wrapper">
+                <div class="single-command-card-wrapper">
+                  <div class="single-command-card-header" data-section="all-command_card1-duoqueue">
+                    <div class="title-row">
+                      <span class="icon">
+                        <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M3.11111 0C1.39289 0 0 1.39289 0 3.11111V24.8889C0 26.6072 1.39289 28 3.11111 28H24.8889C26.6072 28 28 26.6072 28 24.8889V3.11111C28 1.39289 26.6072 0 24.8889 0H3.11111ZM21.6214 8.42207L19.4216 6.22219L6.22222 19.4216L8.4221 21.6214L21.6214 8.42207Z"
+                                fill="#303038" style="transition: fill 0.2s ease-in-out 0s;"></path>
+                        </svg>
+                      </span>
+                      <p class="list-item-item"><span>duo_queue -</span>&nbsp;Enable/Disable Duo queuing </p>
+                    </div>
+                    <i class="fas fa-chevron-down crc-chevron" data-section="all-command_card1-duoqueue"></i>
+                  </div>
+
+                  <div id="all-command_card1-duoqueue" class="single-command-card-body"
+                       data-section="all-command_card1-enable">
+                    <div class="content-row">
+                      <div class="content-col">
+                        <p>Usage: </p>
+                        <ul>
+                          <li>/admin duo_queue [options]</li>
+                        </ul>
+                      </div>
+                      <div class="content-col">
+                        <p>Examples:</p>
+                        <ul>
+                          <li>/admin duo_queue Enable</li>
                         </ul>
                       </div>
                     </div>
@@ -1093,6 +1129,39 @@
                   </div>
                 </div>
               </div>
+              <!-- admin-command-single-card10 - admin duo_queue -->
+              <div class="single-command-card-wrapper">
+                <div class="single-command-card-header" data-section="command_card9-duoqueue">
+                  <div class="title-row">
+                    <span class="icon">
+                      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M3.11111 0C1.39289 0 0 1.39289 0 3.11111V24.8889C0 26.6072 1.39289 28 3.11111 28H24.8889C26.6072 28 28 26.6072 28 24.8889V3.11111C28 1.39289 26.6072 0 24.8889 0H3.11111ZM21.6214 8.42207L19.4216 6.22219L6.22222 19.4216L8.4221 21.6214L21.6214 8.42207Z"
+                              fill="#303038" style="transition: fill 0.2s ease-in-out 0s;"></path>
+                      </svg>
+                    </span>
+                    <p class="list-item-item"><span>duo_queue -</span>&nbsp;Enable/Disable Duo queuing</p>
+                  </div>
+                  <i class="fas fa-chevron-down crc-chevron" data-section="command_card9-duoqueue"></i>
+                </div>
+
+                <div id="command_card9-duoqueue" class="single-command-card-body" data-section="command_card9-duoqueue">
+                  <div class="content-row">
+                    <div class="content-col">
+                      <p>Usage: </p>
+                      <ul>
+                        <li>/admin duo_queue [options] </li>
+                      </ul>
+                    </div>
+                    <div class="content-col">
+                      <p>Examples:</p>
+                      <ul>
+                        <li>/admin duo_queue Enable</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <!--  ADMIN COMMANDS End -->
 
@@ -1122,13 +1191,13 @@
                     <div class="content-col">
                       <p>Usage: </p>
                       <ul>
-                        <li>/setchannel [#channelname]</li>
+                        <li>/setchannel [#channelname] [region]</li>
                       </ul>
                     </div>
                     <div class="content-col">
                       <p>Examples:</p>
                       <ul>
-                        <li>/setchannel #InHouseQueue</li>
+                        <li>/setchannel #InHouseQueue EUW</li>
                       </ul>
                     </div>
                   </div>
@@ -1163,7 +1232,7 @@
                     <div class="content-col">
                       <p>Examples:</p>
                       <ul>
-                        <li>/setchannel #match-history</li>
+                        <li>/setwinnerlog #match-history</li>
                       </ul>
                     </div>
                   </div>
@@ -1374,43 +1443,43 @@
             <!-- GENERAL COMMANDS End -->            
 
             <!-- LEAGUE OF LEGENDS COMMANDS -->
-            <div id="League-of-Legends" class="single-command">
-              <h4 class="command-category-title">League of Legends specific commands </h4>
-              <div class="single-command-card-wrapper">
-                <div class="single-command-card-header" data-section="command_card1-league-of-legends">
-                  <div class="title-row">
-                    <span class="icon">
-                      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                          d="M3.11111 0C1.39289 0 0 1.39289 0 3.11111V24.8889C0 26.6072 1.39289 28 3.11111 28H24.8889C26.6072 28 28 26.6072 28 24.8889V3.11111C28 1.39289 26.6072 0 24.8889 0H3.11111ZM21.6214 8.42207L19.4216 6.22219L6.22222 19.4216L8.4221 21.6214L21.6214 8.42207Z"
-                          fill="#303038" style="transition: fill 0.2s ease-in-out 0s;"></path>
-                      </svg>
-                    </span>
-                    <p class="list-item-item"><span>opgg -</span>&nbsp;Multi op.gg link of Red or Blue team. Players Discord
-                      Name must be their IGN or prefixed with IGN:</p>
-                  </div>
-                  <i class="fas fa-chevron-down crc-chevron" data-section="command_card1-league-of-legends"></i>
-                </div>
+<!--            <div id="League-of-Legends" class="single-command">-->
+<!--              <h4 class="command-category-title">League of Legends specific commands </h4>-->
+<!--              <div class="single-command-card-wrapper">-->
+<!--                <div class="single-command-card-header" data-section="command_card1-league-of-legends">-->
+<!--                  <div class="title-row">-->
+<!--                    <span class="icon">-->
+<!--                      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                        <path fill-rule="evenodd" clip-rule="evenodd"-->
+<!--                          d="M3.11111 0C1.39289 0 0 1.39289 0 3.11111V24.8889C0 26.6072 1.39289 28 3.11111 28H24.8889C26.6072 28 28 26.6072 28 24.8889V3.11111C28 1.39289 26.6072 0 24.8889 0H3.11111ZM21.6214 8.42207L19.4216 6.22219L6.22222 19.4216L8.4221 21.6214L21.6214 8.42207Z"-->
+<!--                          fill="#303038" style="transition: fill 0.2s ease-in-out 0s;"></path>-->
+<!--                      </svg>-->
+<!--                    </span>-->
+<!--                    <p class="list-item-item"><span>opgg -</span>&nbsp;Multi op.gg link of Red or Blue team. Players Discord-->
+<!--                      Name must be their IGN or prefixed with IGN:</p>-->
+<!--                  </div>-->
+<!--                  <i class="fas fa-chevron-down crc-chevron" data-section="command_card1-league-of-legends"></i>-->
+<!--                </div>-->
 
-                <div id="command_card1-league-of-legends" class="single-command-card-body"
-                  data-section="command_card1-league-of-legends">
-                  <div class="content-row">
-                    <div class="content-col">
-                      <p>Usage: </p>
-                      <ul>
-                        <li>/opgg [gameid][team][region]</li>
-                      </ul>
-                    </div>
-                    <div class="content-col">
-                      <p>Examples:</p>
-                      <ul>
-                        <li>/opgg 316d8cc7 Red euw</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+<!--                <div id="command_card1-league-of-legends" class="single-command-card-body"-->
+<!--                  data-section="command_card1-league-of-legends">-->
+<!--                  <div class="content-row">-->
+<!--                    <div class="content-col">-->
+<!--                      <p>Usage: </p>-->
+<!--                      <ul>-->
+<!--                        <li>/opgg [gameid][team][region]</li>-->
+<!--                      </ul>-->
+<!--                    </div>-->
+<!--                    <div class="content-col">-->
+<!--                      <p>Examples:</p>-->
+<!--                      <ul>-->
+<!--                        <li>/opgg 316d8cc7 Red euw</li>-->
+<!--                      </ul>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
             <!-- LEAGUE OF LEGENDS COMMANDS End -->
 
           </div>
