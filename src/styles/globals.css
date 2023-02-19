@@ -16,7 +16,7 @@
   }
 
   .content a {
-    @apply text-link underline;
+    @apply text-primary underline;
   }
 
   /* checkmarks */
