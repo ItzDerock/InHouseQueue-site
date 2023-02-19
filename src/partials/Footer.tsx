@@ -22,7 +22,7 @@ export default function Footer(props: { withBorder?: boolean }) {
           {/* col 2 - links*/}
           <div>
             <h3 className="text-lg font-bold">Resources</h3>
-            <ul className="mt-4 space-y-4 content">
+            <ul className="mt-4 space-y-4">
               <li>
                 <a href="https://discord.com/invite/8DZQcpxnbB">
                   Support
@@ -49,7 +49,7 @@ export default function Footer(props: { withBorder?: boolean }) {
           {/* col 3 - more links */}
           <div>
             <h3 className="text-lg font-bold">Company</h3>
-            <ul className="mt-4 space-y-4 content">
+            <ul className="mt-4 space-y-4">
               <li>
                 <Link href="/terms">
                   Terms of Service

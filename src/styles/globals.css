@@ -27,4 +27,8 @@
     );
     margin-right: 0.5rem;
   }
+
+  footer a:hover {
+    @apply text-white;
+  }
 }
