@@ -1,6 +1,6 @@
 import Card from "../../components/Card";
 import Feature from "../../components/Feature";
-import FeatureImage1 from "../../assets/features/1.png";
+import FeatureImage1 from "../../assets/features/3.png";
 import { RiSwordFill, RiBook2Fill } from "react-icons/ri";
 import { MdOutlineBarChart, MdVerified } from "react-icons/md";
 import { IoMdAdd } from "react-icons/io";
@@ -22,7 +22,7 @@ export default function Feature1() {
           icon={RiSwordFill}
           aosIndex={0}
         >
-          Built-in MMR system or balanced matchmaking. 
+          Built-in MMR system for balanced matchmaking.
           <br />
           Powered by <a href="https://trueskill.org/">TrueSkill</a>.
         </Card>
@@ -33,7 +33,7 @@ export default function Feature1() {
           icon={MdOutlineBarChart}
           aosIndex={1}
         >
-          Generate server-wide leaderboards for MMR, MVP, and total Wins.
+          Generate server-wide leaderboards for MMR, MVP, Wins and more.
         </Card>
 
         {/* Channel Generation */}
@@ -51,10 +51,7 @@ export default function Feature1() {
           icon={FaHandshake}
           aosIndex={3}
         >
-          Trusted by over 200+ Competitive Discords including{" "}
-          <a href="https://elohunters.com/" target="_blank" rel="noreferrer">EloHunters</a>{" "}
-          and{" "}
-          <a href="https://discord.gg/7kwGjJa5C5" target="_blank" rel="noreferrer">NA Amateur In-House Discord</a>
+          Duo Queue. InHouseQueue makes it very easy to grab your best duo and dominate together
         </Card>
 
         {/* Verified */}
@@ -63,8 +60,8 @@ export default function Feature1() {
           icon={MdVerified}
           aosIndex={4}
         >
-          Verified by <a href="https://discord.com/" target="_blank" rel="noreferrer">Discord</a> and{" "}
-          <a href="https://top.gg/bot/1001168331996409856" target="_blank" rel="noreferrer">Top.GG</a>.
+          Trusted by many Amateur, Orgs and Casual InHouse Servers. <a href="https://discord.com/" target="_blank" rel="noreferrer">Discord</a> and{" "}
+          <a href="https://top.gg/bot/1001168331996409856" target="_blank" rel="noreferrer">Top.GG</a> Verified.
         </Card>
 
         {/* Guide */}
@@ -73,7 +70,7 @@ export default function Feature1() {
           icon={RiBook2Fill}
           aosIndex={5}
         >
-          Easily get started with our demo guide.
+          Easily get started with our demo guide. Or use the setup command to jump straight into the action.
         </Card>
       </div>
    </Feature>

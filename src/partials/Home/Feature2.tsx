@@ -5,7 +5,7 @@ export default function Feature2() {
   return (
     <Feature
       title="Unlock Your Players True Potential"
-      description="In-House Queue bot features a built-in matchmaking system using the TrueSkill algorithm, ensuring fair and balanced matchups. In addition, our bot offers leaderboards, MVP voting, and other features to add depth and excitement to your gaming experience."
+      description="In-House Queue bot features a built-in matchmaking system using the TrueSkill algorithm, ensuring fair and balanced matchups. In addition, our bot offers leaderboards, MVP voting, and other features to add depth and excitement to your gaming experience. That's not all, Take to the battle field with your Duo partner and track your stats per Champion, Agent or Hero!"
       direction="rtl"
       image={FeatureImage2}
     >
@@ -18,6 +18,8 @@ export default function Feature2() {
             "Spectators Buttons",
             "Ready Up Check",
             "Vote for your MVP of the Match!"
+            "Stat tracking per Champion/Hero/Agent"
+            "Duo Queue"
           ].map((item, index) => (
             <li
               key={index}

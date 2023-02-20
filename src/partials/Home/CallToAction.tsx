@@ -13,7 +13,7 @@ export default function CallToAction() {
         <h1 className="text-3xl font-bold text-white mb-[1px]">
           {/* gradient text */}
           <span className="bg-clip-text text-transparent bg-gradient-to-br from-[#FFA500] to-[#FF0000]">
-            Start Organizing Tournaments Today.
+            Start Organizing In House Games Today.
           </span>
         </h1>
       </div>
