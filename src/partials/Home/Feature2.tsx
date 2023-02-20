@@ -17,8 +17,8 @@ export default function Feature2() {
             "Dynamic Top 10 Leaderboard",
             "Spectators Buttons",
             "Ready Up Check",
-            "Vote for your MVP of the Match!"
-            "Stat tracking per Champion/Hero/Agent"
+            "Vote for your MVP of the Match!",
+            "Stat tracking per Champion/Hero/Agent",
             "Duo Queue"
           ].map((item, index) => (
             <li
