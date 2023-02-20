@@ -1,0 +1,11 @@
+{
+  "editor.tabSize": 2,
+  "typescript.tsdk": "node_modules\\.pnpm\\typescript@4.9.5\\node_modules\\typescript\\lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    ".*Styles"
+  ]
+}
