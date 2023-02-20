@@ -24,7 +24,7 @@ export default function HomePage() {
             In-House Queue
           </h1>
           <p className="text-slate-200 text-xl">
-            A Discord Bot Designed to organize In-house Custom Games.
+            A Discord Bot Designed to organize In-House Custom Games.
             Currently in beta.
           </p>
 
