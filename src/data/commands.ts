@@ -70,17 +70,6 @@ const commands = [
       "/admin sbmm Disable"
     ]
   },
-  {
-    "name": "top_ten",
-    "type": "Admin",
-    "description": "Set up a Dynamic top ten leaderboard",
-    "usage": [
-      "/admin top_ten [#channelname]"
-    ],
-    "examples": [
-      "/admin top_ten #leaderboard"
-    ]
-  },
     {
       "name": "cancel",
       "type": "Admin",
