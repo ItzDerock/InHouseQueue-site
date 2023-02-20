@@ -71,6 +71,105 @@ const commands = [
     ]
   },
   {
+    "name": "top_ten",
+    "type": "Admin",
+    "description": "Set up a Dynamic top ten leaderboard",
+    "usage": [
+      "/admin top_ten [#channelname]"
+    ],
+    "examples": [
+      "/admin top_ten #leaderboard"
+    ]
+  },
+    {
+      "name": "setchannel",
+      "type": "Admin",
+      "description": "Set queue channel. You may set as many queue channels as you require.",
+      "usage": [
+        "/setchannel [#channelname] [region]"
+      ],
+      "examples": [
+        "/setchannel #InHouseQueue EUW"
+      ]
+    },
+    {
+      "name": "setwinnerlog",
+      "type": "Admin",
+      "description": "Game results are sent to this channel. You may only have 1 match history channel per server.",
+      "usage": [
+        "/setwinnerlog [#channelname]"
+      ],
+      "examples": [
+        "/setchannel #match-history"
+      ]
+    },
+    {
+      "name": "cancel",
+      "type": "Admin",
+      "description": "Cancel an ongoing match",
+      "usage": [
+        "/admin cancel [gameid]"
+      ],
+      "examples": [
+        "/admin cancel 03134ff5"
+      ]
+    },
+{
+    "name": "enable",
+    "type": "Admin",
+    "description": "Give a Discord role the permissions to run a specific admin command",
+    "usage": [
+      "/admin enable [role] [command]"
+    ],
+    "examples": [
+      "/admin enable @Moderators queue reset"
+    ]
+  },
+  {
+    "name": "disable",
+    "type": "Admin",
+    "description": "Remove the admin command from a discord role you previously set",
+    "usage": [
+      "/admin disable [role] [command]"
+    ],
+    "examples": [
+      "/admin disable @Moderators queue reset"
+    ]
+  },
+  {
+    "name": "user_dequeue",
+    "type": "Admin",
+    "description": "Remove single user from an ongoing queue",
+    "usage": [
+      "/admin user_dequeue [member]"
+    ],
+    "examples": [
+      "/admin user_dequeue @John"
+    ]
+  },
+  {
+    "name": "duo_queue",
+    "type": "Admin",
+    "description": "Enable/Disable Duo queuing",
+    "usage": [
+      "/admin duo_queue [options]"
+    ],
+    "examples": [
+      "/admin duo_queue Enable"
+    ]
+  },
+  {
+    "name": "setregion",
+    "type": "Admin",
+    "description": "Update the region of an existing channel.",
+    "usage": [
+      "/setregion [#channelname] [region]"
+    ],
+    "examples": [
+      "/setregion #InHouseQueue EUW"
+        ]
+      },
+  {
     "name": "setchannel",
     "type": "Set-Up",
     "description": "Set queue channel. You may set as many queue channels as you require.",
@@ -95,7 +194,7 @@ const commands = [
   {
     "name": "admin top_ten",
     "type": "Set-Up",
-    "description": "Set up a Dynamic top",
+    "description": "Set up a Dynamic top ten leaderboard",
     "usage": [
       "/admin top_ten [#channelname]"
     ],
@@ -153,61 +252,6 @@ const commands = [
     "examples": [
       "/rank mmr",
       "/rank mvp"
-    ]
-  },
-  {
-    "name": "enable",
-    "type": "All",
-    "description": "Give a Discord role the permissions to run a specific admin command",
-    "usage": [
-      "/admin enable [role] [command]"
-    ],
-    "examples": [
-      "/admin enable @Moderators queue reset"
-    ]
-  },
-  {
-    "name": "disable",
-    "type": "All",
-    "description": "Remove the admin command from a discord role you previously set",
-    "usage": [
-      "/admin disable [role] [command]"
-    ],
-    "examples": [
-      "/admin disable @Moderators queue reset"
-    ]
-  },
-  {
-    "name": "user_dequeue",
-    "type": "All",
-    "description": "Remove single user from an ongoing queue",
-    "usage": [
-      "/admin user_dequeue [member]"
-    ],
-    "examples": [
-      "/admin user_dequeue @John"
-    ]
-  },
-  {
-    "name": "duo_queue",
-    "type": "All",
-    "description": "Enable/Disable Duo queuing",
-    "usage": [
-      "/admin duo_queue [options]"
-    ],
-    "examples": [
-      "/admin duo_queue Enable"
-    ]
-  },
-  {
-    "name": "setregion",
-    "type": "All",
-    "description": "Update the region of an existing channel.",
-    "usage": [
-      "/setregion [#channelname] [region]"
-    ],
-    "examples": [
-      "/setregion #InHouseQueue EUW"
     ]
   },
 ] as const;
