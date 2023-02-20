@@ -13,7 +13,7 @@ export default function Footer(props: { withBorder?: boolean }) {
           <div>
             <h3 className="text-lg font-bold">In-House Queue</h3>
             <p className="mt-2 text-sm">
-              Questions, Queries or Concerns? Please email us at: hello@inhousequeue.xyz
+              Questions, Queries or Concerns? Please email us at: <u>hello@inhousequeue.xyz</u>
             </p>
           </div>
 

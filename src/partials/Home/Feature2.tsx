@@ -18,7 +18,7 @@ export default function Feature2() {
             "Spectators Buttons",
             "Ready Up Check",
             "Vote for your MVP of the Match!",
-            "Stat tracking per Champion/Hero/Agent",
+            "Track your stats for individual Champions, Heroes and Agents",
             "Duo Queue"
           ].map((item, index) => (
             <li

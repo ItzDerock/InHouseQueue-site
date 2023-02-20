@@ -47,11 +47,11 @@ export default function Feature1() {
 
         {/* Trusted */}
         <Card
-          title="Trusted"
+          title="Duo Queue"
           icon={FaHandshake}
           aosIndex={3}
         >
-          Duo Queue. InHouseQueue makes it very easy to grab your best duo and dominate together
+          InHouseQueue makes it very easy to grab your best Duo and dominate together.
         </Card>
 
         {/* Verified */}
