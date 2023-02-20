@@ -82,28 +82,6 @@ const commands = [
     ]
   },
     {
-      "name": "setchannel",
-      "type": "Admin",
-      "description": "Set queue channel. You may set as many queue channels as you require.",
-      "usage": [
-        "/setchannel [#channelname] [region]"
-      ],
-      "examples": [
-        "/setchannel #InHouseQueue EUW"
-      ]
-    },
-    {
-      "name": "setwinnerlog",
-      "type": "Admin",
-      "description": "Game results are sent to this channel. You may only have 1 match history channel per server.",
-      "usage": [
-        "/setwinnerlog [#channelname]"
-      ],
-      "examples": [
-        "/setchannel #match-history"
-      ]
-    },
-    {
       "name": "cancel",
       "type": "Admin",
       "description": "Cancel an ongoing match",
@@ -192,7 +170,7 @@ const commands = [
     ]
   },
   {
-    "name": "admin top_ten",
+    "name": "top_ten",
     "type": "Set-Up",
     "description": "Set up a Dynamic top ten leaderboard",
     "usage": [
