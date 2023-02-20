@@ -1,0 +1,15 @@
+.terms h1 {
+  @apply text-3xl font-bold my-6;
+}
+
+.terms h2 {
+  @apply text-2xl font-bold my-6;
+}
+
+.terms h3 {
+  @apply text-xl font-bold my-6;
+}
+
+.terms p {
+  @apply my-4;
+}
