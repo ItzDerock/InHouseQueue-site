@@ -170,7 +170,7 @@ const commands = [
     ]
   },
   {
-    "name": "admin top_ten",
+    "name": "top_ten",
     "type": "Set-Up",
     "description": "Set up a Dynamic top ten leaderboard",
     "usage": [
