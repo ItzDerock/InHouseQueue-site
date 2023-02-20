@@ -75,9 +75,6 @@ export default function HomePage() {
         {/* call to action */}
         <CallToAction />
       </div>
-
-      {/* footer */}
-      <Footer />
     </>
   )
 }

@@ -3,6 +3,7 @@ import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config.cjs";
 import banner from "../assets/banner.webp";
 import AOSInit from "../components/AOSInit";
+import Footer from "../partials/Footer";
 
 // get the tailwind config for colors
 const config = resolveConfig(tailwindConfig);
@@ -48,6 +49,9 @@ export default function App({
         <Suspense>
           {children}
         </Suspense>
+
+        {/* footer */}
+        <Footer />
       </body>
 
       {/* initalize aos */}

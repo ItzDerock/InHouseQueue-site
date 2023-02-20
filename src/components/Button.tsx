@@ -17,7 +17,8 @@ const baseStyles = "px-7 py-3 rounded-lg text-white hover:-translate-y-1 transit
 // variants
 const variantStyles = {
   primary: "bg-primary",
-  secondary: "bg-secondary"
+  secondary: "bg-secondary",
+  dark: "bg-black"
 }
 
 export default function Button(props: ButtonProps) {

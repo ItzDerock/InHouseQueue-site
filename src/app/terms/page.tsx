@@ -326,8 +326,6 @@ export default function Terms() {
           </li>
         </ul>
       </div>
-
-      <Footer />
     </>
   );
 }
