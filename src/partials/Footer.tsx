@@ -43,6 +43,11 @@ export default function Footer(props: { withBorder?: boolean }) {
                   GitHub
                 </a>
               </li>
+              <li>
+              <a href="https://docs.inhousequeue.xyz/">
+                Documentation
+              </a>
+             </li>
             </ul>
           </div>
 

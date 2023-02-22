@@ -22,6 +22,10 @@ const links = [
     name: "GitHub",
     href: "https://github.com/HenrySpartGlobal/InHouseQueue"
   },
+  {
+    name: "Documentation",
+    href: "https://docs.inhousequeue.xyz"
+  },
 ]
 
 export default function Navbar({
