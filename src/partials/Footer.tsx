@@ -17,10 +17,9 @@ export default function Footer(props: { withBorder?: boolean }) {
             </p>
             <br>
             <p className="mt-2 text-sm">
-              © 2023 All rights reserved.</u>
+              <u> © 2023 All rights reserved.</u>
             </p>
           </div>
-
           {/* col 2 - links*/}
           <div>
             <h3 className="text-lg font-bold">Resources</h3>
