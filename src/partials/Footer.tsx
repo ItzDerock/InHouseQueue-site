@@ -15,6 +15,10 @@ export default function Footer(props: { withBorder?: boolean }) {
             <p className="mt-2 text-sm">
               Business Enquiries: <u>hello@inhousequeue.xyz</u>
             </p>
+            <br>
+            <p className="mt-2 text-sm">
+              © 2023 All rights reserved.</u>
+            </p>
           </div>
 
           {/* col 2 - links*/}
