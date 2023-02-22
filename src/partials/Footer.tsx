@@ -13,10 +13,10 @@ export default function Footer(props: { withBorder?: boolean }) {
           <div>
             <h3 className="text-lg font-bold">In-House Queue</h3>
             <p className="mt-2 text-sm">
-              © 2023 All rights reserved.
+              hello@inhousequeue.xyz
             </p>
             <p className="mt-2 text-sm">
-              Email: hello@inhousequeue.xyz
+              © 2023 All rights reserved.
             </p>
           </div>
           {/* col 2 - links*/}
