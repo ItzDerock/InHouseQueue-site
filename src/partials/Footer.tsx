@@ -13,10 +13,9 @@ export default function Footer(props: { withBorder?: boolean }) {
           <div>
             <h3 className="text-lg font-bold">In-House Queue</h3>
             <p className="mt-2 text-sm">
-              Business Enquiries: <u>hello@inhousequeue.xyz</u>
+              © 2023 All rights reserved.
             </p>
             <br>
-            <p>© 2023 All rights reserved.</p>
           </div>
           {/* col 2 - links*/}
           <div>
@@ -60,6 +59,7 @@ export default function Footer(props: { withBorder?: boolean }) {
                 </Link>
               </li>
             </ul>
+            <p> Business Enquiries: <u>hello@inhousequeue.xyz <u/>
           </div>
         </div>
       </div>
