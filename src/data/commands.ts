@@ -53,7 +53,7 @@ const commands = [
     "type": "Admin",
     "description": "Decide if players can be in multiple queues at once.",
     "usage": [
-      "/admin queue_preference [options]"
+      "/admin queue_preference [options] "
     ],
     "examples": [
       "/admin queue_preference Single Queue"
