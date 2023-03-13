@@ -32,7 +32,7 @@ export default function HomePage() {
           <div className="flex flex-row flex-wrap gap-8 justify-center">
             <Button
               variant="primary"
-              href="https://discord.com/oauth2/authorize?client_id=1001168331996409856&permissions=3489918032&scope=bot"
+              href="https://discord.com/api/oauth2/authorize?client_id=1001168331996409856&permissions=1101927804016&scope=bot"
               target="_blank"
             >
               Add to Discord
