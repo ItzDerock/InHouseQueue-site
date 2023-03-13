@@ -128,7 +128,7 @@ const commands = [
   {
     "name": "setregion",
     "type": "Admin",
-    "description": "Update the region of an existing channel.",
+    "description": "Update the region of an existing channel. (LoL only)",
     "usage": [
       "/setregion [#channelname] [region]"
     ],
