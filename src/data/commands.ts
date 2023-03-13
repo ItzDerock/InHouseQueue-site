@@ -141,10 +141,10 @@ const commands = [
     "type": "Set-Up",
     "description": "Set queue channel. You may set as many queue channels as you require.",
     "usage": [
-      "/setchannel [#channelname] [region]"
+      "/setchannel [#channelname] [game]"
     ],
     "examples": [
-      "/setchannel #InHouseQueue EUW"
+      "/setchannel #InHouseQueue Valorant"
     ]
   },
   {
@@ -152,10 +152,10 @@ const commands = [
     "type": "Set-Up",
     "description": "Game results are sent to this channel. You may only have 1 match history channel per server.",
     "usage": [
-      "/setwinnerlog [#channelname]"
+      "/setwinnerlog [#channelname] [game]"
     ],
     "examples": [
-      "/setchannel #match-history"
+      "/setwinnerlog #match-history Valorant"
     ]
   },
   {
@@ -163,10 +163,10 @@ const commands = [
     "type": "Set-Up",
     "description": "Set up a Dynamic top ten leaderboard",
     "usage": [
-      "/admin top_ten [#channelname]"
+      "/admin top_ten [#channelname] [game]"
     ],
     "examples": [
-      "/admin top_ten #leaderboard"
+      "/admin top_ten #leaderboard Overwatch"
     ]
   },
   {
@@ -201,12 +201,12 @@ const commands = [
     "type": "General",
     "description": "Display a specific leaderboard.",
     "usage": [
-      "/leaderboard [options]"
+      "/leaderboard_[game] [options]"
     ],
     "examples": [
-      "/leaderboard mmr",
-      "/leaderboard mvp",
-      "/leaderboard"
+      "/leaderboard_lol mmr",
+      "/leaderboard_lol mvp",
+      "/leaderboard_lol"
     ]
   },
   {
@@ -214,11 +214,11 @@ const commands = [
     "type": "General",
     "description": "Display your rank in the server.",
     "usage": [
-      "/rank [options]"
+      "/rank_[game] [options]"
     ],
     "examples": [
-      "/rank mmr",
-      "/rank mvp"
+      "/rank_valorant mmr",
+      "/rank_valorant mvp"
     ]
   },
 ] as const;
