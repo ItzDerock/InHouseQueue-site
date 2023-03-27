@@ -148,6 +148,17 @@ const commands = [
           ]
         },
   {
+      "name": "update_ign",
+      "type": "Admin",
+      "description": "Update the IGN of any player",
+      "usage": [
+        "/admin update_ign [ign] [member] [game]"
+      ],
+      "examples": [
+        "/admin update_ign Faker John League of Legends"
+          ]
+        },
+  {
     "name": "setchannel",
     "type": "Set-Up",
     "description": "Set queue channel. You may set as many queue channels as you require.",
