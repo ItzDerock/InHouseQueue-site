@@ -137,6 +137,17 @@ const commands = [
         ]
       },
   {
+      "name": "reset_db",
+      "type": "Admin",
+      "description": "Remove a member who has left the server from the database",
+      "usage": [
+        "/admin reset_db [userid]"
+      ],
+      "examples": [
+        "/admin reset_db 12345678912312"
+          ]
+        },
+  {
     "name": "setchannel",
     "type": "Set-Up",
     "description": "Set queue channel. You may set as many queue channels as you require.",
@@ -169,6 +180,28 @@ const commands = [
       "/admin top_ten #leaderboard Overwatch"
     ]
   },
+  {
+      "name": "setup",
+      "type": "Set-Up",
+      "description": "Set up your server for InHouseQueue",
+      "usage": [
+        "/admin setup [game]"
+      ],
+      "examples": [
+        "/admin setup Overwatch"
+      ]
+    },
+   {
+      "name": "test_mode",
+      "type": "Set-Up",
+      "description": "Enable/Disable Test mode",
+      "usage": [
+        "/admin test_mode [options]"
+      ],
+      "examples": [
+        "/admin test_mode True"
+      ]
+    },
   {
     "name": "help",
     "type": "General",
@@ -221,6 +254,17 @@ const commands = [
       "/rank_valorant mvp"
     ]
   },
+  {
+      "name": "ign",
+      "type": "General",
+      "description": "Set your In Game Name",
+      "usage": [
+        "/ign [ign] [game]"
+      ],
+      "examples": [
+        "/ign Faker League of Legends"
+      ]
+    },
 ] as const;
 
 // export commands
