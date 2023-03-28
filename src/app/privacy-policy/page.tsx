@@ -185,10 +185,10 @@ export default function Terms() {
           </li>
           <li>
             <p>
-              Any user supplied content that can include text for role based tracking, In game Names and characters played
+              <strong>Any user supplied content</strong> that can include text for role based tracking, In game Names and characters played
             </p>
           </li>
-        </ul>
+{/*         </ul> */}
           <li>
             <strong>With Your consent</strong>: We may disclose Your personal
             information for any other purpose with Your consent.
