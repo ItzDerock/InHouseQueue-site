@@ -21,7 +21,7 @@ export default function Terms() {
         ]!}`}
       >
         <h1>Privacy Policy</h1>
-        <p>Last updated: November 24, 2022</p>
+        <p>Last updated: March 28, 2023</p>
         <p>
           This Privacy Policy describes Our policies and procedures on the
           collection, use and disclosure of Your information when You use the
@@ -70,13 +70,13 @@ export default function Terms() {
           <li>
             <p>
               <strong>Application</strong> means the software program provided
-              by the Company downloaded by You on any electronic device, named
+              by InHouseQueue downloaded by You on any electronic device, named
               In House Queue
             </p>
           </li>
           <li>
             <p>
-              <strong>Company</strong> (referred to as either &quot;the Company&quot;,
+              <strong>Company</strong> (referred to as either &quot;InHouseQueue&quot;,
               &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to In House Queue.
             </p>
           </li>
@@ -105,11 +105,11 @@ export default function Terms() {
           <li>
             <p>
               <strong>Service Provider</strong> means any natural or legal
-              person who processes the data on behalf of the Company. It
+              person who processes the data on behalf of InHouseQueue. It
               refers to third-party companies or individuals employed by the
               Company to facilitate the Service, to provide the Service on
-              behalf of the Company, to perform services related to the
-              Service or to assist the Company in analyzing how the Service is
+              behalf of InHouseQueue, to perform services related to the
+              Service or to assist InHouseQueue in analyzing how the Service is
               used.
             </p>
           </li>
@@ -124,7 +124,7 @@ export default function Terms() {
           <li>
             <p>
               <strong>You</strong> means the individual accessing or using the
-              Service, or the company, or other legal entity on behalf of
+              Service, or InHouseQueue, or other legal entity on behalf of
               which such individual is accessing or using the Service, as
               applicable.
             </p>
@@ -165,112 +165,30 @@ export default function Terms() {
           mobile device.
         </p>
         <h2>Use of Your Personal Data</h2>
-        <p>The Company may use Personal Data for the following purposes:</p>
+        <p>Following Information is saved by InHouseQueue only for proper function of them:</p>
         <ul>
           <li>
             <p>
-              <strong>To provide and maintain our Service</strong>, including
-              to monitor the usage of our Service.
+              <strong>User Ids</strong>, To link you and your server members with your saved configurations
             </p>
           </li>
           <li>
             <p>
-              <strong>To manage Your Account:</strong> to manage Your
-              registration as a user of the Service. The Personal Data You
-              provide can give You access to different functionalities of the
-              Service that are available to You as a registered user.
+              <strong>Server Ids</strong> To link you and your server with your saved configurations for information like
+              leaderboards, ranks and specific Bot customisation settings.
             </p>
           </li>
           <li>
             <p>
-              <strong>For the performance of a contract:</strong> the
-              development, compliance and undertaking of the purchase contract
-              for the products, items or services You have purchased or of any
-              other contract with Us through the Service.
+              <strong>Role Ids</strong> For message specific features like updating leaderboard automatically.
             </p>
           </li>
           <li>
             <p>
-              <strong>To contact You:</strong> To contact You by email,
-              telephone calls, SMS, or other equivalent forms of electronic
-              communication, such as a mobile application&apos;s push notifications
-              regarding updates or informative communications related to the
-              functionalities, products or contracted services, including the
-              security updates, when necessary or reasonable for their
-              implementation.
+              <strong>Any user supplied content</strong> that can include text for role based tracking, In game Names and characters played
             </p>
           </li>
-          <li>
-            <p>
-              <strong>To provide You</strong> with news, special offers and
-              general information about other goods, services and events which
-              we offer that are similar to those that you have already
-              purchased or enquired about unless You have opted not to receive
-              such information.
-            </p>
-          </li>
-          <li>
-            <p>
-              <strong>To manage Your requests:</strong> To attend and manage
-              Your requests to Us.
-            </p>
-          </li>
-          <li>
-            <p>
-              <strong>For business transfers:</strong> We may use Your
-              information to evaluate or conduct a merger, divestiture,
-              restructuring, reorganization, dissolution, or other sale or
-              transfer of some or all of Our assets, whether as a going
-              concern or as part of bankruptcy, liquidation, or similar
-              proceeding, in which Personal Data held by Us about our Service
-              users is among the assets transferred.
-            </p>
-          </li>
-          <li>
-            <p>
-              <strong>For other purposes</strong>: We may use Your information
-              for other purposes, such as data analysis, identifying usage
-              trends, determining the effectiveness of our promotional
-              campaigns and to evaluate and improve our Service, products,
-              services, marketing and your experience.
-            </p>
-          </li>
-        </ul>
-        <p>
-          We may share Your personal information in the following situations:
-        </p>
-        <ul>
-          <li>
-            <strong>With Service Providers:</strong> We may share Your
-            personal information with Service Providers to monitor and analyze
-            the use of our Service, to contact You.
-          </li>
-          <li>
-            <strong>For business transfers:</strong> We may share or transfer
-            Your personal information in connection with, or during
-            negotiations of, any merger, sale of Company assets, financing, or
-            acquisition of all or a portion of Our business to another
-            company.
-          </li>
-          <li>
-            <strong>With Affiliates:</strong> We may share Your information
-            with Our affiliates, in which case we will require those
-            affiliates to honor this Privacy Policy. Affiliates include Our
-            parent company and any other subsidiaries, joint venture partners
-            or other companies that We control or that are under common
-            control with Us.
-          </li>
-          <li>
-            <strong>With business partners:</strong> We may share Your
-            information with Our business partners to offer You certain
-            products, services or promotions.
-          </li>
-          <li>
-            <strong>With other users:</strong> when You share personal
-            information or otherwise interact in the public areas with other
-            users, such information may be viewed by all users and may be
-            publicly distributed outside.
-          </li>
+{/*         </ul> */}
           <li>
             <strong>With Your consent</strong>: We may disclose Your personal
             information for any other purpose with Your consent.
@@ -278,7 +196,7 @@ export default function Terms() {
         </ul>
         <h2>Retention of Your Personal Data</h2>
         <p>
-          The Company will retain Your Personal Data only for as long as is
+          InHouseQueue will retain Your Personal Data only for as long as is
           necessary for the purposes set out in this Privacy Policy. We will
           retain and use Your Personal Data to the extent necessary to comply
           with our legal obligations (for example, if we are required to
@@ -286,7 +204,7 @@ export default function Terms() {
           and enforce our legal agreements and policies.
         </p>
         <p>
-          The Company will also retain Usage Data for internal analysis
+          InHouseQueue will also retain Usage Data for internal analysis
           purposes. Usage Data is generally retained for a shorter period of
           time, except when this data is used to strengthen the security or to
           improve the functionality of Our Service, or We are legally
@@ -307,7 +225,7 @@ export default function Terms() {
           such information represents Your agreement to that transfer.
         </p>
         <p>
-          The Company will take all steps reasonably necessary to ensure that
+          InHouseQueue will take all steps reasonably necessary to ensure that
           Your data is treated securely and in accordance with this Privacy
           Policy and no transfer of Your Personal Data will take place to an
           organization or a country unless there are adequate controls in
@@ -337,26 +255,26 @@ export default function Terms() {
         <h2>Disclosure of Your Personal Data</h2>
         <h3>Business Transactions</h3>
         <p>
-          If the Company is involved in a merger, acquisition or asset sale,
+          If InHouseQueue is involved in a merger, acquisition or asset sale,
           Your Personal Data may be transferred. We will provide notice before
           Your Personal Data is transferred and becomes subject to a different
           Privacy Policy.
         </p>
         <h3>Law enforcement</h3>
         <p>
-          Under certain circumstances, the Company may be required to disclose
+          Under certain circumstances, InHouseQueue may be required to disclose
           Your Personal Data if required to do so by law or in response to
           valid requests by public authorities (e.g. a court or a government
           agency).
         </p>
         <h3>Other legal requirements</h3>
         <p>
-          The Company may disclose Your Personal Data in the good faith belief
+          InHouseQueue may disclose Your Personal Data in the good faith belief
           that such action is necessary to:
         </p>
         <ul>
           <li>Comply with a legal obligation</li>
-          <li>Protect and defend the rights or property of the Company</li>
+          <li>Protect and defend the rights or property of InHouseQueue</li>
           <li>
             Prevent or investigate possible wrongdoing in connection with the
             Service
@@ -424,7 +342,7 @@ export default function Terms() {
         </p>
         <ul>
           <li>
-            <p>By email: henry@koleoso.co.uk</p>
+            <p>By email: hello@inhousequeue.xyz</p>
           </li>
           <li>
             <p>
