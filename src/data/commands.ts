@@ -159,6 +159,17 @@ const commands = [
           ]
         },
   {
+     "name": "setup",
+     "type": "Set-Up",
+     "description": "Setup your server Automatically!",
+     "usage": [
+       "/admin setup [game]"
+     ],
+     "examples": [
+       "/admin setup Overwatch"
+     ]
+  },
+  {
     "name": "setchannel",
     "type": "Set-Up",
     "description": "Set queue channel. You may set as many queue channels as you require.",
@@ -191,17 +202,6 @@ const commands = [
       "/admin top_ten #leaderboard Overwatch"
     ]
   },
-  {
-      "name": "setup",
-      "type": "Set-Up",
-      "description": "Set up your server for InHouseQueue",
-      "usage": [
-        "/admin setup [game]"
-      ],
-      "examples": [
-        "/admin setup Overwatch"
-      ]
-    },
    {
       "name": "test_mode",
       "type": "Set-Up",
