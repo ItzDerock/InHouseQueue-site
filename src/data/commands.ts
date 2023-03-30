@@ -82,25 +82,25 @@ const commands = [
       ]
     },
 {
-    "name": "enable",
+    "name": "grant",
     "type": "Admin",
     "description": "Give a Discord role the permissions to run a specific admin command",
     "usage": [
-      "/admin enable [role] [command]"
+      "/admin grant [role] [command]"
     ],
     "examples": [
-      "/admin enable @Moderators queue reset"
+      "/admin grant @Moderators queue reset"
     ]
   },
   {
-    "name": "disable",
+    "name": "revoke",
     "type": "Admin",
     "description": "Remove the admin command from a discord role you previously set",
     "usage": [
-      "/admin disable [role] [command]"
+      "/admin revoke [role] [command]"
     ],
     "examples": [
-      "/admin disable @Moderators queue reset"
+      "/admin revoke @Moderators queue reset"
     ]
   },
   {
