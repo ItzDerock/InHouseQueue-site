@@ -16,7 +16,7 @@ const links = [
   },
   {
     name: "Support",
-    href: "https://discord.com/invite/8DZQcpxnbB"
+    href: "https://discord.gg/NDKMeT6GE7"
   },
   {
     name: "GitHub",
