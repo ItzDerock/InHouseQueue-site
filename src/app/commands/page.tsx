@@ -62,6 +62,9 @@ export default function Commands() {
         <p className="text-center text-gray-400 pt-1">
           Here are all the available commands for InHouseQueue! If you&apos;re new here, check out the Set-Up search button!
         </p>
+        <p className="text-center text-gray-400 pt-1">
+           Please visit our <a href="https://docs.inhousequeue.xyz/docs/"> Documentation </a> for in-depth details on commands
+        </p>
 
         {/* search */}
         <div className="relative w-full">
