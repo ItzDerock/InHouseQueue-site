@@ -166,7 +166,7 @@ const commands = [
         "/admin require [condition] [game] [feature]"
       ],
       "examples": [
-        "/admin update_ign True League of Legends IGN"
+        "/admin require True League of Legends IGN"
           ]
         },
   {
