@@ -159,6 +159,28 @@ const commands = [
           ]
         },
   {
+      "name": "require",
+      "type": "Admin",
+      "description": "Set queue requirements based on the specified options",
+      "usage": [
+        "/admin require [condition] [game] [feature]"
+      ],
+      "examples": [
+        "/admin update_ign True League of Legends IGN"
+          ]
+        },
+  {
+      "name": "queue_role",
+      "type": "Admin",
+      "description": "Users must have this role before being able to queue",
+      "usage": [
+        "/admin queue_role [role] [game]"
+      ],
+      "examples": [
+        "/admin queue_role @InHouseQueue League of Legends"
+          ]
+        },
+  {
      "name": "setup",
      "type": "Set-Up",
      "description": "Setup your server Automatically!",
@@ -276,6 +298,39 @@ const commands = [
         "/ign Faker League of Legends"
       ]
     },
+  {
+      "name": "champion",
+      "type": "General",
+      "description": "Select your champion. Only works inside a lobby channel",
+      "usage": [
+        "/champion [name]",
+      ],
+      "examples": [
+        "/champion Teemo",
+      ]
+    },
+  {
+      "name": "hero",
+      "type": "General",
+      "description": "Select your hero. Only works inside a lobby channel",
+      "usage": [
+        "/champion [name]",
+      ],
+      "examples": [
+        "/champion Tracer",
+      ]
+    },
+  {
+    "name": "agent",
+    "type": "General",
+    "description": "Select your agent. Only works inside a lobby channel",
+    "usage": [
+      "/champion [name]",
+    ],
+    "examples": [
+      "/champion Astra",
+    ]
+  },
 ] as const;
 
 // export commands
