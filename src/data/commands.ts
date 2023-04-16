@@ -314,10 +314,10 @@ const commands = [
       "type": "General",
       "description": "Select your hero. Only works inside a lobby channel",
       "usage": [
-        "/champion [name]",
+        "/hero [name]",
       ],
       "examples": [
-        "/champion Tracer",
+        "/hero Tracer",
       ]
     },
   {
@@ -325,10 +325,10 @@ const commands = [
     "type": "General",
     "description": "Select your agent. Only works inside a lobby channel",
     "usage": [
-      "/champion [name]",
+      "/agent [name]",
     ],
     "examples": [
-      "/champion Astra",
+      "/agent Astra",
     ]
   },
 ] as const;
