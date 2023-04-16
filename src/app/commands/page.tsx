@@ -15,7 +15,7 @@ const categoryDescriptions = {
   "All": "All Commands",
   "Admin": "You must have Administrator permissions to run these commands",
   "Set-Up": "Set up your server to use InHouseQueue Bot!",
-  "General": "General commands that all members can use."
+  "General": "General commands that all members can use.",
   "League of Legends": "Test"
 } satisfies {
   [key in Categories]: string;
