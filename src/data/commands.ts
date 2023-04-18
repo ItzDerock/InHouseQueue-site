@@ -331,6 +331,39 @@ const commands = [
       "/agent Astra",
     ]
   },
+  {
+    "name": "champion",
+    "type": "LoL",
+    "description": "Select your champion. Only works inside a lobby channel",
+    "usage": [
+      "/champion [name]",
+    ],
+    "examples": [
+      "/champion Teemo",
+    ]
+  },
+  {
+    "name": "hero",
+    "type": "Overwatch",
+    "description": "Select your hero. Only works inside a lobby channel",
+    "usage": [
+      "/hero [name]",
+    ],
+    "examples": [
+      "/hero Tracer",
+    ]
+  },
+  {
+    "name": "agent",
+    "type": "Valorant",
+    "description": "Select your agent. Only works inside a lobby channel",
+    "usage": [
+      "/agent [name]",
+    ],
+    "examples": [
+      "/agent Astra",
+    ]
+  },
 ] as const;
 
 // export commands
