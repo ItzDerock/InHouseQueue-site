@@ -20,17 +20,15 @@ export default function CallToAction() {
             </span>
           </h1>
 
-          <div className="mt-16 flex flex-row gap-2">
-            <h3 className="my-auto text-xl text-gray-400">
-              Proud sponsor of: CWL
-            </h3>
+          <div className="flex flex-row gap-2">
+            <h3 className="my-auto text-xl text-gray-400">Proud sponsor of:</h3>
             <Image src={CWLLogo} alt="CWL Logo" height={64} />
           </div>
         </div>
 
         {/* right buttons */}
         <div
-          className="flex h-fit flex-row flex-wrap gap-4"
+          className="my-auto flex h-fit flex-row flex-wrap gap-4"
           data-aos="fade-left"
         >
           {/* invite button */}
