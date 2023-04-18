@@ -38,6 +38,10 @@ export default function HomePage() {
             <Button variant="secondary" href="/commands">
               Commands
             </Button>
+
+            <Button variant="secondary" href="https://docs.inhousequeue.xyz">
+              Documentation
+            </Button>
           </div>
         </div>
       </Banner>
