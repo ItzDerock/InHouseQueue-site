@@ -6,7 +6,6 @@ import commands from "../../data/commands";
 import Navbar from "../../partials/Navbar";
 import { IoMdSearch } from "react-icons/io";
 import Command from "../../components/Command";
-import Footer from "../../partials/Footer";
 
 type Categories = (typeof commands[number])["type"] | "All";
 

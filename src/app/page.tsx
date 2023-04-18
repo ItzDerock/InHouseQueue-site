@@ -1,6 +1,5 @@
 import Banner from "../components/Banner";
 import Button from "../components/Button";
-import Footer from "../partials/Footer";
 import CallToAction from "../partials/Home/CallToAction";
 import Feature1 from "../partials/Home/Feature1";
 import Feature2 from "../partials/Home/Feature2";

@@ -20,9 +20,9 @@ export default function Feature3() {
 
         <li data-aos="fade-up" data-aos-delay={100}>
           <span className="font-bold">Casual Server Customization:</span> Tailor
-          the bot to your server's needs, whether you're a casual player or a
-          competitive gamer. Choose captains, join queues without specifying
-          roles, and let the bot handle the rest!
+          the bot to your server&apos;s needs, whether you&apos;re a casual
+          player or a competitive gamer. Choose captains, join queues without
+          specifying roles, and let the bot handle the rest!
         </li>
 
         <li data-aos="fade-up" data-aos-delay={200}>
