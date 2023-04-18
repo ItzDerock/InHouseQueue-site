@@ -14,7 +14,7 @@ export default function HomePage() {
       <Navbar absolute={true} />
 
       <Banner>
-        <div className="flex flex-col justify-center gap-3 text-center">
+        <div className="mt-24 mb-28 flex flex-col justify-center gap-3 text-center sm:mt-0 sm:mb-8 md:mb-0">
           <h2 className="text-xl font-bold text-slate-200">Presenting</h2>
           <h1 className="text-4xl font-bold text-white" data-aos="zoom-out">
             In-House Queue
