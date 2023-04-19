@@ -166,7 +166,20 @@ const commands = [
         "/admin require [condition] [game] [feature]"
       ],
       "examples": [
-        "/admin require True League of Legends IGN"
+        "/admin require True League of Legends IGN",
+        "/admin require True League of Legends Character Required"
+          ]
+        },
+
+  {
+      "name": "update_character",
+      "type": "Admin",
+      "description": "Add/update the champion, hero or agent a member has played",
+      "usage": [
+       "/admin update_character [name] [gameid] [member] [game]"
+      ],
+      "examples": [
+        "/admin update_character Teemo 03134ff5 @iHenners League of Legends"
           ]
         },
   {
@@ -323,6 +336,39 @@ const commands = [
   {
     "name": "agent",
     "type": "General",
+    "description": "Select your agent. Only works inside a lobby channel",
+    "usage": [
+      "/agent [name]",
+    ],
+    "examples": [
+      "/agent Astra",
+    ]
+  },
+  {
+    "name": "champion",
+    "type": "LoL",
+    "description": "Select your champion. Only works inside a lobby channel",
+    "usage": [
+      "/champion [name]",
+    ],
+    "examples": [
+      "/champion Teemo",
+    ]
+  },
+  {
+    "name": "hero",
+    "type": "Overwatch",
+    "description": "Select your hero. Only works inside a lobby channel",
+    "usage": [
+      "/hero [name]",
+    ],
+    "examples": [
+      "/hero Tracer",
+    ]
+  },
+  {
+    "name": "agent",
+    "type": "Valorant",
     "description": "Select your agent. Only works inside a lobby channel",
     "usage": [
       "/agent [name]",

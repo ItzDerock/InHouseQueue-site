@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Footer from "../../partials/Footer";
 import Navbar from "../../partials/Navbar";
 import styles from "../../styles/terms.module.css";
 
