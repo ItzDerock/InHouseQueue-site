@@ -166,7 +166,20 @@ const commands = [
         "/admin require [condition] [game] [feature]"
       ],
       "examples": [
-        "/admin require True League of Legends IGN"
+        "/admin require True League of Legends IGN",
+        "/admin require True League of Legends Character Required"
+          ]
+        },
+
+  {
+      "name": "update_character",
+      "type": "Admin",
+      "description": "Add/update the champion, hero or agent a member has played",
+      "usage": [
+       "/admin update_character [name] [gameid] [member] [game]"
+      ],
+      "examples": [
+        "/admin update_character Teemo 03134ff5 @iHenners League of Legends"
           ]
         },
   {
