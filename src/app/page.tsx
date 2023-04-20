@@ -67,13 +67,17 @@ export default function HomePage() {
         <div className="mx-auto flex max-w-[96rem] flex-col justify-center gap-28">
           {/* feature 2 */}
           <Feature2 />
-
-          {/* feature 3 */}
-          <Feature3 />
         </div>
 
-        {/* call to action */}
-        <CallToAction />
+        {/* feature 3 */}
+        <div className="bg-background-accent">
+          <div className="mx-auto flex max-w-[96rem] flex-col justify-center gap-28 pb-4">
+            <Feature3 />
+          </div>
+
+          {/* call to action */}
+          <CallToAction />
+        </div>
       </div>
     </>
   );
