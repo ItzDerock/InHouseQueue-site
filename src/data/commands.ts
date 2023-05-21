@@ -344,6 +344,17 @@ const commands = [
       "/agent Astra",
     ]
   },
+    {
+      "name": "top",
+      "type": "General",
+      "description": "View players with the highest win rates on a particular character",
+      "usage": [
+        "/top [game] [name]",
+      ],
+      "examples": [
+        "/top League of Legends Thresh",
+      ]
+    },
   {
     "name": "champion",
     "type": "LoL",
