@@ -19,6 +19,22 @@ export default function Footer(props: { withBorder?: boolean }) {
               © 2023 All rights reserved.
             </p>
           </div>
+          {/* col 2 - donate*/}
+          <div id="donate-button-container">
+          <div id="donate-button"></div>
+          <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+          <script>
+          PayPal.Donation.Button({
+          env:'production',
+          hosted_button_id:'RU4GLAWSP6TJC',
+          image: {
+          src:'https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif',
+          alt:'Donate with PayPal button',
+          title:'PayPal - The safer, easier way to pay online!',
+          }
+          }).render('#donate-button');
+          </script>
+          </div>
           {/* col 2 - links*/}
           <div>
             <h3 className="text-lg font-bold">Resources</h3>
