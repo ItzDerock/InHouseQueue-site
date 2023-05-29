@@ -183,16 +183,16 @@ const commands = [
           ]
         },
   {
-      "name": "queue_role",
-      "type": "Admin",
-      "description": "Users must have this role before being able to queue",
-      "usage": [
-        "/admin queue_role [role] [game]"
-      ],
-      "examples": [
-        "/admin queue_role @InHouseQueue League of Legends"
-          ]
-        },
+  "name": "queue_role",
+  "type": "Admin",
+  "description": "Users must have this role before being able to queue",
+  "usage": [
+    "/admin queue_role [role] [game]"
+  ],
+  "examples": [
+    "/admin queue_role @InHouseQueue League of Legends"
+    ]
+  },
   {
      "name": "setup",
      "type": "Set-Up",
@@ -237,17 +237,17 @@ const commands = [
       "/admin top_ten #leaderboard Overwatch"
     ]
   },
-   {
-      "name": "test_mode",
-      "type": "Set-Up",
-      "description": "Enable/Disable Test mode",
-      "usage": [
-        "/admin test_mode [options]"
-      ],
-      "examples": [
-        "/admin test_mode True"
-      ]
-    },
+  {
+    "name": "test_mode",
+    "type": "Set-Up",
+    "description": "Enable/Disable Test mode",
+    "usage": [
+      "/admin test_mode [options]"
+    ],
+    "examples": [
+      "/admin test_mode True"
+    ]
+  },
   {
     "name": "help",
     "type": "General",
@@ -301,16 +301,16 @@ const commands = [
     ]
   },
   {
-      "name": "ign",
-      "type": "General",
-      "description": "Set your In Game Name",
-      "usage": [
-        "/ign [ign] [game]"
-      ],
-      "examples": [
-        "/ign Faker League of Legends"
-      ]
-    },
+    "name": "ign",
+    "type": "General",
+    "description": "Set your In Game Name",
+    "usage": [
+      "/ign [ign] [game]"
+    ],
+    "examples": [
+      "/ign Faker League of Legends"
+    ]
+  },
   {
       "name": "champion",
       "type": "General",
@@ -388,6 +388,17 @@ const commands = [
       "/agent Astra",
     ]
   },
+  {
+    "name": "force_start",
+    "type": "Admin",
+    "description": "Forces the game to start once the ready-up phase has begun",
+    "usage": [
+      "/admin force_start [gameid]",
+    ],
+    "examples": [
+      "/admin force_start 03134ff5",
+    ]
+  }
 ] as const;
 
 // export commands
