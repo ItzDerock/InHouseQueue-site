@@ -70,18 +70,18 @@ const commands = [
       "/admin sbmm Disable"
     ]
   },
-    {
-      "name": "cancel",
-      "type": "Admin",
-      "description": "Cancel an ongoing match",
-      "usage": [
-        "/admin cancel [gameid]"
-      ],
-      "examples": [
-        "/admin cancel 03134ff5"
-      ]
-    },
-{
+  {
+    "name": "cancel",
+    "type": "Admin",
+    "description": "Cancel an ongoing match",
+    "usage": [
+      "/admin cancel [gameid]"
+    ],
+    "examples": [
+      "/admin cancel 03134ff5"
+    ]
+  },
+  {
     "name": "grant",
     "type": "Admin",
     "description": "Give a Discord role the permissions to run a specific admin command",
@@ -134,75 +134,74 @@ const commands = [
     ],
     "examples": [
       "/setregion #InHouseQueue EUW"
-        ]
-      },
-  {
-      "name": "reset_db",
-      "type": "Admin",
-      "description": "Remove a member who has left the server from the database",
-      "usage": [
-        "/admin reset_db [userid]"
-      ],
-      "examples": [
-        "/admin reset_db 12345678912312"
-          ]
-        },
-  {
-      "name": "update_ign",
-      "type": "Admin",
-      "description": "Update the IGN of any player",
-      "usage": [
-        "/admin update_ign [ign] [member] [game]"
-      ],
-      "examples": [
-        "/admin update_ign Faker John League of Legends"
-          ]
-        },
-  {
-      "name": "require",
-      "type": "Admin",
-      "description": "Set queue requirements based on the specified options",
-      "usage": [
-        "/admin require [condition] [game] [feature]"
-      ],
-      "examples": [
-        "/admin require True League of Legends IGN",
-        "/admin require True League of Legends Character Required"
-          ]
-        },
-
-  {
-      "name": "update_character",
-      "type": "Admin",
-      "description": "Add/update the champion, hero or agent a member has played",
-      "usage": [
-       "/admin update_character [name] [gameid] [member] [game]"
-      ],
-      "examples": [
-        "/admin update_character Teemo 03134ff5 @iHenners League of Legends"
-          ]
-        },
-  {
-  "name": "queue_role",
-  "type": "Admin",
-  "description": "Users must have this role before being able to queue",
-  "usage": [
-    "/admin queue_role [role] [game]"
-  ],
-  "examples": [
-    "/admin queue_role @InHouseQueue League of Legends"
     ]
   },
   {
-     "name": "setup",
-     "type": "Set-Up",
-     "description": "Setup your server Automatically!",
-     "usage": [
-       "/admin setup [game]"
-     ],
-     "examples": [
-       "/admin setup Overwatch"
-     ]
+    "name": "reset_db",
+    "type": "Admin",
+    "description": "Remove a member who has left the server from the database",
+    "usage": [
+      "/admin reset_db [userid]"
+    ],
+    "examples": [
+      "/admin reset_db 12345678912312"
+        ]
+  },
+  {
+    "name": "update_ign",
+    "type": "Admin",
+    "description": "Update the IGN of any player",
+    "usage": [
+      "/admin update_ign [ign] [member] [game]"
+    ],
+    "examples": [
+      "/admin update_ign Faker John League of Legends"
+    ]
+  },
+  {
+    "name": "require",
+    "type": "Admin",
+    "description": "Set queue requirements based on the specified options",
+    "usage": [
+      "/admin require [condition] [game] [feature]"
+    ],
+    "examples": [
+      "/admin require True League of Legends IGN",
+      "/admin require True League of Legends Character Required"
+    ]
+  },
+  {
+    "name": "update_character",
+    "type": "Admin",
+    "description": "Add/update the champion, hero or agent a member has played",
+    "usage": [
+      "/admin update_character [name] [gameid] [member] [game]"
+    ],
+    "examples": [
+      "/admin update_character Teemo 03134ff5 @iHenners League of Legends"
+    ]
+  },
+  {
+    "name": "queue_role",
+    "type": "Admin",
+    "description": "Users must have this role before being able to queue",
+    "usage": [
+      "/admin queue_role [role] [game]"
+    ],
+    "examples": [
+      "/admin queue_role @InHouseQueue League of Legends"
+      ]
+  },
+  {
+    "name": "setup",
+    "type": "Set-Up",
+    "description": "Setup your server Automatically!",
+    "usage": [
+      "/admin setup [game]"
+    ],
+    "examples": [
+      "/admin setup Overwatch"
+    ]
   },
   {
     "name": "setchannel",
@@ -312,27 +311,27 @@ const commands = [
     ]
   },
   {
-      "name": "champion",
-      "type": "General",
-      "description": "Select your champion. Only works inside a lobby channel",
-      "usage": [
-        "/champion [name]",
-      ],
-      "examples": [
-        "/champion Teemo",
-      ]
-    },
+    "name": "champion",
+    "type": "General",
+    "description": "Select your champion. Only works inside a lobby channel",
+    "usage": [
+      "/champion [name]",
+    ],
+    "examples": [
+      "/champion Teemo",
+    ]
+  },
   {
-      "name": "hero",
-      "type": "General",
-      "description": "Select your hero. Only works inside a lobby channel",
-      "usage": [
-        "/hero [name]",
-      ],
-      "examples": [
-        "/hero Tracer",
-      ]
-    },
+    "name": "hero",
+    "type": "General",
+    "description": "Select your hero. Only works inside a lobby channel",
+    "usage": [
+      "/hero [name]",
+    ],
+    "examples": [
+      "/hero Tracer",
+    ]
+  },
   {
     "name": "agent",
     "type": "General",
@@ -344,17 +343,17 @@ const commands = [
       "/agent Astra",
     ]
   },
-    {
-      "name": "top",
-      "type": "General",
-      "description": "View players with the highest win rates on a particular character",
-      "usage": [
-        "/top [game] [name]",
-      ],
-      "examples": [
-        "/top League of Legends Thresh",
-      ]
-    },
+  {
+    "name": "top",
+    "type": "General",
+    "description": "View players with the highest win rates on a particular character",
+    "usage": [
+      "/top [game] [name]",
+    ],
+    "examples": [
+      "/top League of Legends Thresh",
+    ]
+  },
   {
     "name": "champion",
     "type": "LoL",
