@@ -5,19 +5,19 @@ export default function StatCards() {
     <div className="relative w-full z-30">
       <div className="flex -translate-y-24 flex-row flex-wrap z-30 w-full align-middle justify-center gap-9">
         <StatCard
-          count={400}
+          count={600}
           label="Servers"
           aosIndex={0}
         />
 
         <StatCard
-          count={5500}
+          count={8000}
           label="Users"
           aosIndex={1}
         />
 
         <StatCard
-          count={60000}
+          count={80000}
           label="Matches Played"
           aosIndex={2}
         />
