@@ -39,8 +39,8 @@ export default function Footer(props: { withBorder?: boolean }) {
                 </a>
               </li>
               <li>
-                <a href="https://github.com/HenrySpartGlobal/InHouseQueue">
-                  GitHub
+                <a href="https://www.paypal.com/donate/?hosted_button_id=RU4GLAWSP6TJC">
+                  Donate
                 </a>
               </li>
               <li>
