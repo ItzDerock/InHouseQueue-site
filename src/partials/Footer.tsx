@@ -24,11 +24,6 @@ export default function Footer(props: { withBorder?: boolean }) {
             <h3 className="text-lg font-bold">Resources</h3>
             <ul className="mt-4 space-y-4">
               <li>
-                <a href="https://discord.com/invite/8DZQcpxnbB">
-                  Support
-                </a>
-              </li>
-              <li>
                 <Link href="/commands">
                   Commands
                 </Link>
@@ -39,8 +34,18 @@ export default function Footer(props: { withBorder?: boolean }) {
                 </a>
               </li>
               <li>
+                <a href="https://discord.com/invite/8DZQcpxnbB">
+                  Support
+                </a>
+              </li>
+              <li>
                 <a href="https://www.paypal.com/donate/?hosted_button_id=RU4GLAWSP6TJC">
                   Donate
+                </a>
+              </li>
+              <li>
+                <a href="https://inhousequeue.statuspage.io/">
+                  Status
                 </a>
               </li>
               <li>
