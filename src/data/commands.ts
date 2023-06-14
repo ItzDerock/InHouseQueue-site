@@ -193,6 +193,28 @@ const commands = [
       ]
   },
   {
+    "name": "fill",
+    "type": "Admin",
+    "description": "Enable Fill. Players queueing fill will be assigned a random available role",
+    "usage": [
+      "/admin fill [condition]"
+    ],
+    "examples": [
+      "/admin fill True"
+      ]
+    },
+  {
+    "name": "casual",
+    "type": "Admin",
+    "description": "Enable Casual mode. No predefined roles, just 1 queue button for quick casual InHouse games",
+    "usage": [
+      "/admin casual [condition]"
+    ],
+    "examples": [
+      "/admin casual True"
+      ]
+    },
+  {
     "name": "setup",
     "type": "Set-Up",
     "description": "Setup your server Automatically!",
