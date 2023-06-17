@@ -16,26 +16,23 @@ interface IStatsProps {
 export default function StatCards() {
   const [stats, setStats] = React.useState<IStatsProps | undefined>();
 
-  React.useEffect(() => {
+  const fetchStats = async () => {
     const header = {
       "method": "GET",
       "Access-Control-Allow-Origin": "*",
-      "Content-Type": "application/json",
-      "mode": "no-cors"
+      "Content-Type": "application/json"
     };
 
-    const fetchStats = async () => {
-      const data: IStatsProps = await fetch("https://health.inhousequeue.xyz/health", { headers: header })
-        .then((res) => {
-          return res.json()
-        })
-        .catch((err) => console.log(err))
+    const data: IStatsProps = await fetch("https://health.inhousequeue.xyz/health", { headers: header })
+      .then((res) => {
+        return res.json();
+      })
+      .catch((err) => console.log(err))
 
-      setStats(data)
-    };
+    setStats(data)
+  };
 
-    fetchStats();
-  }, [])
+  React.useEffect(() => { fetchStats() }, [])
 
   return (
     <div className="relative w-full z-30">
