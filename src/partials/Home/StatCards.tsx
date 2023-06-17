@@ -25,7 +25,7 @@ export default function StatCards() {
 
     try {
       const res = await fetch("https://health.inhousequeue.xyz/health", { headers: header });
-      const data: IStatsProps = await res.json();
+      const data = await res.json() as IStatsProps; // Type assertion here
       setStats(data);
     } catch(err) {
       console.log(err);
@@ -40,7 +40,9 @@ export default function StatCards() {
     }
   };
 
-  React.useEffect(() => { void fetchStats() }, [])
+  React.useEffect(() => {
+    void fetchStats();
+  }, [])
 
   return (
     <div className="relative w-full z-30">
