@@ -23,34 +23,42 @@ export default function StatCards() {
       "Content-Type": "application/json"
     };
 
-    const data: IStatsProps = await fetch("https://health.inhousequeue.xyz/health", { headers: header })
-      .then((res) => {
-        return res.json();
+    try {
+      const res = await fetch("https://health.inhousequeue.xyz/health", { headers: header });
+      const data: IStatsProps = await res.json();
+      setStats(data);
+    } catch(err) {
+      console.log(err);
+      setStats({
+        status: "unoperational",
+        last_check: "",
+        message: "",
+        server_count: 700,
+        total_games: 10000,
+        total_users: 12000
       })
-      .catch((err) => console.log(err))
-
-    setStats(data)
+    }
   };
 
-  React.useEffect(() => { fetchStats() }, [])
+  React.useEffect(() => { void fetchStats() }, [])
 
   return (
     <div className="relative w-full z-30">
       <div className="flex -translate-y-24 flex-row flex-wrap z-30 w-full align-middle justify-center gap-9">
         <StatCard
-          count={stats?.server_count ?? 700}
+          count={stats?.server_count ?? 0}
           label="Servers"
           aosIndex={0}
         />
 
         <StatCard
-          count={stats?.total_users ?? 12000}
+          count={stats?.total_users ?? 0}
           label="Active Players"
           aosIndex={1}
         />
 
         <StatCard
-          count={stats?.total_games ?? 10000}
+          count={stats?.total_games ?? 0}
           label="Matches Played"
           aosIndex={2}
         />
