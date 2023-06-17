@@ -19,7 +19,7 @@ export default function StatCard(props: StatCardProps) {
       <h1 className="sm:text-3xl text-center text-white">
         <NumberCounter 
           number={props.count}
-        />+
+        />
       </h1>
 
       {/* the stat card label */}
