@@ -419,6 +419,39 @@ const commands = [
     "examples": [
       "/admin force_start 03134ff5",
     ]
+  },
+  {
+    "name": "schedule",
+    "type": "Admin",
+    "description": "Schedule when the queue opens and closes automatically (Timezones: UTC, EST, EDT)",
+    "usage": [
+      "/admin schedule",
+    ],
+    "examples": [
+      "/admin schedule",
+    ]
+  },
+  {
+    "name": "delete_schedule",
+    "type": "Admin",
+    "description": "Delete a previously set schedule",
+    "usage": [
+      "/admin delete_schedule",
+    ],
+    "examples": [
+      "/admin delete_schedule",
+    ]
+  },
+  {
+    "name": "feature",
+    "type": "Admin",
+    "description": "Enable/Disable certain features",
+    "usage": [
+      "/admin feature [condition] [feature]",
+    ],
+    "examples": [
+      "/admin feature True MVP Voting",
+    ]
   }
 ] as const;
 
