@@ -1,5 +1,6 @@
 // edit this object to add/remove commands
 const commands = [
+  // ~ Admin
   {
     "name": "reset",
     "type": "Admin",
@@ -190,7 +191,7 @@ const commands = [
     ],
     "examples": [
       "/admin queue_role @InHouseQueue League of Legends"
-      ]
+    ]
   },
   {
     "name": "fill",
@@ -201,8 +202,8 @@ const commands = [
     ],
     "examples": [
       "/admin fill True"
-      ]
-    },
+    ]
+  },
   {
     "name": "casual",
     "type": "Admin",
@@ -212,8 +213,54 @@ const commands = [
     ],
     "examples": [
       "/admin casual True"
-      ]
-    },
+    ]
+  },
+  {
+    "name": "force_start",
+    "type": "Admin",
+    "description": "Forces the game to start once the ready-up phase has begun",
+    "usage": [
+      "/admin force_start [gameid]",
+    ],
+    "examples": [
+      "/admin force_start 03134ff5",
+    ]
+  },
+  {
+    "name": "schedule",
+    "type": "Admin",
+    "description": "Schedule when the queue opens and closes automatically (Timezones: UTC, EST, EDT)",
+    "usage": [
+      "/admin schedule",
+    ],
+    "examples": [
+      "/admin schedule",
+    ]
+  },
+  {
+    "name": "delete_schedule",
+    "type": "Admin",
+    "description": "Delete a previously set schedule",
+    "usage": [
+      "/admin delete_schedule",
+    ],
+    "examples": [
+      "/admin delete_schedule",
+    ]
+  },
+  {
+    "name": "feature",
+    "type": "Admin",
+    "description": "Enable/Disable certain features",
+    "usage": [
+      "/admin feature [condition] [feature]",
+    ],
+    "examples": [
+      "/admin feature True MVP Voting",
+    ]
+  },
+
+  // ~ Set-up
   {
     "name": "setup",
     "type": "Set-Up",
@@ -269,6 +316,8 @@ const commands = [
       "/admin test_mode True"
     ]
   },
+
+  // ~ General
   {
     "name": "help",
     "type": "General",
@@ -312,13 +361,12 @@ const commands = [
   {
     "name": "rank",
     "type": "General",
-    "description": "Display your rank in the server.",
+    "description": "Display a player's rank in the server.",
     "usage": [
-      "/rank_[game] [options]"
+      "/rank_[game] [user]"
     ],
     "examples": [
-      "/rank_valorant mmr",
-      "/rank_valorant mvp"
+      "/rank_lol Faker"
     ]
   },
   {
@@ -377,6 +425,19 @@ const commands = [
     ]
   },
   {
+    "name": "server",
+    "type": "General",
+    "description": "Bring up your server statistics for the InHouseQueue bot!",
+    "usage": [
+      "/server stats",
+    ],
+    "examples": [
+      "/server stats",
+    ]
+  },
+
+  // ~ Games
+  {
     "name": "champion",
     "type": "LoL",
     "description": "Select your champion. Only works inside a lobby channel",
@@ -407,50 +468,6 @@ const commands = [
     ],
     "examples": [
       "/agent Astra",
-    ]
-  },
-  {
-    "name": "force_start",
-    "type": "Admin",
-    "description": "Forces the game to start once the ready-up phase has begun",
-    "usage": [
-      "/admin force_start [gameid]",
-    ],
-    "examples": [
-      "/admin force_start 03134ff5",
-    ]
-  },
-  {
-    "name": "schedule",
-    "type": "Admin",
-    "description": "Schedule when the queue opens and closes automatically (Timezones: UTC, EST, EDT)",
-    "usage": [
-      "/admin schedule",
-    ],
-    "examples": [
-      "/admin schedule",
-    ]
-  },
-  {
-    "name": "delete_schedule",
-    "type": "Admin",
-    "description": "Delete a previously set schedule",
-    "usage": [
-      "/admin delete_schedule",
-    ],
-    "examples": [
-      "/admin delete_schedule",
-    ]
-  },
-  {
-    "name": "feature",
-    "type": "Admin",
-    "description": "Enable/Disable certain features",
-    "usage": [
-      "/admin feature [condition] [feature]",
-    ],
-    "examples": [
-      "/admin feature True MVP Voting",
     ]
   }
 ] as const;
