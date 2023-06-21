@@ -425,7 +425,7 @@ const commands = [
     ]
   },
   {
-    "name": "server",
+    "name": "server_stats",
     "type": "General",
     "description": "Bring up your server statistics for the InHouseQueue bot!",
     "usage": [
