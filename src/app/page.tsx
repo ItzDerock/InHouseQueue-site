@@ -8,13 +8,15 @@ import Highlight from "../partials/Home/Highlight";
 import StatCards from "../partials/Home/StatCards";
 import SupportedGames from "../partials/Home/SupportedGames";
 import Navbar from "../partials/Navbar";
+import banner from "../assets/banner.webp";
+
 export default function HomePage() {
   return (
     <>
       <Navbar absolute={true} />
 
-      <Banner>
-        <div className="mt-24 mb-28 flex flex-col justify-center gap-3 text-center sm:mt-0 sm:mb-8 md:mb-0">
+      <Banner image={banner} height="67vh">
+        <div className="mb-28 mt-24 flex flex-col justify-center gap-3 text-center sm:mb-8 sm:mt-0 md:mb-0">
           <h2 className="text-xl font-bold text-slate-200">Presenting</h2>
           <h1 className="text-4xl font-bold text-white" data-aos="zoom-out">
             In-House Queue
