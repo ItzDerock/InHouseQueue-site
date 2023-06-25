@@ -22,6 +22,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.4.7",
     "@types/aos": "^3.0.4",
     "@types/node": "^18.16.18",
     "@types/prettier": "^2.7.3",
