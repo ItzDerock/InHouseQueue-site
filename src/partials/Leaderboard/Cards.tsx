@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef } from "react";
 import ChampionRankCard from "../../components/Leaderboard/Champion";
 import RankCard from "../../components/Leaderboard/RankCard";
 import { useMeasure } from "@react-hookz/web";
