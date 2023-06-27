@@ -22,9 +22,8 @@ export default function Feature1() {
           icon={RiSwordFill}
           aosIndex={0}
         >
-          Built-in MMR system for balanced matchmaking.
+          Built-in Custom MMR system for balanced matchmaking.
           <br />
-          Powered by <a href="https://trueskill.org/">TrueSkill</a>.
         </Card>
 
         {/* Leaderboard */}
