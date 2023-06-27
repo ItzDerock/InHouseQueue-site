@@ -28,12 +28,31 @@ export default async function LeaderboardPage({
     pageNum = 1;
   }
 
-  // now fetch the top 3 from the database as well as 10 from the page
+  // fetch the data
   const data = await fetchLeaderboard({
     guild_id: BigInt(guild),
     offset: (pageNum - 1) * 10,
     limit: 10,
+    withPageCount: true,
   });
+
+  // if no data, 404
+  if (data.total === 0) {
+    return notFound();
+  }
+
+  // get the top3
+  const top3 =
+    pageNum === 1
+      ? data.data.slice(0, 3)
+      : (
+          await fetchLeaderboard({
+            guild_id: BigInt(guild),
+            offset: 0,
+            limit: 3,
+            withPageCount: false,
+          })
+        ).data;
 
   return (
     <>
@@ -49,12 +68,10 @@ export default async function LeaderboardPage({
 
       {/* cards */}
       <div className="relative">
-        <LeaderboardCards />
+        <LeaderboardCards entries={top3} />
       </div>
 
       {/* table */}
-      <h1>table here</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
     </>
   );
 }

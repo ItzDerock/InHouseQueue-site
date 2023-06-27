@@ -13,8 +13,8 @@ export default function RankCard(props: LeaderboardCardProps) {
           {props.index === 1 ? "ND" : "RD"}
         </h1>
         <div>
-          <h2 className="text-2xl font-bold">name here</h2>
-          <p className="text-2xl">pts here</p>
+          <h2 className="text-2xl font-bold">{props.entry.ign}</h2>
+          <p className="text-2xl">{Math.round(props.entry.mmr)} MMR</p>
         </div>
       </div>
     </div>

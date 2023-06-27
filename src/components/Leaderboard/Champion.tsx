@@ -11,8 +11,8 @@ export default function ChampionRankCard(props: LeaderboardCardProps) {
       <div className="flex flex-row gap-7 align-middle">
         <h1 className="text-8xl font-extrabold">1ST</h1>
         <div>
-          <h2 className="text-[32px] font-bold">name here</h2>
-          <p className="text-[32px]">pts here</p>
+          <h2 className="text-[32px] font-bold">{props.entry.ign}</h2>
+          <p className="text-[32px]">{Math.round(props.entry.mmr)} MMR</p>
         </div>
       </div>
     </div>
