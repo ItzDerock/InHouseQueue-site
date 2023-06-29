@@ -11,5 +11,9 @@ export default function Redirect() {
     void signIn("discord");
   });
 
-  return <h1 className="">redirecting...</h1>;
+  return (
+    <h1 className="m-auto text-white">
+      You will be redirected to a login page shortly...
+    </h1>
+  );
 }

@@ -3,7 +3,7 @@
 import ChampionRankCard from "../../components/Leaderboard/Champion";
 import RankCard from "../../components/Leaderboard/RankCard";
 import { useMeasure } from "@react-hookz/web";
-import { type LeaderboardEntry } from "../../db/queries/leaderboard";
+import { type LeaderboardEntry } from "../../db/queries/leaderboard.types";
 
 export type LeaderboardCardProps = {
   index: number;

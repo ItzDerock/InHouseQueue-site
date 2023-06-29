@@ -9,13 +9,17 @@ module.exports = {
 
         // background colors
         background: {
-          main: "#181C1F",          
-          accent: "#26272B"
+          main: "#181C1F",
+          accent: "#26272B",
         },
 
         // link color
-        link: "#9747FF"
-      }
+        link: "#9747FF",
+        table: {
+          border: "#4B5563",
+          sort: "#9CA3AF",
+        },
+      },
     },
   },
   plugins: [],

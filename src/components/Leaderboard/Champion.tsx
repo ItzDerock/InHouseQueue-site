@@ -7,8 +7,8 @@ export default function ChampionRankCard(props: LeaderboardCardProps) {
       data-aos="fade-up"
       data-aos-delay={props.index * 100}
     >
-      <h2 className="w-full text-3xl font-bold">CHAMPION</h2>
-      <div className="flex flex-row gap-7 align-middle">
+      <h2 className="w-fit text-3xl font-bold">CHAMPION</h2>
+      <div className="mx-auto flex w-fit flex-row flex-wrap gap-7 align-middle">
         <h1 className="text-8xl font-extrabold">1ST</h1>
         <div>
           <h2 className="text-[32px] font-bold">{props.entry.ign}</h2>

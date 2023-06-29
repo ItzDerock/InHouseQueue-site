@@ -6,6 +6,7 @@ import { notFound, redirect } from "next/navigation";
 import { fetchLeaderboard } from "../../../db/queries/leaderboard";
 import { getServerSession } from "next-auth";
 import Redirect from "../../../auth/Redirect";
+import { Table } from "../../../components/Leaderboard/Table";
 
 export default async function LeaderboardPage({
   params,
@@ -82,6 +83,10 @@ export default async function LeaderboardPage({
       </div>
 
       {/* table */}
+
+      <div className="mx-4 w-auto max-w-[1024px] overflow-x-auto rounded-md bg-background-accent p-2 md:mx-auto">
+        <Table defaultEntries={data.data} />
+      </div>
     </>
   );
 }

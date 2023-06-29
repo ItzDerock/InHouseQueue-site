@@ -2,6 +2,7 @@ import { sql } from "kysely";
 import { db } from "..";
 import { cache } from "../../cache";
 import crypto from "node:crypto";
+import { type FetchLeaderboardInput, type LeaderboardResponse } from "./leaderboard.types";
 
 // patch json seralization with bigints
 // eslint-disable-next-line @typescript-eslint/no-redeclare, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
@@ -10,28 +11,7 @@ import crypto from "node:crypto";
   return this.toString();
 };
 
-export type FetchLeaderboardInput = {
-  guild_id: bigint;
-  sortBy?: 'wins' | 'losses' | 'mmr' | 'winrate';
-  sortDirection?: 'asc' | 'desc';
-  limit?: number;
-  offset?: number;
-  withPageCount?: boolean;
-}
 
-export type LeaderboardEntry = {
-  ign: string;
-  wins: number | null;
-  losses: number | null;
-  mmr: number;
-  winrate: number;
-}
-
-export type LeaderboardResponse = {
-  data: LeaderboardEntry[];
-  total: number | bigint;
-  fetched: number;
-}
 
 const orderByMap = {
   wins: 'points.wins',
