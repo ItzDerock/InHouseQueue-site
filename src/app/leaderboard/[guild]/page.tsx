@@ -2,8 +2,10 @@ import Banner from "../../../components/Banner";
 import Navbar from "../../../partials/Navbar";
 import LeaderboardBanner from "../../../assets/leaderboard.jpg";
 import { LeaderboardCards } from "../../../partials/Leaderboard/Cards";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { fetchLeaderboard } from "../../../db/queries/leaderboard";
+import { getServerSession } from "next-auth";
+import Redirect from "../../../auth/Redirect";
 
 export default async function LeaderboardPage({
   params,
@@ -14,6 +16,14 @@ export default async function LeaderboardPage({
     [key: string]: string | string[] | undefined;
   };
 }) {
+  // check session
+  const session = await getServerSession();
+  if (!session) {
+    // redirect to login
+    return <Redirect />;
+    // return redirect("/api/auth/signin/discord");
+  }
+
   let pageNum =
     typeof searchParams.page === "string" ? parseInt(searchParams.page) : 1;
   const guild = params.guild;
