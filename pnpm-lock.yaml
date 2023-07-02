@@ -70,6 +70,9 @@ devDependencies:
   autoprefixer:
     specifier: ^10.4.14
     version: 10.4.14(postcss@8.4.24)
+  discord-api-types:
+    specifier: ^0.37.47
+    version: 0.37.47
   eslint:
     specifier: ^8.43.0
     version: 8.43.0
@@ -2608,6 +2611,10 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       path-type: 4.0.0
+    dev: true
+
+  /discord-api-types@0.37.47:
+    resolution: {integrity: sha512-rNif8IAv6duS2z47BMXq/V9kkrLfkAoiwpFY3sLxxbyKprk065zqf3HLTg4bEoxRSmi+Lhc7yqGDrG8C3j8GFA==}
     dev: true
 
   /dlv@1.1.3:

@@ -14,6 +14,7 @@ if (!global.db) {
     dialect: new MysqlDialect({
       pool: createPool(env.DATABASE_URL)
     }),
+    log: ["query"]
   });
 }
 

@@ -2,20 +2,16 @@ import Banner from "../../../components/Banner";
 import Navbar from "../../../partials/Navbar";
 import LeaderboardBanner from "../../../assets/leaderboard.jpg";
 import { LeaderboardCards } from "../../../partials/Leaderboard/Cards";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { fetchLeaderboard } from "../../../db/queries/leaderboard";
 import { getServerSession } from "next-auth";
 import Redirect from "../../../auth/Redirect";
-import { Table } from "../../../components/Leaderboard/Table";
+import { Table } from "../../../partials/Leaderboard/Table";
 
 export default async function LeaderboardPage({
   params,
-  searchParams,
 }: {
   params: { guild: string };
-  searchParams: {
-    [key: string]: string | string[] | undefined;
-  };
 }) {
   // check session
   const session = await getServerSession();
@@ -25,8 +21,6 @@ export default async function LeaderboardPage({
     // return redirect("/api/auth/signin/discord");
   }
 
-  let pageNum =
-    typeof searchParams.page === "string" ? parseInt(searchParams.page) : 1;
   const guild = params.guild;
 
   // first check that guild matches a snowflake
@@ -34,15 +28,9 @@ export default async function LeaderboardPage({
     return notFound();
   }
 
-  // then check that page number is valid
-  if (isNaN(pageNum) || pageNum < 1) {
-    pageNum = 1;
-  }
-
   // fetch the data
   const data = await fetchLeaderboard({
     guild_id: BigInt(guild),
-    offset: (pageNum - 1) * 10,
     limit: 10,
     withPageCount: true,
   });
@@ -53,17 +41,7 @@ export default async function LeaderboardPage({
   }
 
   // get the top3
-  const top3 =
-    pageNum === 1
-      ? data.data.slice(0, 3)
-      : (
-          await fetchLeaderboard({
-            guild_id: BigInt(guild),
-            offset: 0,
-            limit: 3,
-            withPageCount: false,
-          })
-        ).data;
+  const top3 = data.data.slice(0, 3);
 
   return (
     <>
@@ -84,9 +62,12 @@ export default async function LeaderboardPage({
 
       {/* table */}
 
-      <div className="mx-4 w-auto max-w-[1024px] overflow-x-auto rounded-md bg-background-accent p-2 md:mx-auto">
-        <Table defaultEntries={data.data} />
-      </div>
+      <Table
+        guildId={guild}
+        defaultEntries={data.data}
+        total={data.total}
+        fetched={data.fetched}
+      />
     </>
   );
 }

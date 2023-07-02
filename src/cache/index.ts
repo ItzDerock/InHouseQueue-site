@@ -1,7 +1,8 @@
 import { Redis } from "@upstash/redis";
 
 // constants
-export const REDIS_PREFIX = "website:";
+export const COMMIT_SHA = process.env.VERCEL_GIT_COMMIT_SHA ?? "unknown";
+export const REDIS_PREFIX = `website:${COMMIT_SHA.slice(0, 7)}:`;
 
 // initialize redis
 export const redis = Redis.fromEnv();

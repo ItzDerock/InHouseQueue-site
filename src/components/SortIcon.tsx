@@ -1,23 +1,13 @@
 export enum SortDirection {
-  Asc,
-  Desc,
-  None,
+  Asc = "asc",
+  Desc = "desc",
+  None = "none",
 }
 
 export function SortIcon(props: {
   direction: SortDirection;
   onClick?: () => void;
 }) {
-  // function onClick() {
-  //   if (props.direction === SortDirection.Asc) {
-  //     props.onClick(SortDirection.Desc);
-  //   } else if (props.direction === SortDirection.Desc) {
-  //     props.onClick(SortDirection.None);
-  //   } else {
-  //     props.onClick(SortDirection.Asc);
-  //   }
-  // }
-
   let svg: JSX.Element;
 
   if (props.direction === SortDirection.Desc) {
@@ -29,11 +19,10 @@ export function SortIcon(props: {
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         aria-label="Sorted descending"
-        data-darkreader-inline-stroke=""
         className="rotate-180"
       >
         <path d="M12 5l0 14"></path>
@@ -50,11 +39,10 @@ export function SortIcon(props: {
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         aria-label="Sorted descending"
-        data-darkreader-inline-stroke=""
       >
         <path d="M12 5l0 14"></path>
         <path d="M18 11l-6 -6"></path>
@@ -70,10 +58,9 @@ export function SortIcon(props: {
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        data-darkreader-inline-stroke=""
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
         <path d="M8 7l4 -4l4 4"></path>
         <path d="M8 17l4 4l4 -4"></path>

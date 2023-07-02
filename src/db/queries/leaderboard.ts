@@ -3,6 +3,7 @@ import { db } from "..";
 import { cache } from "../../cache";
 import crypto from "node:crypto";
 import { type FetchLeaderboardInput, type LeaderboardResponse } from "./leaderboard.types";
+import { isDefined } from "../../utils";
 
 // patch json seralization with bigints
 // eslint-disable-next-line @typescript-eslint/no-redeclare, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
@@ -60,6 +61,7 @@ export async function fetchLeaderboardRaw(opts: FetchLeaderboardInput): Promise<
       "mmr_rating.user_id",
       "points.wins",
       "points.losses",
+      // db.fn.count("mmr_rating.user_id").distinct().as("total")
     ]);
 
   // grab the requested data
@@ -69,14 +71,17 @@ export async function fetchLeaderboardRaw(opts: FetchLeaderboardInput): Promise<
 
   // count total pages
   const pages = options.withPageCount
-    ? db.selectFrom("mmr_rating")
-      .where("mmr_rating.guild_id", "=", guildId)
-      .select(
-        db.fn.count("mmr_rating.user_id").as("total")
-      )
+    ? builder
+      .clearSelect()
+      .clearOffset()
+      .clearLimit()
+      .clearOrderBy()
+      .select([
+        db.fn.count("mmr_rating.user_id").distinct().as("total")
+      ])
     : undefined;
 
-  // execute the queries
+  // // execute the queries
   const [data, totalEntries] = await Promise.all([
     requestedData.execute(),
     pages?.execute()
@@ -115,6 +120,6 @@ export const fetchLeaderboard = cache(fetchLeaderboardRaw, {
     const hash = crypto.createHash("sha1").update(JSON.stringify(params)).digest("base64");
     return `leaderboard:${hash}`;
   },
-  staleTime: /* 10 seconds for testing */ 10_000,
-  expireTime: /* 30 seconds for testing */ 30_000
+  staleTime: /* 30 Seconds */ 30,
+  expireTime: /* 1 Hour */ 60 * 60
 });
