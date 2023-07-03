@@ -19,7 +19,7 @@ export default function Feature2() {
             "Ready Up Check",
             "Vote for your MVP of the Match!",
             "Track your stats and match history",
-            "Time scheduled queues"
+            "Time scheduled queues",
             "Duo Queue"
           ].map((item, index) => (
             <li
