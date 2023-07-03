@@ -8,8 +8,8 @@ export default function SupportedGames() {
     <div className="flex flex-row flex-wrap gap-16 justify-center mx-4 md:mx-0">
       {/* left text */}
       <div className="h-full">
-        <h1 className="font-bold text-3xl text-white">Flagship Supported Games</h1>
-        <p className="text-gray-400">Have no fear, any 5v5 game is also supported!</p>
+        <h1 className="font-bold text-3xl text-white">Organise games such as:</h1>
+        <p className="text-gray-400">Or any other 5v5 competitive game!</p>
       </div>
 
       {/* right images */}
