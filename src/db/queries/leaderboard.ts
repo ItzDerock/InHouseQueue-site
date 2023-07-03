@@ -36,11 +36,15 @@ export async function fetchLeaderboardRaw(opts: FetchLeaderboardInput): Promise<
   let builder = db.selectFrom("mmr_rating")
     .where("mmr_rating.guild_id", "=", guildId)
     // join with mmr_rating, same user_id and guild_id
-    .leftJoin("points", "points.user_id", "mmr_rating.user_id")
-    .where("points.guild_id", "=", guildId)
+    .leftJoin("points", (eb) => eb.on(b => b.and([
+      b.cmpr(b.ref("points.user_id"), "=", b.ref("mmr_rating.user_id")),
+      b.cmpr(b.ref("points.guild_id"), "=", b.ref("mmr_rating.guild_id"))
+    ])))
     // join with igns, same user_id and guild_id
-    .leftJoin("igns", "igns.user_id", "mmr_rating.user_id")
-    .where("igns.guild_id", "=", guildId)
+    .leftJoin("igns", (eb) => eb.on(b => b.and([
+      b.cmpr(b.ref("igns.user_id"), "=", b.ref("mmr_rating.user_id")),
+      b.cmpr(b.ref("igns.guild_id"), "=", b.ref("mmr_rating.guild_id"))
+    ])))
     // calculate winrate and mmr
     .select([
       // (wins + 0.0) / (GREATEST(wins + losses, 1.0) + 0.0)
