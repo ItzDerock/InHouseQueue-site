@@ -27,7 +27,7 @@ export default function HomePage() {
 {/*           </p> */}
 
           {/* buttons */}
-          <div className="mt-50 flex flex-row flex-wrap justify-center gap-8">
+          <div className="mt-48 flex flex-row flex-wrap justify-center gap-8">
             <Button
               variant="primary"
               href="https://discord.com/api/oauth2/authorize?client_id=1001168331996409856&permissions=1101927804016&scope=bot"
