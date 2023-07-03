@@ -32,7 +32,7 @@ export default function Feature3() {
         </li>
 
         <li data-aos="fade-up" data-aos-delay={200}>
-          <span className="font-bold">Time scheduled queues</span>{" "}
+          <span className="font-bold">Time scheduled queues:</span>{" "}
           Like playing at a certain time everyday? Add a schedule and InHouseQueue
           will automatically send a queue at your desired time
         </li>
