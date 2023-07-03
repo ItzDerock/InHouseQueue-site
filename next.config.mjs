@@ -1,4 +1,5 @@
 // @ts-check
+import withBundleAnalyzer from "@next/bundle-analyzer";
 
 /**
  * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.
@@ -9,9 +10,7 @@
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
-  experimental: {
-    appDir: true,
-  },
+  experimental: {},
 
   // svgr
   // webpack: (config) => {
@@ -25,4 +24,6 @@ const config = {
   // }
 };
 
-export default config;
+export default withBundleAnalyzer({
+  enabled: process.env.ANALYZE !== undefined,
+})(config);
