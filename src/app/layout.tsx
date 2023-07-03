@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   viewport: "width=device-width, initial-scale=1",
   themeColor: config.theme?.colors?.primary as string,
   description:
-    "In-House Queue: A Discord Bot designed to organize In-House custom games for League of Legends, Overwatch, and Valorant.",
+    "In-House Queue: A Discord Bot designed to organize In-House custom games",
   twitter: {
     card: "summary_large_image",
   },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "In-House Queue",
     description:
-      "In-House Queue: A Discord Bot designed to organize In-House custom games for League of Legends, Overwatch, and Valorant.",
+      "In-House Queue: A Discord Bot designed to organize In-House custom games",
     images: [
       {
         url: banner.src,
