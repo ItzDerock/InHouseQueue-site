@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-hookz/web": "^23.0.1",
     "@svgr/webpack": "^6.5.1",
+    "@upstash/redis": "^1.22.0",
     "aos": "^2.3.4",
     "kysely": "^0.25.0",
     "mysql2": "^3.4.1",
