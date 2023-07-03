@@ -31,6 +31,12 @@ export default function Feature3() {
           votes, longest winstreaks and much more.
         </li>
 
+        <li data-aos="fade-up" data-aos-delay={200}>
+          <span className="font-bold">Time scheduled queues</span>{" "}
+          Like playing at a certain time everyday? Add a schedule and InHouseQueue
+          will automatically send a queue at your desired time
+        </li>
+
         <p data-aos="fade-up" data-aos-delay={300}>
           <span className="font-bold">Coming Soon!</span>
         </p>
