@@ -9,7 +9,7 @@ export const redis = Redis.fromEnv();
 
 export type CacheOptions<T extends unknown[]> = {
   // unique identifier for the cache entry 
-  cacheKey: string | ((...params: T) => string);
+  cacheKey: string | ((...params: T) => string | false);
   // interval between revalidations
   staleTime: number;
   // number before even the stale data will expire
@@ -24,6 +24,8 @@ export function cache<T extends unknown[], R>(
   return async (...params: T): Promise<R> => {
     // constants
     const cacheKey = typeof cacheOpts.cacheKey === "function" ? cacheOpts.cacheKey(...params) : cacheOpts.cacheKey;
+    if (cacheKey === false) return await func(...params);
+
     const REDIS_KEY_DATA_REFRESHED = `${REDIS_PREFIX}${cacheKey}:refreshed`;
     const REDIS_KEY_DATA = `${REDIS_PREFIX}${cacheKey}:data`;
 

@@ -3,7 +3,6 @@ import { db } from "..";
 import { cache } from "../../cache";
 import crypto from "node:crypto";
 import { type FetchLeaderboardInput, type LeaderboardResponse } from "./leaderboard.types";
-import { isDefined } from "../../utils";
 
 // patch json seralization with bigints
 // eslint-disable-next-line @typescript-eslint/no-redeclare, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
@@ -11,8 +10,6 @@ import { isDefined } from "../../utils";
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
   return this.toString();
 };
-
-
 
 const orderByMap = {
   wins: 'points.wins',
@@ -33,9 +30,10 @@ export async function fetchLeaderboardRaw(opts: FetchLeaderboardInput): Promise<
   } as const;
 
   const guildId = options.guild_id as unknown as number;
+  const orderBy = orderByMap[options.sortBy ?? "wins"];
 
   // create the default query
-  const builder = db.selectFrom("mmr_rating")
+  let builder = db.selectFrom("mmr_rating")
     .where("mmr_rating.guild_id", "=", guildId)
     // join with mmr_rating, same user_id and guild_id
     .leftJoin("points", "points.user_id", "mmr_rating.user_id")
@@ -52,7 +50,7 @@ export async function fetchLeaderboardRaw(opts: FetchLeaderboardInput): Promise<
     ])
     // add in sortBy and sortDirection
     .orderBy(
-      orderByMap[options.sortBy ?? 'wins'],
+      orderBy,
       options.sortDirection
     )
     // select the other fields we need
@@ -61,8 +59,42 @@ export async function fetchLeaderboardRaw(opts: FetchLeaderboardInput): Promise<
       "mmr_rating.user_id",
       "points.wins",
       "points.losses",
-      // db.fn.count("mmr_rating.user_id").distinct().as("total")
+
+      // calculate the position
+      // Maybe someone smarter can figure out how to get the position
+      // the ROW_NUMBER approach does not seem to give correct numbers
+      // sql<string>`ROW_NUMBER() OVER(ORDER BY ${eb.ref("points.wins")} DESC)`.as("position")
+      // And the SELECT COUNT(*) WHERE (order by column) < (order by column) AS position
+      // does not work because I would need to recalculate winrate/mmr
+      // and that seems pretty expensive on the db, also kysely doesn't register the right types when I do that. 
+      // eb
+      //   .selectFrom("mmr_rating")
+      //   .select(db.fn.countAll().as("position"))
+      //   .where(orderBy, "<", orderBy)
+      //   .as("position")
     ]);
+
+  const searchFor = options.searchFor;
+  if (searchFor !== undefined) {
+    try {
+      // try to parse as bigint
+      const id = BigInt(searchFor);
+
+      // if successful, it could be an ID
+      builder = builder
+        .where(eb => eb.or([
+          // @ts-expect-error TS says kysely says it doesn't support bigints but it does
+          eb.cmpr(eb.ref("mmr_rating.user_id"), "=", id),
+          sql`${eb.ref("igns.ign")} LIKE ${`%${searchFor}%`}`
+        ]))
+    } catch (error) {
+      builder = builder
+        // The following line only works if igns.ign is FULLTEXT indexed
+        // .where(eb => sql`MATCH(${eb.ref("igns.ign")}) against(${searchFor})`)
+        // so for now, we just do a LIKE search
+        .where(eb => sql`${eb.ref("igns.ign")} LIKE ${`%${searchFor}%`}`)
+    }
+  }
 
   // grab the requested data
   const requestedData = builder
@@ -104,10 +136,12 @@ export async function fetchLeaderboardRaw(opts: FetchLeaderboardInput): Promise<
     data: data.map((row) => ({
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       ign: row.ign ?? row.user_id!.toString(),
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      user_id: row.user_id!.toString(),
       wins: row.wins,
       losses: row.losses,
       mmr: parseFloat(row.mmr),
-      winrate: parseFloat(row.winrate) * 100
+      winrate: parseFloat(row.winrate) * 100,
     })),
     total: totalEntriesParsed,
     fetched: Date.now()
@@ -116,6 +150,9 @@ export async function fetchLeaderboardRaw(opts: FetchLeaderboardInput): Promise<
 
 export const fetchLeaderboard = cache(fetchLeaderboardRaw, {
   cacheKey: (params) => {
+    // dont cache searches
+    if (params.searchFor) return false;
+
     // hash the params so we get a unique id for the given options
     const hash = crypto.createHash("sha1").update(JSON.stringify(params)).digest("base64");
     return `leaderboard:${hash}`;

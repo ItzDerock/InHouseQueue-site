@@ -3,9 +3,23 @@ import { type NextRequest, NextResponse } from "next/server";
 import { authOptions } from "../../../../auth";
 import { fetchLeaderboard } from "../../../../db/queries/leaderboard";
 import { FetchLeaderboardSortType } from "../../../../db/queries/leaderboard.types";
+import { getRealIP } from "../../../../utils";
+import { initRateLimit } from "../../../../utils/rate-limit";
 
 const SORT_BY_VALUES = Object.values(FetchLeaderboardSortType) as string[];
 const SORT_DIR_VALUES = ["asc", "desc"];
+
+const searchRateLimit = initRateLimit((request) => ({
+  id: `search:${getRealIP(request)}`,
+  limit: 20,
+  timeframe: 60,
+}));
+
+const leaderboardRateLimit = initRateLimit((request) => ({
+  id: `guild:${getRealIP(request)}`,
+  limit: 60,
+  timeframe: 60,
+}));
 
 export async function GET(
   request: NextRequest,
@@ -22,6 +36,7 @@ export async function GET(
   const sortBy = searchParams.get("sortBy") ?? FetchLeaderboardSortType.MMR;
   const sortDirection = searchParams.get("sortDirection") ?? "desc";
   const page = parseInt(searchParams.get("page") ?? "0");
+  const searchFor = searchParams.get("searchFor");
 
   // validate
   if (!SORT_BY_VALUES.includes(sortBy)) {
@@ -61,6 +76,13 @@ export async function GET(
     });
   }
 
+  // check rate limit
+  const rateLimited = searchFor
+    ? await searchRateLimit(request)
+    : await leaderboardRateLimit(request);
+
+  if (rateLimited.status !== 200) return rateLimited;
+
   return NextResponse.json(
     await fetchLeaderboard({
       guild_id: BigInt(params.guild),
@@ -68,6 +90,14 @@ export async function GET(
       sortDirection: sortDirection as "asc" | "desc",
       limit: 10,
       offset: page * 10,
-    })
+      searchFor: searchFor ?? undefined,
+    }),
+    {
+      status: 200,
+      headers: {
+        ...rateLimited.headers,
+        "Cache-Control": "private, max-age=60",
+      },
+    }
   );
 }

@@ -61,7 +61,6 @@ export default async function LeaderboardPage({
       </div>
 
       {/* table */}
-
       <Table
         guildId={guild}
         defaultEntries={data.data}

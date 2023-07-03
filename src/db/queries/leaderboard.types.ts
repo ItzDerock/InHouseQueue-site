@@ -7,6 +7,8 @@ export enum FetchLeaderboardSortType {
 
 export type FetchLeaderboardInput = {
   guild_id: bigint;
+  /** If provided, this function will only fetch rows that contain the given text. */
+  searchFor?: string;
   sortBy?: FetchLeaderboardSortType;
   sortDirection?: 'asc' | 'desc';
   limit?: number;
@@ -16,6 +18,7 @@ export type FetchLeaderboardInput = {
 
 export type LeaderboardEntry = {
   ign: string;
+  user_id: string;
   wins: number | null;
   losses: number | null;
   mmr: number;
