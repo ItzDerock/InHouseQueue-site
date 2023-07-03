@@ -13,7 +13,7 @@ export default function Feature3() {
       <ol className="checkmark-list space-y-3 text-left">
         <li data-aos="fade-up" data-aos-delay={0}>
           <span className="font-bold">Server Performance Tracking:</span>{" "}
-          Admins can get an succinct overview on how your server is performing.
+          Can a quick overview on how your server is performing.
           Total games, Total players and other admin related information are all available
           with a single command.
         </li>
@@ -28,13 +28,13 @@ export default function Feature3() {
         <li data-aos="fade-up" data-aos-delay={200}>
           <span className="font-bold">Comprehensive Profile and Stats:</span>{" "}
           Access a centralized hub for your profile and stats, tracking MMR, MVP
-          votes, longest winstreaks and much more.
+          votes, longest win streaks and much more.
         </li>
 
         <li data-aos="fade-up" data-aos-delay={200}>
           <span className="font-bold">Time scheduled queues:</span>{" "}
           Like playing at a certain time everyday? Add a schedule and InHouseQueue
-          will automatically send a queue at your desired time
+          will automatically send a queue at your desired time.
         </li>
 
         <p data-aos="fade-up" data-aos-delay={300}>
