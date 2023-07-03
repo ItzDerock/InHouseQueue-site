@@ -42,28 +42,36 @@ export async function GET(
   if (!SORT_BY_VALUES.includes(sortBy)) {
     return NextResponse.json({
       data: [],
-      error: "Invalid sortBy value",
+      error: {
+        message: "Invalid sortBy value",
+      },
     });
   }
 
   if (!SORT_DIR_VALUES.includes(sortDirection)) {
     return NextResponse.json({
       data: [],
-      error: "Invalid sortDirection value",
+      error: {
+        message: "Invalid sortDirection value",
+      },
     });
   }
 
   if (isNaN(page) || page < 0) {
     return NextResponse.json({
       data: [],
-      error: "Invalid offset value",
+      error: {
+        message: "Invalid offset value",
+      },
     });
   }
 
   if (!/^\d+$/.test(params.guild)) {
     return NextResponse.json({
       data: [],
-      error: "Invalid guild ID",
+      error: {
+        message: "Invalid guild ID",
+      },
     });
   }
 
@@ -72,7 +80,18 @@ export async function GET(
   if (!session || !session.user) {
     return NextResponse.json({
       data: [],
-      error: "Not logged in",
+      error: {
+        message: "Not logged in",
+      },
+    });
+  }
+
+  if (!session.user.guilds.includes(params.guild)) {
+    return NextResponse.json({
+      data: [],
+      error: {
+        message: "Not in guild",
+      },
     });
   }
 

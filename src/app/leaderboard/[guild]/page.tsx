@@ -7,6 +7,7 @@ import { fetchLeaderboard } from "../../../db/queries/leaderboard";
 import { getServerSession } from "next-auth";
 import Redirect from "../../../auth/Redirect";
 import { Table } from "../../../partials/Leaderboard/Table";
+import { authOptions } from "../../../auth";
 
 export default async function LeaderboardPage({
   params,
@@ -14,11 +15,21 @@ export default async function LeaderboardPage({
   params: { guild: string };
 }) {
   // check session
-  const session = await getServerSession();
+  const session = await getServerSession(authOptions);
   if (!session) {
     // redirect to login
     return <Redirect />;
     // return redirect("/api/auth/signin/discord");
+  }
+
+  if (!session.user.guilds.includes(params.guild)) {
+    return (
+      <div className="flex h-96 w-full flex-col justify-center p-4 align-middle">
+        <p className="text-center text-white">
+          You do not have access to this page
+        </p>
+      </div>
+    );
   }
 
   const guild = params.guild;
