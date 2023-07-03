@@ -255,9 +255,18 @@ export function Table(props: {
           </Button>
         )}
 
-        {auth.data?.user.name && (
-          <p className="text-zinc-600">Logged in as {auth.data?.user.name}</p>
-        )}
+        <div className="text-center">
+          {auth.data?.user.name && (
+            <p className="text-zinc-600">Logged in as {auth.data?.user.name}</p>
+          )}
+          <p className="text-zinc-600">
+            Run{" "}
+            <span className="box-content rounded-sm bg-zinc-800 p-1 text-zinc-400">
+              /ign
+            </span>{" "}
+            to have your name appear here!
+          </p>
+        </div>
       </div>
     </>
   );
