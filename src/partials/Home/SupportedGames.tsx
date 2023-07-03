@@ -9,7 +9,7 @@ export default function SupportedGames() {
       {/* left text */}
       <div className="h-full">
         <h1 className="font-bold text-3xl text-white">Play any of these games?</h1>
-        <p className="text-gray-400">If not, don't worry. Any 5v5 game is supported</p>
+        <p className="text-gray-400">If not we support any 5v5 game anyway</p>
       </div>
 
       {/* right images */}
