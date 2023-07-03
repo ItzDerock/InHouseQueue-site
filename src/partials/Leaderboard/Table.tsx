@@ -118,7 +118,7 @@ export function Table(props: {
       <div className="relative mx-auto w-full max-w-[1024px]">
         <input
           type="text"
-          placeholder="Search for command"
+          placeholder="Search for player. (User ID or IGN)"
           className="my-7 w-full rounded-md border border-gray-600 bg-background-main p-2 text-white"
           // update keywords
           onChange={(e) => {
