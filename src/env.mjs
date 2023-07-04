@@ -10,6 +10,7 @@ const server = z.object({
   DATABASE_URL: z.string(),
   DISCORD_CLIENT_ID: z.string(),
   DISCORD_CLIENT_SECRET: z.string(),
+  DISABLE_GUILD_CHECKING: z.string().optional(),
 });
 
 /**
@@ -31,7 +32,7 @@ const processEnv = {
   DATABASE_URL: process.env.DATABASE_URL,
   DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID,
   DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
-  // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
+  DISABLE_GUILD_CHECKING: process.env.DISABLE_GUILD_CHECKING,
 };
 
 // Don't touch the part below
