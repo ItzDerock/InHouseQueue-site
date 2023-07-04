@@ -8,6 +8,7 @@ import { getServerSession } from "next-auth";
 import Redirect from "../../../auth/Redirect";
 import { Table } from "../../../partials/Leaderboard/Table";
 import { authOptions } from "../../../auth";
+import { env } from "../../../env.mjs";
 
 export default async function LeaderboardPage({
   params,
@@ -22,7 +23,10 @@ export default async function LeaderboardPage({
     // return redirect("/api/auth/signin/discord");
   }
 
-  if (!session.user.guilds.includes(params.guild)) {
+  if (
+    !env.DISABLE_GUILD_CHECKING &&
+    !session.user.guilds.includes(params.guild)
+  ) {
     return (
       <div className="flex h-96 w-full flex-col justify-center p-4 align-middle">
         <p className="text-center text-white">
