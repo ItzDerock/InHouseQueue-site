@@ -12,10 +12,10 @@ export default function Feature3() {
       {/* checkmarks */}
       <ol className="checkmark-list space-y-3 text-left">
         <li data-aos="fade-up" data-aos-delay={0}>
-          <span className="font-bold">Character Performance Tracking:</span>{" "}
-          Keep an eye on your performance with specific champions, agents, and
-          heroes. Compete to become the best one-trick Teemo and dominate the
-          leaderboards!
+          <span className="font-bold">Server Performance Tracking:</span>{" "}
+          Can a quick overview on how your server is performing.
+          Total games, Total players and other admin related information are all available
+          with a single command.
         </li>
 
         <li data-aos="fade-up" data-aos-delay={100}>
@@ -28,9 +28,13 @@ export default function Feature3() {
         <li data-aos="fade-up" data-aos-delay={200}>
           <span className="font-bold">Comprehensive Profile and Stats:</span>{" "}
           Access a centralized hub for your profile and stats, tracking MMR, MVP
-          votes, longest winstreaks, best duo partners, and your top 3
-          characters. For admins, monitor server performance with an overview of
-          player participation and total games played.
+          votes, longest win streaks and much more.
+        </li>
+
+        <li data-aos="fade-up" data-aos-delay={200}>
+          <span className="font-bold">Time scheduled queues:</span>{" "}
+          Like playing at a certain time everyday? Add a schedule and InHouseQueue
+          will automatically send a queue at your desired time.
         </li>
 
         <p data-aos="fade-up" data-aos-delay={300}>

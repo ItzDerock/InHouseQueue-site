@@ -32,7 +32,7 @@ export default function Feature1() {
           icon={MdOutlineBarChart}
           aosIndex={1}
         >
-          Generate server-wide leaderboards for MMR, MVP, Wins and more.
+          View your server leaderboard on our website!
         </Card>
 
         {/* Channel Generation */}
