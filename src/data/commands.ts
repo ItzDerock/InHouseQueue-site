@@ -4,16 +4,19 @@ const commands = [
   {
     "name": "reset",
     "type": "Admin",
-    "description": "Reset scores of an individual or the entire server. Remove everyone from a queue.",
+    "description": "Reset scores or MMR of an individual or the entire server. Remove everyone from a queue.",
     "usage": [
       "/admin reset leaderboard",
       "/admin reset user [member]",
-      "/admin reset queue [gameid]"
+      "/admin reset queue [gameid]",
+      "/admin reset mmr [member](optional)"
+      ]
     ],
     "examples": [
       "/admin reset leaderboard",
       "/admin reset user @John",
       "/admin reset queue 03134ff5"
+      "/admin reset mmr @John"
     ]
   },
   {
