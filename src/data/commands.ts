@@ -10,8 +10,7 @@ const commands = [
       "/admin reset user [member]",
       "/admin reset queue [gameid]",
       "/admin reset mmr [member](optional)"
-      ]
-    },
+      ],
     "examples": [
       "/admin reset leaderboard",
       "/admin reset user @John",
