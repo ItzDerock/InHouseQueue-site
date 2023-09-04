@@ -3,6 +3,7 @@ import { type NextRequest, NextResponse } from "next/server";
 import { authOptions } from "../../../../auth";
 import { fetchLeaderboard } from "../../../../db/queries/leaderboard";
 import { FetchLeaderboardSortType } from "../../../../db/queries/leaderboard.types";
+import { env } from "../../../../env.mjs";
 import { getRealIP } from "../../../../utils";
 import { initRateLimit } from "../../../../utils/rate-limit";
 
@@ -86,7 +87,10 @@ export async function GET(
     });
   }
 
-  if (!session.user.guilds.includes(params.guild)) {
+  if (
+    !env.DISABLE_GUILD_CHECKING &&
+    !session.user.guilds.includes(params.guild)
+  ) {
     return NextResponse.json({
       data: [],
       error: {

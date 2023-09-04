@@ -7,7 +7,7 @@ export default function RankCard(props: LeaderboardCardProps) {
       data-aos="fade-up"
       data-aos-delay={props.index * 100}
     >
-      <div className="flex flex-col gap-[10px] align-middle">
+      <div className="flex flex-row flex-wrap justify-center gap-[10px] align-middle md:flex-col md:justify-normal">
         <h1 className="text-6xl font-extrabold">
           {props.index + 1}
           {props.index === 1 ? "ND" : "RD"}

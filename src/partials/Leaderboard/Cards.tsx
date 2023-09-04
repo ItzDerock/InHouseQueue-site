@@ -26,7 +26,7 @@ export function LeaderboardCards(props: LeaderboardCardsProps) {
     >
       <div className="absolute z-50 mb-6 -translate-y-20">
         <div
-          className="flex w-screen flex-row flex-wrap justify-center gap-[14px] text-white"
+          className="flex w-screen flex-col justify-center gap-[14px] px-4 text-white md:flex-row"
           ref={ref}
         >
           {props.entries[0] && (

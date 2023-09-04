@@ -118,7 +118,7 @@ export function Table(props: {
       <div className="relative mx-auto w-full max-w-[1024px]">
         <input
           type="text"
-          placeholder="Search for command"
+          placeholder="Search for player. (User ID or IGN)"
           className="my-7 w-full rounded-md border border-gray-600 bg-background-main p-2 text-white"
           // update keywords
           onChange={(e) => {
@@ -255,9 +255,18 @@ export function Table(props: {
           </Button>
         )}
 
-        {auth.data?.user.name && (
-          <p className="text-zinc-600">Logged in as {auth.data?.user.name}</p>
-        )}
+        <div className="text-center">
+          {auth.data?.user.name && (
+            <p className="text-zinc-600">Logged in as {auth.data?.user.name}</p>
+          )}
+          <p className="text-zinc-600">
+            Run{" "}
+            <span className="box-content rounded-sm bg-zinc-800 p-1 text-zinc-400">
+              /ign
+            </span>{" "}
+            to have your name appear here!
+          </p>
+        </div>
       </div>
     </>
   );
