@@ -67,7 +67,7 @@ const commands = [
     "type": "Admin",
     "description": "Enable/Disable Skill",
     "usage": [
-      "/ sbmm [options]"
+      "/sbmm [options]"
     ],
     "examples": [
       "/sbmm Disable"
