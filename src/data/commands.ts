@@ -6,16 +6,16 @@ const commands = [
     "type": "Admin",
     "description": "Reset scores or MMR of an individual or the entire server. Remove everyone from a queue.",
     "usage": [
-      "/admin reset leaderboard",
-      "/admin reset user [member]",
-      "/admin reset queue [gameid]",
-      "/admin reset mmr [member](optional)"
+      "/reset leaderboard",
+      "/reset user [member]",
+      "/reset queue [gameid]",
+      "/reset mmr [member](optional)"
       ],
     "examples": [
-      "/admin reset leaderboard",
-      "/admin reset user @John",
-      "/admin reset queue 03134ff5",
-      "/admin reset mmr @John"
+      "/reset leaderboard",
+      "/reset user @John",
+      "/reset queue 03134ff5",
+      "/reset mmr @John"
     ]
   },
   {
@@ -23,10 +23,10 @@ const commands = [
     "type": "Admin",
     "description": "Purge all records of a game. Used if players get \"stuck\" in a match and cannot queue.",
     "usage": [
-      "/admin void [gameid]"
+      "/void [gameid]"
     ],
     "examples": [
-      "/admin void 03134ff5"
+      "/void 03134ff5"
     ]
   },
   {
@@ -34,10 +34,10 @@ const commands = [
     "type": "Admin",
     "description": "Change the results of a finished game.",
     "usage": [
-      "/admin change_winner [gameid] [team]"
+      "/change_winner [gameid] [team]"
     ],
     "examples": [
-      "/admin change_winner 03134ff5 Red"
+      "/change_winner 03134ff5 Red"
     ]
   },
   {
@@ -45,10 +45,10 @@ const commands = [
     "type": "Admin",
     "description": "Set a winner for an ongoing game without requiring a vote.",
     "usage": [
-      "/admin winner [role]"
+      "/winner [role]"
     ],
     "examples": [
-      "/admin winner @Red: 316d8cc7"
+      "/winner @Red: 316d8cc7"
     ]
   },
   {
@@ -56,10 +56,10 @@ const commands = [
     "type": "Admin",
     "description": "Decide if players can be in multiple queues at once.",
     "usage": [
-      "/admin queue_preference [options] "
+      "/queue_preference [options] "
     ],
     "examples": [
-      "/admin queue_preference Single Queue"
+      "/queue_preference Single Queue"
     ]
   },
   {
@@ -67,10 +67,10 @@ const commands = [
     "type": "Admin",
     "description": "Enable/Disable Skill",
     "usage": [
-      "/admin sbmm [options]"
+      "/ sbmm [options]"
     ],
     "examples": [
-      "/admin sbmm Disable"
+      "/sbmm Disable"
     ]
   },
   {
@@ -78,10 +78,10 @@ const commands = [
     "type": "Admin",
     "description": "Cancel an ongoing match",
     "usage": [
-      "/admin cancel [gameid]"
+      "/cancel [gameid]"
     ],
     "examples": [
-      "/admin cancel 03134ff5"
+      "/cancel 03134ff5"
     ]
   },
   {
@@ -89,10 +89,10 @@ const commands = [
     "type": "Admin",
     "description": "Give a Discord role the permissions to run a specific admin command",
     "usage": [
-      "/admin grant [role] [command]"
+      "/grant [role] [command]"
     ],
     "examples": [
-      "/admin grant @Moderators queue reset"
+      "/grant @Moderators queue reset"
     ]
   },
   {
@@ -100,10 +100,10 @@ const commands = [
     "type": "Admin",
     "description": "Remove the admin command from a discord role you previously set",
     "usage": [
-      "/admin revoke [role] [command]"
+      "/revoke [role] [command]"
     ],
     "examples": [
-      "/admin revoke @Moderators queue reset"
+      "/revoke @Moderators queue reset"
     ]
   },
   {
@@ -111,10 +111,10 @@ const commands = [
     "type": "Admin",
     "description": "Remove single user from an ongoing queue",
     "usage": [
-      "/admin user_dequeue [member]"
+      "/user_dequeue [member]"
     ],
     "examples": [
-      "/admin user_dequeue @John"
+      "/user_dequeue @John"
     ]
   },
   {
@@ -122,10 +122,10 @@ const commands = [
     "type": "Admin",
     "description": "Enable/Disable Duo queuing",
     "usage": [
-      "/admin duo_queue [options]"
+      "/duo_queue [options]"
     ],
     "examples": [
-      "/admin duo_queue Enable"
+      "/duo_queue Enable"
     ]
   },
   {
@@ -144,10 +144,10 @@ const commands = [
     "type": "Admin",
     "description": "Remove a member who has left the server from the database",
     "usage": [
-      "/admin reset_db [userid]"
+      "/reset_db [userid]"
     ],
     "examples": [
-      "/admin reset_db 12345678912312"
+      "/reset_db 12345678912312"
         ]
   },
   {
@@ -155,10 +155,10 @@ const commands = [
     "type": "Admin",
     "description": "Update the IGN of any player",
     "usage": [
-      "/admin update_ign [ign] [member] [game]"
+      "/update_ign [ign] [member] [game]"
     ],
     "examples": [
-      "/admin update_ign Faker John League of Legends"
+      "/update_ign Faker John League of Legends"
     ]
   },
   {
@@ -166,11 +166,11 @@ const commands = [
     "type": "Admin",
     "description": "Set queue requirements based on the specified options",
     "usage": [
-      "/admin require [condition] [game] [feature]"
+      "/require [condition] [game] [feature]"
     ],
     "examples": [
-      "/admin require True League of Legends IGN",
-      "/admin require True League of Legends Character Required"
+      "/require True League of Legends IGN",
+      "/require True League of Legends Character Required"
     ]
   },
   {
@@ -178,10 +178,10 @@ const commands = [
     "type": "Admin",
     "description": "Add/update the champion, hero or agent a member has played",
     "usage": [
-      "/admin update_character [name] [gameid] [member] [game]"
+      "/update_character [name] [gameid] [member] [game]"
     ],
     "examples": [
-      "/admin update_character Teemo 03134ff5 @iHenners League of Legends"
+      "/update_character Teemo 03134ff5 @iHenners League of Legends"
     ]
   },
   {
@@ -189,10 +189,10 @@ const commands = [
     "type": "Admin",
     "description": "Users must have this role before being able to queue",
     "usage": [
-      "/admin queue_role [role] [game]"
+      "/queue_role [role] [game]"
     ],
     "examples": [
-      "/admin queue_role @InHouseQueue League of Legends"
+      "/queue_role @InHouseQueue League of Legends"
     ]
   },
   {
@@ -200,10 +200,10 @@ const commands = [
     "type": "Admin",
     "description": "Enable Fill. Players queueing fill will be assigned a random available role",
     "usage": [
-      "/admin fill [condition]"
+      "/fill [condition]"
     ],
     "examples": [
-      "/admin fill True"
+      "/fill True"
     ]
   },
   {
@@ -211,10 +211,10 @@ const commands = [
     "type": "Admin",
     "description": "Enable Casual mode. No predefined roles, just 1 queue button for quick casual InHouse games",
     "usage": [
-      "/admin casual [condition]"
+      "/casual [condition]"
     ],
     "examples": [
-      "/admin casual True"
+      "/casual True"
     ]
   },
   {
@@ -222,10 +222,10 @@ const commands = [
     "type": "Admin",
     "description": "Forces the game to start once the ready-up phase has begun",
     "usage": [
-      "/admin force_start [gameid]",
+      "/force_start [gameid]",
     ],
     "examples": [
-      "/admin force_start 03134ff5",
+      "/force_start 03134ff5",
     ]
   },
   {
@@ -233,10 +233,10 @@ const commands = [
     "type": "Admin",
     "description": "Schedule when the queue opens and closes automatically (Timezones: UTC, EST, EDT)",
     "usage": [
-      "/admin schedule",
+      "/schedule",
     ],
     "examples": [
-      "/admin schedule",
+      "/schedule",
     ]
   },
   {
@@ -244,10 +244,10 @@ const commands = [
     "type": "Admin",
     "description": "Delete a previously set schedule",
     "usage": [
-      "/admin delete_schedule",
+      "/delete_schedule",
     ],
     "examples": [
-      "/admin delete_schedule",
+      "/delete_schedule",
     ]
   },
   {
@@ -255,10 +255,10 @@ const commands = [
     "type": "Admin",
     "description": "Enable/Disable certain features",
     "usage": [
-      "/admin feature [condition] [feature]",
+      "/feature [condition] [feature]",
     ],
     "examples": [
-      "/admin feature True MVP Voting",
+      "/feature True MVP Voting",
     ]
   },
 
@@ -268,10 +268,10 @@ const commands = [
     "type": "Set-Up",
     "description": "Setup your server Automatically!",
     "usage": [
-      "/admin setup [game]"
+      "/setup [game]"
     ],
     "examples": [
-      "/admin setup Overwatch"
+      "/setup Overwatch"
     ]
   },
   {
@@ -301,10 +301,10 @@ const commands = [
     "type": "Set-Up",
     "description": "Set up a Dynamic top ten leaderboard",
     "usage": [
-      "/admin top_ten [#channelname] [game]"
+      "/top_ten [#channelname] [game]"
     ],
     "examples": [
-      "/admin top_ten #leaderboard Overwatch"
+      "/top_ten #leaderboard Overwatch"
     ]
   },
   {
@@ -312,10 +312,10 @@ const commands = [
     "type": "Set-Up",
     "description": "Enable/Disable Test mode",
     "usage": [
-      "/admin test_mode [options]"
+      "/test_mode [options]"
     ],
     "examples": [
-      "/admin test_mode True"
+      "/test_mode True"
     ]
   },
 
