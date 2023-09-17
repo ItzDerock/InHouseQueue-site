@@ -65,7 +65,7 @@ const commands = [
   {
     "name": "sbmm",
     "type": "Admin",
-    "description": "Enable/Disable Skill",
+    "description": "Toggle Skill",
     "usage": [
       "/sbmm [options]"
     ],
@@ -120,7 +120,7 @@ const commands = [
   {
     "name": "duo_queue",
     "type": "Admin",
-    "description": "Enable/Disable Duo queuing",
+    "description": "Toggle Duo queuing",
     "usage": [
       "/duo_queue [options]"
     ],
@@ -140,14 +140,25 @@ const commands = [
     ]
   },
   {
-    "name": "reset_db",
+    "name": "purge_user",
     "type": "Admin",
     "description": "Remove a member who has left the server from the database",
     "usage": [
-      "/reset_db [userid]"
+      "/purge_user [userid]"
     ],
     "examples": [
-      "/reset_db 12345678912312"
+      "/purge_user 12345678912312"
+        ]
+  },
+  {
+    "name": "purge_inactive",
+    "type": "Admin",
+    "description": "Purge anyone from the leaderboard with 0 wins, 0 losses, and 0 MVP points.",
+    "usage": [
+      "/purge_inactive"
+    ],
+    "examples": [
+      "/purge_inactive"
         ]
   },
   {
@@ -253,12 +264,23 @@ const commands = [
   {
     "name": "feature",
     "type": "Admin",
-    "description": "Enable/Disable certain features",
+    "description": "Toggle certain features",
     "usage": [
       "/feature [condition] [feature]",
     ],
     "examples": [
       "/feature True MVP Voting",
+    ]
+  },
+  {
+   "name": "captain_queue",
+   "type": "Admin",
+   "description": "Toggle Captain mode",
+    "usage": [
+      "/captain_queue [condition]",
+    ],
+    "examples": [
+      "/captain_queue True",
     ]
   },
 
@@ -310,7 +332,7 @@ const commands = [
   {
     "name": "test_mode",
     "type": "Set-Up",
-    "description": "Enable/Disable Test mode",
+    "description": "Toggle Test mode",
     "usage": [
       "/test_mode [options]"
     ],
