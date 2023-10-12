@@ -283,6 +283,28 @@ const commands = [
       "/captain_queue True",
     ]
   },
+   {
+    "name": "add_mmr",
+    "type": "Admin",
+    "description": "Increase a members MMR by an approximate percentage %",
+     "usage": [
+       "/add_mmr [member] [percentage]",
+     ],
+     "examples": [
+       "/add_mmr @Faker 100",
+     ]
+  },
+   {
+    "name": "Remove_mmr",
+    "type": "Admin",
+    "description": "Decrease a members MMR by an approximate percentage %",
+     "usage": [
+       "/remove_mmr [member] [percentage]",
+     ],
+     "examples": [
+       "/remove_mmr @Faker 100",
+     ]
+   },
 
   // ~ Set-up
   {
