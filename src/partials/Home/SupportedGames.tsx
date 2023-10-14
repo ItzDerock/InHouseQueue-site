@@ -8,7 +8,7 @@ export default function SupportedGames() {
     <div className="flex flex-row flex-wrap gap-16 justify-center mx-4 md:mx-0">
       {/* left text */}
       <div className="h-full">
-        <h1 className="font-bold text-3xl text-white">Organising custom games just got easier</h1>
+        <h1 className="font-bold text-3xl text-white">Draft, Duel, Dominate</h1>
         <p className="text-gray-400">For competitive or casual 5v5 games such as:</p>
       </div>
 
