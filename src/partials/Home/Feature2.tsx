@@ -20,7 +20,8 @@ export default function Feature2() {
             "Vote for your MVP of the Match!",
             "Track your stats and match history",
             "Time scheduled queues",
-            "Duo Queue"
+            "Duo Queue",
+            "Captain Queue"
           ].map((item, index) => (
             <li
               key={index}
