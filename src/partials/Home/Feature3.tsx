@@ -48,7 +48,7 @@ export default function Feature3() {
         </li>
 
         <li data-aos="fade-up" data-aos-delay={400}>
-          <span className="font-bold">Team Size customization</span> You'll soon be
+          <span className="font-bold">Team Size customization</span> You&apos;ll soon be
           able to fully customize the bot your specific Games. From 1v1 to 8v8!
         </li>
 
