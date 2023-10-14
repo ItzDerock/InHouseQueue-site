@@ -28,16 +28,16 @@ export default function HomePage() {
 
           {/* buttons */}
           <div className="mt-64 flex flex-row flex-wrap justify-center gap-8">
+            <Button variant="secondary" href="/commands">
+              Commands
+            </Button>
+
             <Button
               variant="primary"
               href="https://discord.com/api/oauth2/authorize?client_id=1001168331996409856&permissions=1101927804016&scope=bot"
               target="_blank"
             >
               Add to Discord
-            </Button>
-
-            <Button variant="secondary" href="/commands">
-              Commands
             </Button>
 
             <Button variant="secondary" href="https://docs.inhousequeue.xyz">
