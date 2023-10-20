@@ -321,7 +321,7 @@ const commands = [
     "type": "Admin",
     "description": "Check and display enabled InHouseQueue permissions in a specific channel",
     "usage": [
-      "/check_permissions [channel] (optional)",
+      "/check_permissions [#channelname] (optional)",
     ],
     "examples": [
       "/check_permissions #general",
