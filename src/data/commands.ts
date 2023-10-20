@@ -295,7 +295,7 @@ const commands = [
      ]
   },
    {
-    "name": "Remove_mmr",
+    "name": "remove_mmr",
     "type": "Admin",
     "description": "Decrease a members MMR by an approximate percentage %",
      "usage": [
@@ -305,6 +305,28 @@ const commands = [
        "/remove_mmr @Faker 100",
      ]
    },
+   {
+     "name": "server_stats",
+     "type": "Admin",
+     "description": "Bring up your server statistics for the InHouseQueue bot!",
+     "usage": [
+       "/server_stats",
+     ],
+     "examples": [
+       "/server_stats",
+     ]
+   },
+  {
+    "name": "check_permissions",
+    "type": "Admin",
+    "description": "Check and display enabled InHouseQueue permissions in a specific channel",
+    "usage": [
+      "/check_permissions [channel] (optional)",
+    ],
+    "examples": [
+      "/check_permissions #general",
+    ]
+  },
 
   // ~ Set-up
   {
@@ -468,17 +490,6 @@ const commands = [
     ],
     "examples": [
       "/top League of Legends Thresh",
-    ]
-  },
-  {
-    "name": "server_stats",
-    "type": "General",
-    "description": "Bring up your server statistics for the InHouseQueue bot!",
-    "usage": [
-      "/server stats",
-    ],
-    "examples": [
-      "/server stats",
     ]
   },
 
