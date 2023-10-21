@@ -89,10 +89,13 @@ const commands = [
     "type": "Admin",
     "description": "Give a Discord role the permissions to run a specific admin command",
     "usage": [
-      "/grant_queue_permissions [role] [command]"
+      "/grant_queue_commands [role] [command]",
+      "/grant_server_commands [role] [command]",
+      "/grant_game_commands [role] [command]",
+      "/grant_leaderboard_commands [role] [command]"
     ],
     "examples": [
-      "/grant_queue_permissions @Moderators Reset a queue"
+      "/grant_queue_commands @Moderators Reset a queue"
     ]
   },
   {
@@ -100,10 +103,13 @@ const commands = [
     "type": "Admin",
     "description": "Remove the admin command from a discord role you previously set",
     "usage": [
-      "/revoke_queue_permissions [role] [command]"
+      "/revoke_queue_commands [role] [command]",
+      "/revoke_server_commands [role] [command]",
+      "/revoke_game_commands [role] [command]",
+      "/revoke_leaderboard [role] [command]"
     ],
     "examples": [
-      "/revoke_queue_permissions @Moderators Reset a queue"
+      "/revoke_queue_commands @Moderators Reset a queue"
     ]
   },
   {
