@@ -89,10 +89,10 @@ const commands = [
     "type": "Admin",
     "description": "Give a Discord role the permissions to run a specific admin command",
     "usage": [
-      "/grant [role] [command]"
+      "/grant_queue_permissions [role] [command]"
     ],
     "examples": [
-      "/grant @Moderators queue reset"
+      "/grant_queue_permissions @Moderators Reset a queue"
     ]
   },
   {
@@ -100,10 +100,10 @@ const commands = [
     "type": "Admin",
     "description": "Remove the admin command from a discord role you previously set",
     "usage": [
-      "/revoke [role] [command]"
+      "/revoke_queue_permissions [role] [command]"
     ],
     "examples": [
-      "/revoke @Moderators queue reset"
+      "/revoke_queue_permissions @Moderators Reset a queue"
     ]
   },
   {
@@ -326,6 +326,28 @@ const commands = [
     "examples": [
       "/check_permissions #general",
     ]
+  },
+  {
+     "name": "add_lobby_info",
+     "type": "Admin",
+     "description": "Set/Update Lobby Instructions or details for players.",
+     "usage": [
+      "/add_lobby_info [title] [description]",
+     ],
+     "examples": [
+       "/add_lobby_info Rules No toxicity in voice calls",
+     ]
+  },
+  {
+     "name": "set_timer",
+     "type": "Admin",
+     "description": "Update the Read up timer limit (Minutes)",
+     "usage": [
+      "/set_timer [minutes]",
+     ],
+     "examples": [
+       "/set_timer 2",
+     ]
   },
 
   // ~ Set-up
