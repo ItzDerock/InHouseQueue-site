@@ -21,9 +21,9 @@ export default function Feature2() {
             "Track your stats and match history",
             "Time scheduled queues",
             "Duo Queue",
-            "Captain Queue"
-            "Customize Team sizes (1v1 - 8v8)"
-            "More"
+            "Captain Queue",
+            "Customize Team sizes (1v1 - 8v8)",
+            "More",
           ].map((item, index) => (
             <li
               key={index}
