@@ -10,7 +10,6 @@ export default function SupportedGames() {
       <div className="h-full">
         <h1 className="font-bold text-3xl text-white">Draft, Duel, Dominate</h1>
         <p className="text-gray-400">Designed for competitive 5v5 games such as:</p>
-        <br>
         <p className="text-gray-400">Dynamic support for games from 1v1 to 8v8:</p>
       </div>
 
