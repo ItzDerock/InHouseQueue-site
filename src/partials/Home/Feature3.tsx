@@ -34,7 +34,12 @@ export default function Feature3() {
         <li data-aos="fade-up" data-aos-delay={200}>
           <span className="font-bold">Time scheduled queues:</span>{" "}
           Like playing at a certain time everyday? Add a schedule and InHouseQueue
-          will automatically send a queue at your desired time.
+          will automatically send and close a queue at your desired time.
+        </li>
+
+        <li data-aos="fade-up" data-aos-delay={400}>
+          <span className="font-bold">Team Size customization</span> Customize the bot to your specific
+          Games. From 1v1 to 8v8!
         </li>
 
         <p data-aos="fade-up" data-aos-delay={300}>
@@ -45,11 +50,6 @@ export default function Feature3() {
           <span className="font-bold">Best of 3/5 Series:</span> Organize
           intense scrimmages with a best-of series for those serious about
           competition.
-        </li>
-
-        <li data-aos="fade-up" data-aos-delay={400}>
-          <span className="font-bold">Team Size customization</span> You&apos;ll soon be
-          able to fully customize the bot to your specific Games. From 1v1 to 8v8!
         </li>
 
         <li data-aos-delay={500} data-aos="fade-up">

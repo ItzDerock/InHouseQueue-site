@@ -22,6 +22,8 @@ export default function Feature2() {
             "Time scheduled queues",
             "Duo Queue",
             "Captain Queue"
+            "Customize Team sizes (1v1 - 8v8)"
+            "More"
           ].map((item, index) => (
             <li
               key={index}
