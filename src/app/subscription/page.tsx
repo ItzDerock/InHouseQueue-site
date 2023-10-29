@@ -64,6 +64,40 @@ const PLAN_DETAILS = [
     ],
   },
 
+  /************** TIER 2 - Coming Soon **************/
+  {
+    type: PlanType.ComingSoon,
+    title: "Tier 2 - Emerald",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    price: "$??/mo",
+    url: "#",
+    highlights: [
+      {
+        title: "Coming Soon",
+        description: (
+          <Fragment>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet
+            consectetur adipiscing elit ut aliquam purus sit amet luctus.
+            Pretium lectus quam id leo in vitae. Tempus iaculis urna id volutpat
+            lacus. Libero enim sed faucibus turpis. Ac orci phasellus egestas
+            tellus rutrum tellus pellentesque. Eleifend mi in nulla posuere
+            sollicitudin. Est sit amet facilisis magna etiam tempor. Id aliquet
+            lectus proin nibh nisl condimentum id venenatis. Convallis tellus id
+            interdum velit laoreet id donec ultrices tincidunt.
+          </Fragment>
+        ),
+      },
+    ],
+    features: [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Placeholder text that will not be displayed.",
+      "Exists just to fill space.",
+      "If you are a user and see this... oops, pulled a rito and their 🍝 code",
+      "this is probably enough text",
+    ],
+  },
+
   /************** TIER 3 - CHALLENGER **************/
   {
     type: PlanType.Special,
@@ -145,40 +179,6 @@ const PLAN_DETAILS = [
       },
     ],
     features: ["Love from the Dev Team", "Discord Access"],
-  },
-
-  /************** TIER 2 - Coming Soon **************/
-  {
-    type: PlanType.ComingSoon,
-    title: "Tier 2 - Emerald",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    price: "$??/mo",
-    url: "#",
-    highlights: [
-      {
-        title: "Coming Soon",
-        description: (
-          <Fragment>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet
-            consectetur adipiscing elit ut aliquam purus sit amet luctus.
-            Pretium lectus quam id leo in vitae. Tempus iaculis urna id volutpat
-            lacus. Libero enim sed faucibus turpis. Ac orci phasellus egestas
-            tellus rutrum tellus pellentesque. Eleifend mi in nulla posuere
-            sollicitudin. Est sit amet facilisis magna etiam tempor. Id aliquet
-            lectus proin nibh nisl condimentum id venenatis. Convallis tellus id
-            interdum velit laoreet id donec ultrices tincidunt.
-          </Fragment>
-        ),
-      },
-    ],
-    features: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "Placeholder text that will not be displayed.",
-      "Exists just to fill space.",
-      "If you are a user and see this... oops, pulled a rito and their 🍝 code",
-      "this is probably enough text",
-    ],
   },
 
   /************** Custom Bot Hosting **************/
