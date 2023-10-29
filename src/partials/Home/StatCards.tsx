@@ -18,16 +18,18 @@ export default function StatCards() {
 
   const fetchStats = async () => {
     const header = {
-      "method": "GET",
+      method: "GET",
       "Access-Control-Allow-Origin": "*",
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     };
 
     try {
-      const res = await fetch("https://health.inhousequeue.xyz/health", { headers: header });
-      const data = await res.json() as IStatsProps; // Type assertion here
+      const res = await fetch("https://health.inhousequeue.xyz/health", {
+        headers: header,
+      });
+      const data = (await res.json()) as IStatsProps; // Type assertion here
       setStats(data);
-    } catch(err) {
+    } catch (err) {
       console.log(err);
       setStats({
         status: "unoperational",
@@ -35,18 +37,18 @@ export default function StatCards() {
         message: "",
         server_count: 700,
         total_games: 10000,
-        total_users: 12000
-      })
+        total_users: 12000,
+      });
     }
   };
 
   React.useEffect(() => {
     void fetchStats();
-  }, [])
+  }, []);
 
   return (
-    <div className="relative w-full z-30">
-      <div className="flex -translate-y-24 flex-row flex-wrap z-30 w-full align-middle justify-center gap-9">
+    <div className="relative z-30 mb-8 w-full">
+      <div className="z-30 flex w-full flex-row flex-wrap justify-center gap-9 align-middle md:-translate-y-24">
         <StatCard
           count={stats?.server_count ?? 0}
           label="Servers"
@@ -66,5 +68,5 @@ export default function StatCards() {
         />
       </div>
     </div>
-  )
+  );
 }
