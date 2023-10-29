@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { AnchorHTMLAttributes, MouseEventHandler } from "react";
+import { twMerge } from "tailwind-merge";
 
 export type ButtonProps = {
   children: React.ReactNode;
@@ -26,9 +27,11 @@ const variantStyles = {
 
 export default function Button(props: ButtonProps) {
   // build the styles
-  const buttonStyles = `${baseStyles} ${
-    variantStyles[props.variant || "primary"]
-  } ${props.className ?? ""}`;
+  const buttonStyles = twMerge(
+    baseStyles,
+    variantStyles[props.variant || "primary"],
+    props.className
+  );
 
   // if the button has an href, render an anchor tag
   if (props.href) {
