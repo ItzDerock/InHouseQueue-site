@@ -520,41 +520,53 @@ const commands = [
       "/top League of Legends Thresh",
     ]
   },
-
+  {
+    "name": "abandon",
+    "type": "General",
+    "description": "Initiate a vote to cancel an ongoing game",
+    "usage": [
+      "/abandon",
+    ],
+    "examples": [
+      "/abandon",
+    ]
+  },
   // ~ Games
-  {
-    "name": "champion",
-    "type": "LoL",
-    "description": "Select your champion. Only works inside a lobby channel",
-    "usage": [
-      "/champion [name]",
-    ],
-    "examples": [
-      "/champion Teemo",
-    ]
-  },
-  {
-    "name": "hero",
-    "type": "Overwatch",
-    "description": "Select your hero. Only works inside a lobby channel",
-    "usage": [
-      "/hero [name]",
-    ],
-    "examples": [
-      "/hero Tracer",
-    ]
-  },
-  {
-    "name": "agent",
-    "type": "Valorant",
-    "description": "Select your agent. Only works inside a lobby channel",
-    "usage": [
-      "/agent [name]",
-    ],
-    "examples": [
-      "/agent Astra",
-    ]
-  }
+//   {
+//     "name": "champion",
+//     "type": "LoL",
+//     "description": "Select your champion. Only works inside a lobby channel",
+//     "usage": [
+//       "/champion [name]",
+//     ],
+//     "examples": [
+//       "/champion Teemo",
+//     ]
+//   },
+//   {
+//     "name": "hero",
+//     "type": "Overwatch",
+//     "description": "Select your hero. Only works inside a lobby channel",
+//     "usage": [
+//       "/hero [name]",
+//     ],
+//     "examples": [
+//       "/hero Tracer",
+//     ]
+//   },
+//   {
+//     "name": "agent",
+//     "type": "Valorant",
+//     "description": "Select your agent. Only works inside a lobby channel",
+//     "usage": [
+//       "/agent [name]",
+//     ],
+//     "examples": [
+//       "/agent Astra",
+//     ]
+//   }
+// removing these for now - leaving as an example in case i ever add game specific commands
+// full search for "League of Legends commands" in this repo
 ] as const;
 
 // export commands
