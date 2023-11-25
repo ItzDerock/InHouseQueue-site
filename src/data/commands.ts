@@ -355,6 +355,28 @@ const commands = [
        "/set_timer 2",
      ]
   },
+   {
+     "name": "restrict_role",
+     "type": "Admin",
+     "description": "Assign a discord role for specific queue position",
+     "usage": [
+      "/restrict_role [discord_role] [queue_role]",
+     ],
+     "examples": [
+       "/restrict_role @Healer healer",
+     ]
+  },
+   {
+     "name": "unrestrict_role",
+     "type": "Admin",
+     "description": "Removes the Discord role restriction from a designated queue position.",
+     "usage": [
+      "/unrestrict_role",
+     ],
+     "examples": [
+       "/unrestrict_role",
+     ]
+   },
 
   // ~ Set-up
   {
