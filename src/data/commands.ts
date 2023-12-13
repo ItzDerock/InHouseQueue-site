@@ -374,9 +374,53 @@ const commands = [
       "/unrestrict_role",
      ],
      "examples": [
-       "/unrestrict_role",
+       "/unrestrict_role [role]",
      ]
    },
+    {
+      "name": "language",
+      "type": "Admin",
+      "description": "Change the language of InHouseQueue",
+      "usage": [
+       "/language",
+      ],
+      "examples": [
+          "/language Spanish",
+      ]
+    },
+    {
+      "name": "start_challenges",
+      "type": "Admin",
+      "description": "Initiate challenges in your server. Let the fun begin!",
+      "usage": [
+       "/start_challenges [game]",
+      ],
+      "examples": [
+          "/start_challenges Custom",
+      ]
+    },
+    {
+      "name": "reset_challenges",
+      "type": "Admin",
+      "description": "Reset everyone's challenge progress.",
+      "usage": [
+       "/reset_challenges",
+      ],
+      "examples": [
+          "/reset_challenges",
+      ]
+    },
+    {
+      "name": "pause_challenges",
+      "type": "Admin",
+      "description": "Pause the progression of challenges in your server",
+      "usage": [
+       "/pause_challenges",
+      ],
+      "examples": [
+          "/pause_challenges",
+      ]
+    },
 
   // ~ Set-up
   {
@@ -551,6 +595,39 @@ const commands = [
     ],
     "examples": [
       "/abandon",
+    ]
+  },
+  {
+    "name": "challenges",
+    "type": "General",
+    "description": "View all challenges available for InHouseQueue. Free and Premium.",
+    "usage": [
+      "/challenges",
+    ],
+    "examples": [
+      "/challenges",
+    ]
+  },
+  {
+    "name": "my_challenges",
+    "type": "General",
+    "description": "View your challenge progress",
+    "usage": [
+      "/my_challenges",
+    ],
+    "examples": [
+      "/my_challenges",
+    ]
+  },
+  {
+    "name": "refresh_challenges",
+    "type": "General",
+    "description": "Refresh your challenges incase they did not update",
+    "usage": [
+      "/refresh_challenges",
+    ],
+    "examples": [
+      "/refresh_challenges",
     ]
   },
   // ~ Games

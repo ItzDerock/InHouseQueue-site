@@ -14,12 +14,12 @@ export default function Feature2() {
         {
           [
             "Unique In-Game role assignment",
-            "Dynamic Top 10 Leaderboard",
+            "Unlock built in Achievements",
             "Spectators Buttons",
-            "Ready Up Check",
+            "Customizable Ready Up Check",
             "Vote for your MVP of the Match!",
             "Track your stats and match history",
-            "Time scheduled queues",
+            "Dedicated server site leaderboard",
             "Duo Queue",
             "Captain Queue",
             "Customize Team sizes (1v1 - 8v8)",
