@@ -421,6 +421,28 @@ const commands = [
           "/pause_challenges",
       ]
     },
+    {
+      "name": "top_ten_preference",
+      "type": "Admin",
+      "description": "Determine how the Top10 leaderboard is Ranked",
+      "usage": [
+       "/top_ten_preference [pref]",
+      ],
+      "examples": [
+          "/top_ten_preference MMR",
+      ]
+    },
+     {
+      "name": "captain_pick_type",
+      "type": "Admin",
+      "description": "Fully customize the captain pick system",
+      "usage": [
+       "/captain_pick_type",
+      ],
+      "examples": [
+          "/captain_pick_type",
+      ]
+    },
 
   // ~ Set-up
   {
