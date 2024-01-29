@@ -443,6 +443,39 @@ const commands = [
           "/captain_pick_type",
       ]
     },
+     {
+      "name": "coach",
+      "type": "Admin",
+      "description": "Designate a role for a Coach. Coaches can speak in voice lobbies",
+      "usage": [
+       "/coach [role]",
+      ],
+      "examples": [
+          "/coach @Coach",
+      ]
+    },
+    {
+      "name": "set_queue",
+      "type": "Admin",
+      "description": "Lock a queue to a specific game mode",
+      "usage": [
+       "/set_queue [channel] [gamemode]",
+      ],
+      "examples": [
+          "/set_queue #queue MMR Queue",
+      ]
+    },
+    {
+      "name": "unset_queue",
+      "type": "Admin",
+      "description": "Remove specific game mode lock from a queue channel",
+      "usage": [
+       "/unset_queue [channel]",
+      ],
+      "examples": [
+          "/set_queue #queue",
+      ]
+    },
 
   // ~ Set-up
   {
