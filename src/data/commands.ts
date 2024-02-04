@@ -476,6 +476,17 @@ const commands = [
           "/set_queue #queue",
       ]
     },
+    {
+      "name": "unsubscribe",
+      "type": "Admin",
+      "description": "Unsubscribe from InHouseQueue reminders and notifications",
+      "usage": [
+       "/unsubscribe [feature]",
+      ],
+      "examples": [
+          "/unsubscribe Tips",
+      ]
+    },
 
   // ~ Set-up
   {
