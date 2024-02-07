@@ -191,17 +191,6 @@ const commands = [
     ]
   },
   {
-    "name": "update_character",
-    "type": "Admin",
-    "description": "Add/update the champion, hero or agent a member has played",
-    "usage": [
-      "/update_character [name] [gameid] [member] [game]"
-    ],
-    "examples": [
-      "/update_character Teemo 03134ff5 @iHenners League of Legends"
-    ]
-  },
-  {
     "name": "queue_role",
     "type": "Admin",
     "description": "Users must have this role before being able to queue",
@@ -606,50 +595,6 @@ const commands = [
     ],
     "examples": [
       "/ign Faker League of Legends"
-    ]
-  },
-  {
-    "name": "champion",
-    "type": "General",
-    "description": "Select your champion. Only works inside a lobby channel",
-    "usage": [
-      "/champion [name]",
-    ],
-    "examples": [
-      "/champion Teemo",
-    ]
-  },
-  {
-    "name": "hero",
-    "type": "General",
-    "description": "Select your hero. Only works inside a lobby channel",
-    "usage": [
-      "/hero [name]",
-    ],
-    "examples": [
-      "/hero Tracer",
-    ]
-  },
-  {
-    "name": "agent",
-    "type": "General",
-    "description": "Select your agent. Only works inside a lobby channel",
-    "usage": [
-      "/agent [name]",
-    ],
-    "examples": [
-      "/agent Astra",
-    ]
-  },
-  {
-    "name": "top",
-    "type": "General",
-    "description": "View players with the highest win rates on a particular character",
-    "usage": [
-      "/top [game] [name]",
-    ],
-    "examples": [
-      "/top League of Legends Thresh",
     ]
   },
   {
