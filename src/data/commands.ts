@@ -476,6 +476,28 @@ const commands = [
           "/unsubscribe Tips",
       ]
     },
+    {
+      "name": "set_voice",
+      "type": "Admin",
+      "description": "Set a Voice channel to Auto-moves players to/from team channels",
+      "usage": [
+       "/set_voice [voice]",
+      ],
+      "examples": [
+          "/set_voice General",
+      ]
+    },
+    {
+      "name": "rolling_queue",
+      "type": "Admin",
+      "description": "Toggle rolling queue",
+      "usage": [
+       "/rolling_queue [preference]",
+      ],
+      "examples": [
+          "/rolling_queue Enabled",
+      ]
+    },
 
   // ~ Set-up
   {
