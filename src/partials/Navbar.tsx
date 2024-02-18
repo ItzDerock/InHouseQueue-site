@@ -23,10 +23,6 @@ const links = [
     href: "https://github.com/HenrySpartGlobal/InHouseQueue"
   },
   {
-    name: "Status",
-    href: "https://inhousequeue.statuspage.io/"
-  },
-  {
     name: "Documentation",
     href: "https://docs.inhousequeue.xyz"
   },

@@ -44,11 +44,6 @@ export default function Footer(props: { withBorder?: boolean }) {
                 </a>
               </li>
               <li>
-                <a href="https://inhousequeue.statuspage.io/">
-                  Status
-                </a>
-              </li>
-              <li>
               <a href="https://docs.inhousequeue.xyz/">
                 Documentation
               </a>
