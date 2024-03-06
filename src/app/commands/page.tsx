@@ -15,7 +15,7 @@ const categoryDescriptions = {
   Admin: "You must have Administrator permissions to run these commands",
   "Set-Up": "Set up your server to use InHouseQueue Bot!",
   General: "General commands that all members can use.",
-//   LoL: "League of Legends commands",
+  Premium: "Premium only commands",
 //   Overwatch: "Overwatch commands",
 //   Valorant: "Valorant commands",
 } satisfies {

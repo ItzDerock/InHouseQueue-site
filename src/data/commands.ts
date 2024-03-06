@@ -664,17 +664,39 @@ const commands = [
     ]
   },
   // ~ Games
-//   {
-//     "name": "champion",
-//     "type": "LoL",
-//     "description": "Select your champion. Only works inside a lobby channel",
-//     "usage": [
-//       "/champion [name]",
-//     ],
-//     "examples": [
-//       "/champion Teemo",
-//     ]
-//   },
+  {
+    "name": "set_status",
+    "type": "Premium",
+    "description": "Set the Activity of your Bot. (Tier 3 only)",
+    "usage": [
+      "/set_status [status]",
+    ],
+    "examples": [
+      "/set_status Just chilling",
+    ]
+  },
+  {
+    "name": "update_banner ",
+    "type": "Premium",
+    "description": "Update the Queue Banner image",
+    "usage": [
+      "/update_banner [url]",
+    ],
+    "examples": [
+      "/update_banner https://i.imgur.com/123123lhasd",
+    ]
+  },
+  {
+    "name": "update_color ",
+    "type": "Premium",
+    "description": "Update the color of your Queue embed (Hexcode only)",
+    "usage": [
+      "/update_color [color]",
+    ],
+    "examples": [
+      "/update_color #000000",
+    ]
+  },
 //   {
 //     "name": "hero",
 //     "type": "Overwatch",
