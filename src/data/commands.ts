@@ -697,6 +697,28 @@ const commands = [
       "/update_color #000000",
     ]
   },
+  {
+    "name": "rename_teams ",
+    "type": "Premium",
+    "description": "Rename team names to replace 'Blue' & 'Red'",
+    "usage": [
+      "/rename_teams [blue] [red] [queue_channel]",
+    ],
+    "examples": [
+      "/rename_teams Team eSports Team Gaming #queue",
+    ]
+  },
+  {
+    "name": "list_teams ",
+    "type": "Premium",
+    "description": "View the all team names for your server.",
+    "usage": [
+      "/list_teams",
+    ],
+    "examples": [
+      "/list_teams",
+    ]
+  },
 //   {
 //     "name": "hero",
 //     "type": "Overwatch",
