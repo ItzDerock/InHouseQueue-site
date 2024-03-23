@@ -498,6 +498,17 @@ const commands = [
           "/rolling_queue Enabled",
       ]
     },
+    {
+      "name": "show_mmr",
+      "type": "Admin",
+      "description": "Show players MMR next to their names in the queue",
+      "usage": [
+       "/show_mrr [preference]",
+      ],
+      "examples": [
+          "/show_mmr Enabled",
+      ]
+    },
 
   // ~ Set-up
   {
@@ -663,7 +674,7 @@ const commands = [
       "/refresh_challenges",
     ]
   },
-  // ~ Games
+  // ~ Premium
   {
     "name": "set_status",
     "type": "Premium",
