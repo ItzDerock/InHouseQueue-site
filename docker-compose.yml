@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    image: in-house-queue-site
+    container_name: inhousequeue-site
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      UPSTASH_REDIS_REST_URL: ${UPSTASH_REDIS_REST_URL}
+      UPSTASH_REDIS_REST_TOKEN: ${UPSTASH_REDIS_REST_TOKEN}
+      DISABLE_GUILD_CHECKING: ${DISABLE_GUILD_CHECKING}
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+      NEXTAUTH_URL: ${NEXTAUTH_URL}
+      DISCORD_CLIENT_ID: ${DISCORD_CLIENT_ID}
+      DISCORD_CLIENT_SECRET: ${DISCORD_CLIENT_SECRET}
+    volumes:
+      - ./src:/app/src
+    logging:
+      driver: local
+      options:
+        max-size: "10m"
+        max-file: "5"
+    ports:
+      - "3000:3000"
+    networks:
+      - inhouse-network
+
+networks:
+  inhouse-network:
+    external: true
+
+
+volumes:
+  redis-data:
