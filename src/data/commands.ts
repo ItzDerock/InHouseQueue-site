@@ -498,6 +498,50 @@ const commands = [
           "/rolling_queue Enabled",
       ]
     },
+   {
+     "name": "maps",
+     "type": "Admin",
+     "description": "Enable maps for a Specific game",
+     "usage": [
+      "/maps [map_selection] [game]",
+     ],
+     "examples": [
+         "/maps Random Custom",
+     ]
+   },
+   {
+     "name": "add_map",
+     "type": "Admin",
+     "description": "Add a map to your server map pool",
+     "usage": [
+      "/add_map [name] (game_mode) [image_url] [game]",
+     ],
+     "examples": [
+         "/add_map Rust Domination https://i.imgur/abcdef.jpg Custom",
+     ]
+   },
+   {
+     "name": "disable_maps",
+     "type": "Admin",
+     "description": "Disable the map feature",
+     "usage": [
+      "/disable_maps [game]",
+     ],
+     "examples": [
+         "/disable_maps Custom",
+     ]
+   },
+   {
+     "name": "remove_map",
+     "type": "Admin",
+     "description": "Remove a map",
+     "usage": [
+      "/remove_map [map_name]",
+     ],
+     "examples": [
+         "/remove_map Rust",
+     ]
+   },
     {
       "name": "show_mmr",
       "type": "Admin",
@@ -509,6 +553,7 @@ const commands = [
           "/show_mmr Enabled",
       ]
     },
+
 
   // ~ Set-up
   {
@@ -674,6 +719,30 @@ const commands = [
       "/refresh_challenges",
     ]
   },
+  {
+    "name": "list_maps",
+    "type": "General",
+    "description": "List all maps available on the server",
+    "usage": [
+      "/list_maps",
+    ],
+    "examples": [
+      "/list_maps",
+    ]
+  },
+  // ~ Games
+//   {
+//     "name": "champion",
+//     "type": "LoL",
+//     "description": "Select your champion. Only works inside a lobby channel",
+//     "usage": [
+//       "/champion [name]",
+//     ],
+//     "examples": [
+//       "/champion Teemo",
+//     ]
+//   },
+
   // ~ Premium
   {
     "name": "set_status",
