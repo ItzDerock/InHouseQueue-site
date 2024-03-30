@@ -2,6 +2,7 @@ name: Deploy Production
 env:
   REPO_NAME: ${{ github.event.repository.name }}
   REPO_OWNER: ${{ github.repository_owner }}
+
 on:
   workflow_dispatch:
   release:
@@ -24,7 +25,11 @@ jobs:
 
         - name: Build Docker image
           run: |
-            docker build -t in-house-queue-site .
+            docker build -t in-house-queue-site \
+            --build-arg DATABASE_URL=${{ secrets.DATABASE_URL }} \
+            --build-arg DISCORD_CLIENT_ID=${{ secrets.DISCORD_CLIENT_ID }} \
+            --build-arg DISCORD_CLIENT_SECRET=${{ secrets.DISCORD_CLIENT_SECRET }} \
+            .
 
         - name: Install doctl
           uses: digitalocean/action-doctl@v2

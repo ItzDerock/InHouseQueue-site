@@ -1,5 +1,11 @@
 FROM node:18-alpine AS base
 
+# Define arguments
+ARG DATABASE_URL
+ARG DISCORD_CLIENT_ID
+ARG DISCORD_CLIENT_SECRET
+
+
 # Install dependencies only when needed
 FROM base AS deps
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
@@ -38,7 +44,11 @@ RUN \
 FROM base AS runner
 WORKDIR /app
 
-ENV NODE_ENV production
+ENV NODE_ENV=production \
+    DATABASE_URL=$DATABASE_URL \
+    DISCORD_CLIENT_ID=$DISCORD_CLIENT_ID \
+    DISCORD_CLIENT_SECRET=$DISCORD_CLIENT_SECRET
+
 # Uncomment the following line in case you want to disable telemetry during runtime.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
