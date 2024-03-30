@@ -1,0 +1,48 @@
+name: Deploy Production
+env:
+  REPO_NAME: ${{ github.event.repository.name }}
+  REPO_OWNER: ${{ github.repository_owner }}
+on:
+  workflow_dispatch:
+  release:
+    types: [created]
+
+jobs:
+  build_and_tag:
+    runs-on: ubuntu-latest
+    environment: Production
+    services:
+      docker:
+        image: docker:19.03.5-dind
+        options: --privileged
+
+    steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+          with:
+            ref: live
+
+        - name: Build Docker image
+          run: |
+            docker build -t in-house-queue-site .
+
+        - name: Install doctl
+          uses: digitalocean/action-doctl@v2
+          with:
+            token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+        - name: Log in to DigitalOcean Container Registry with short-lived credentials
+          run: doctl registry login --expiry-seconds 600
+
+        - name: Get the latest release tag
+          id: latest_release
+          run: |
+            tag=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/${{ env.REPO_OWNER }}/${{ env.REPO_NAME }}/releases/latest" | jq -r ".tag_name")
+            echo "TAG=$tag" >> $GITHUB_ENV
+
+        - name: Tag and push Docker image
+          run: |
+            export DO_REPOSITORY=${{ secrets.DO_REPO }}
+            TAG=${{ env.TAG }}
+            docker tag in-house-queue-site:latest $DO_REPOSITORY:$TAG
+            docker push $DO_REPOSITORY:$TAG
