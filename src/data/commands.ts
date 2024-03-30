@@ -553,6 +553,17 @@ const commands = [
           "/show_mmr Enabled",
       ]
     },
+    {
+      "name": "starting_mmr",
+      "type": "Admin",
+      "description": "Adjust a players starting MMR",
+      "usage": [
+       "/starting_mmr [player] [mmr] [game]",
+      ],
+      "examples": [
+          "/starting_mmr @Faker ~4000 League of Legends",
+      ]
+    },
 
 
   // ~ Set-up
