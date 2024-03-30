@@ -25,12 +25,12 @@ jobs:
 
         - name: Build Docker image
           run: |
-            DATABASE_URL=${{ secrets.DATABASE_URL }}
-            NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }}
-            DISCORD_CLIENT_ID=${{ secrets.DISCORD_CLIENT_ID }}
-            DISCORD_CLIENT_SECRET=${{ secrets.DISCORD_CLIENT_SECRET }}
-            UPSTASH_REDIS_REST_URL=${{ secrets.UPSTASH_REDIS_REST_URL }}
-            UPSTASH_REDIS_REST_TOKEN=${{ secrets.UPSTASH_REDIS_REST_TOKEN }}
+            export DATABASE_URL=${{ secrets.DATABASE_URL }}
+            export NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }}
+            export DISCORD_CLIENT_ID=${{ secrets.DISCORD_CLIENT_ID }}
+            export DISCORD_CLIENT_SECRET=${{ secrets.DISCORD_CLIENT_SECRET }}
+            export UPSTASH_REDIS_REST_URL=${{ secrets.UPSTASH_REDIS_REST_URL }}
+            export UPSTASH_REDIS_REST_TOKEN=${{ secrets.UPSTASH_REDIS_REST_TOKEN }}
             
             docker build -t in-house-queue-site .
 
