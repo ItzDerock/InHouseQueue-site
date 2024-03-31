@@ -21,7 +21,7 @@ jobs:
         - name: Checkout code
           uses: actions/checkout@v3
           with:
-            ref: main
+            ref: live
 
         - name: Build Docker image
           run: |
@@ -52,5 +52,7 @@ jobs:
           run: |
             export DO_REPOSITORY=${{ secrets.DO_REPO }}
             TAG=${{ env.TAG }}
-            docker tag in-house-queue-site:latest $DO_REPOSITORY:$TAG
+            echo "Tagging image as $DO_REPOSITORY:$TAG"
+            docker tag in-house-queue-site $DO_REPOSITORY:$TAG
+            echo "Pushing image..."
             docker push $DO_REPOSITORY:$TAG
