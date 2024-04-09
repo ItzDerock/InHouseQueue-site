@@ -810,6 +810,39 @@ const commands = [
       "/list_teams",
     ]
   },
+  {
+    "name": "ready_penalty ",
+    "type": "Premium",
+    "description": "Award timed queue bans for players who don't ready up",
+    "usage": [
+      "/ready_penalty [preference] (duration_1) (duration_2) (duration_3)",
+    ],
+    "examples": [
+      "/ready_penalty True 5minutes 30minutes 60minutes",
+    ]
+  },
+  {
+    "name": "reset_server_penalties ",
+    "type": "Premium",
+    "description": "Remove all queue bans from the server",
+    "usage": [
+      "/reset_server_penalties",
+    ],
+    "examples": [
+      "reset_server_penalties",
+    ]
+  },
+  {
+    "name": "reset_user_penalty ",
+    "type": "Premium",
+    "description": "Remove all queue bans from a Member",
+    "usage": [
+      "/reset_user_penalty [member]",
+    ],
+    "examples": [
+      "/reset_user_penalty @Faker",
+    ]
+  },
 //   {
 //     "name": "hero",
 //     "type": "Overwatch",
