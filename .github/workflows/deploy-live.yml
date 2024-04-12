@@ -25,7 +25,7 @@ jobs:
 
         - name: Build Docker image
           run: |
-            docker build -t in-house-queue-site \
+            docker build -t inhousequeue-site \
             --build-arg DATABASE_URL=${{ secrets.DATABASE_URL }} \
             --build-arg NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }} \
             --build-arg DISCORD_CLIENT_ID=${{ secrets.DISCORD_CLIENT_ID }} \
@@ -34,25 +34,16 @@ jobs:
             --build-arg UPSTASH_REDIS_REST_TOKEN=${{ secrets.UPSTASH_REDIS_REST_TOKEN }} \
             .
 
-        - name: Install doctl
-          uses: digitalocean/action-doctl@v2
+        - name: Login to Amazon ECR
+          uses: aws-actions/configure-aws-credentials@v4
           with:
-            token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-
-        - name: Log in to DigitalOcean Container Registry with short-lived credentials
-          run: doctl registry login --expiry-seconds 600
-
-        - name: Get the latest release tag
-          id: latest_release
-          run: |
-            tag=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/${{ env.REPO_OWNER }}/${{ env.REPO_NAME }}/releases/latest" | jq -r ".tag_name")
-            echo "TAG=$tag" >> $GITHUB_ENV
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: us-east-1
 
         - name: Tag and push Docker image
           run: |
-            export DO_REPOSITORY=${{ secrets.DO_REPO }}
-            TAG=${{ env.TAG }}
-            echo "Tagging image as $DO_REPOSITORY:$TAG"
-            docker tag in-house-queue-site $DO_REPOSITORY:$TAG
-            echo "Pushing image..."
-            docker push $DO_REPOSITORY:$TAG
+            export ECR_REPOSITORY=${{ secrets.ECR_REPO }}
+            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $ECR_REPOSITORY
+            docker tag inhousequeue-site:latest $ECR_REPOSITORY:latest
+            docker push $ECR_REPOSITORY:latest
