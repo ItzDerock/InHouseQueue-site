@@ -37,13 +37,13 @@ export async function fetchLeaderboardRaw(opts: FetchLeaderboardInput): Promise<
     .where("mmr_rating.guild_id", "=", guildId)
     // join with mmr_rating, same user_id and guild_id
     .leftJoin("points", (eb) => eb.on(b => b.and([
-      b.cmpr(b.ref("points.user_id"), "=", b.ref("mmr_rating.user_id")),
-      b.cmpr(b.ref("points.guild_id"), "=", b.ref("mmr_rating.guild_id"))
+      b(b.ref("points.user_id"), "=", b.ref("mmr_rating.user_id")),
+      b(b.ref("points.guild_id"), "=", b.ref("mmr_rating.guild_id"))
     ])))
     // join with igns, same user_id and guild_id
     .leftJoin("igns", (eb) => eb.on(b => b.and([
-      b.cmpr(b.ref("igns.user_id"), "=", b.ref("mmr_rating.user_id")),
-      b.cmpr(b.ref("igns.guild_id"), "=", b.ref("mmr_rating.guild_id"))
+      b(b.ref("igns.user_id"), "=", b.ref("mmr_rating.user_id")),
+      b(b.ref("igns.guild_id"), "=", b.ref("mmr_rating.guild_id"))
     ])))
     // calculate winrate and mmr
     .select([
@@ -87,9 +87,9 @@ export async function fetchLeaderboardRaw(opts: FetchLeaderboardInput): Promise<
       // if successful, it could be an ID
       builder = builder
         .where(eb => eb.or([
-          // @ts-expect-error TS says kysely says it doesn't support bigints but it does
-          eb.cmpr(eb.ref("mmr_rating.user_id"), "=", id),
-          sql`${eb.ref("igns.ign")} LIKE ${`%${searchFor}%`}`
+          // kysely says it doesnt support bigint, but it does
+          eb(eb.ref("mmr_rating.user_id"), "=", id as unknown as number),
+          eb(eb.ref("igns.ign"), "like", `%${searchFor}%`)
         ]))
     } catch (error) {
       builder = builder
