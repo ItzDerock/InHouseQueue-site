@@ -5,7 +5,7 @@ export default function Feature2() {
   return (
     <Feature
       title="Unlock Your Players True Potential"
-      description="In-House Queue bot features a built-in matchmaking system, ensuring fair and balanced matchups. In addition, our bot offers leaderboards, MVP voting, and other features to add depth and excitement to your gaming experience. That's not all, Take to the battle field with your Duo partner and track your stats!"
+      description=""
       direction="rtl"
       image={FeatureImage2}
     >
@@ -16,14 +16,12 @@ export default function Feature2() {
             "Unique In-Game role assignment",
             "Unlock built in Achievements",
             "Spectators Buttons",
-            "Customizable Ready Up Check",
-            "Vote for your MVP of the Match!",
             "Track your stats and match history",
             "Dedicated server site leaderboard",
             "Duo Queue",
             "Captain Queue",
             "Customize Team sizes (1v1 - 8v8)",
-            "More",
+            "So much more...",
           ].map((item, index) => (
             <li
               key={index}
