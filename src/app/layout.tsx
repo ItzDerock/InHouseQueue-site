@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config.cjs";
 import banner from "../assets/banner.webp";
@@ -12,12 +12,17 @@ const config = resolveConfig(tailwindConfig);
 // import global styles
 import "../styles/globals.css";
 
+// viewport details
+export const viewport: Viewport = {
+  themeColor: (config.theme?.colors as unknown as Record<string, string>)?.primary as string,
+  width: "device-width",
+  initialScale: 1,
+}
+
 // default site metadata
 // see https://nextjs.org/docs/app/api-reference/functions/generate-metadata for details
 export const metadata: Metadata = {
   title: "In-House Queue",
-  viewport: "width=device-width, initial-scale=1",
-  themeColor: config.theme?.colors?.primary as string,
   description:
     "In-House Queue: A Discord Bot designed to organize In-House custom games",
   twitter: {

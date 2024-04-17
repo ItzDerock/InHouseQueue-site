@@ -1,6 +1,4 @@
 import Button from "../../components/Button";
-import CWLLogo from "../../assets/cwl.png";
-import Image from "next/image";
 
 export default function CallToAction() {
   return (
@@ -20,10 +18,11 @@ export default function CallToAction() {
             </span>
           </h1>
 
-          <div className="flex flex-row gap-2">
-            <h3 className="my-auto text-xl text-gray-400">Proud sponsor of:</h3>
-            <Image src={CWLLogo} alt="CWL Logo" height={64} />
-          </div>
+            {/* sponsor */}
+            {/* <div className="flex flex-row gap-2">
+              <h3 className="my-auto text-lg text-gray-400">Proud sponsor of:</h3>
+              <Image src={CWLLogo} alt="CWL Logo" height={64} />
+            </div> */}
         </div>
 
         {/* right buttons */}
@@ -33,12 +32,20 @@ export default function CallToAction() {
         >
           {/* invite button */}
           <Button
-            variant="primary"
+            variant="secondary"
             href="https://discord.com/api/oauth2/authorize?client_id=1001168331996409856&permissions=1101927804016&scope=bot"
             target="_blank"
           >
             Add to Discord
           </Button>
+
+          <Button
+              variant="primary"
+              href="https://inhousequeue.xyz/premium"
+              target="_blank"
+            >
+              Premium
+            </Button>
 
           {/* commands */}
           <Button variant="secondary" href="/commands" target="_blank">

@@ -47,23 +47,15 @@ export async function fetchLeaderboardRaw(
     .selectFrom("mmr_rating")
     .where("mmr_rating.guild_id", "=", guildId)
     // join with mmr_rating, same user_id and guild_id
-    .leftJoin("points", (eb) =>
-      eb.on((b) =>
-        b.and([
-          b.cmpr(b.ref("points.user_id"), "=", b.ref("mmr_rating.user_id")),
-          b.cmpr(b.ref("points.guild_id"), "=", b.ref("mmr_rating.guild_id")),
-        ])
-      )
-    )
+    .leftJoin("points", (eb) => eb.on(b => b.and([
+      b(b.ref("points.user_id"), "=", b.ref("mmr_rating.user_id")),
+      b(b.ref("points.guild_id"), "=", b.ref("mmr_rating.guild_id"))
+    ])))
     // join with igns, same user_id and guild_id
-    .leftJoin("igns", (eb) =>
-      eb.on((b) =>
-        b.and([
-          b.cmpr(b.ref("igns.user_id"), "=", b.ref("mmr_rating.user_id")),
-          b.cmpr(b.ref("igns.guild_id"), "=", b.ref("mmr_rating.guild_id")),
-        ])
-      )
-    )
+    .leftJoin("igns", (eb) => eb.on(b => b.and([
+      b(b.ref("igns.user_id"), "=", b.ref("mmr_rating.user_id")),
+      b(b.ref("igns.guild_id"), "=", b.ref("mmr_rating.guild_id"))
+    ])))
     // calculate winrate and mmr
     .select([
       // (wins + 0.0) / (GREATEST(wins + losses, 1.0) + 0.0)
@@ -107,13 +99,12 @@ export async function fetchLeaderboardRaw(
       const id = BigInt(searchFor);
 
       // if successful, it could be an ID
-      builder = builder.where((eb) =>
-        eb.or([
-          // @ts-expect-error TS says kysely says it doesn't support bigints but it does
-          eb.cmpr(eb.ref("mmr_rating.user_id"), "=", id),
-          sql`${eb.ref("igns.ign")} LIKE ${`%${searchFor}%`}`,
-        ])
-      );
+      builder = builder
+        .where(eb => eb.or([
+          // kysely says it doesnt support bigint, but it does
+          eb(eb.ref("mmr_rating.user_id"), "=", id as unknown as number),
+          eb(eb.ref("igns.ign"), "like", `%${searchFor}%`)
+        ]))
     } catch (error) {
       builder = builder
         // The following line only works if igns.ign is FULLTEXT indexed
@@ -189,5 +180,5 @@ export const fetchLeaderboard = cache(fetchLeaderboardRaw, {
     return `leaderboard:${hash}`;
   },
   staleTime: /* 30 Seconds */ 30,
-  expireTime: /* 1 Hour */ 60 * 60,
+  expireTime: /* 1 Hour */ 60 * 60
 });

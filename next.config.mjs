@@ -11,6 +11,7 @@ import withBundleAnalyzer from "@next/bundle-analyzer";
 const config = {
   reactStrictMode: true,
   experimental: {},
+  output: 'standalone',
 
   // svgr
   // webpack: (config) => {

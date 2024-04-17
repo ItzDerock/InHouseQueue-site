@@ -16,7 +16,7 @@ export default function Footer(props: { withBorder?: boolean }) {
               hello@inhousequeue.xyz
             </p>
             <p className="mt-2 text-sm">
-              © 2023 All rights reserved.
+              © 2024 All rights reserved.
             </p>
           </div>
           {/* col 2 - links*/}
@@ -41,11 +41,6 @@ export default function Footer(props: { withBorder?: boolean }) {
               <li>
                 <a href="https://www.paypal.com/donate/?hosted_button_id=RU4GLAWSP6TJC">
                   Donate
-                </a>
-              </li>
-              <li>
-                <a href="https://inhousequeue.statuspage.io/">
-                  Status
                 </a>
               </li>
               <li>

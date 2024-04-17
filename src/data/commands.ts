@@ -191,17 +191,6 @@ const commands = [
     ]
   },
   {
-    "name": "update_character",
-    "type": "Admin",
-    "description": "Add/update the champion, hero or agent a member has played",
-    "usage": [
-      "/update_character [name] [gameid] [member] [game]"
-    ],
-    "examples": [
-      "/update_character Teemo 03134ff5 @iHenners League of Legends"
-    ]
-  },
-  {
     "name": "queue_role",
     "type": "Admin",
     "description": "Users must have this role before being able to queue",
@@ -355,6 +344,237 @@ const commands = [
        "/set_timer 2",
      ]
   },
+   {
+     "name": "restrict_role",
+     "type": "Admin",
+     "description": "Assign a discord role for specific queue position",
+     "usage": [
+      "/restrict_role [discord_role] [queue_role]",
+     ],
+     "examples": [
+       "/restrict_role @Healer healer",
+     ]
+  },
+   {
+     "name": "unrestrict_role",
+     "type": "Admin",
+     "description": "Removes the Discord role restriction from a designated queue position.",
+     "usage": [
+      "/unrestrict_role",
+     ],
+     "examples": [
+       "/unrestrict_role [role]",
+     ]
+   },
+    {
+      "name": "language",
+      "type": "Admin",
+      "description": "Change the language of InHouseQueue",
+      "usage": [
+       "/language",
+      ],
+      "examples": [
+          "/language Spanish",
+      ]
+    },
+    {
+      "name": "start_challenges",
+      "type": "Admin",
+      "description": "Initiate challenges in your server. Let the fun begin!",
+      "usage": [
+       "/start_challenges [game]",
+      ],
+      "examples": [
+          "/start_challenges Custom",
+      ]
+    },
+    {
+      "name": "reset_challenges",
+      "type": "Admin",
+      "description": "Reset everyone's challenge progress.",
+      "usage": [
+       "/reset_challenges",
+      ],
+      "examples": [
+          "/reset_challenges",
+      ]
+    },
+    {
+      "name": "pause_challenges",
+      "type": "Admin",
+      "description": "Pause the progression of challenges in your server",
+      "usage": [
+       "/pause_challenges",
+      ],
+      "examples": [
+          "/pause_challenges",
+      ]
+    },
+    {
+      "name": "top_ten_preference",
+      "type": "Admin",
+      "description": "Determine how the Top10 leaderboard is Ranked",
+      "usage": [
+       "/top_ten_preference [pref]",
+      ],
+      "examples": [
+          "/top_ten_preference MMR",
+      ]
+    },
+     {
+      "name": "captain_pick_type",
+      "type": "Admin",
+      "description": "Fully customize the captain pick system",
+      "usage": [
+       "/captain_pick_type",
+      ],
+      "examples": [
+          "/captain_pick_type",
+      ]
+    },
+     {
+      "name": "coach",
+      "type": "Admin",
+      "description": "Designate a role for a Coach. Coaches can speak in voice lobbies",
+      "usage": [
+       "/coach [role]",
+      ],
+      "examples": [
+          "/coach @Coach",
+      ]
+    },
+    {
+      "name": "set_queue",
+      "type": "Admin",
+      "description": "Lock a queue to a specific game mode",
+      "usage": [
+       "/set_queue [channel] [gamemode]",
+      ],
+      "examples": [
+          "/set_queue #queue MMR Queue",
+      ]
+    },
+    {
+      "name": "unset_queue",
+      "type": "Admin",
+      "description": "Remove specific game mode lock from a queue channel",
+      "usage": [
+       "/unset_queue [channel]",
+      ],
+      "examples": [
+          "/set_queue #queue",
+      ]
+    },
+    {
+      "name": "unsubscribe",
+      "type": "Admin",
+      "description": "Unsubscribe from InHouseQueue reminders and notifications",
+      "usage": [
+       "/unsubscribe [feature]",
+      ],
+      "examples": [
+          "/unsubscribe Tips",
+      ]
+    },
+    {
+      "name": "set_voice",
+      "type": "Admin",
+      "description": "Set a Voice channel to Auto-moves players to/from team channels",
+      "usage": [
+       "/set_voice [voice]",
+      ],
+      "examples": [
+          "/set_voice General",
+      ]
+    },
+    {
+      "name": "rolling_queue",
+      "type": "Admin",
+      "description": "Toggle rolling queue",
+      "usage": [
+       "/rolling_queue [preference]",
+      ],
+      "examples": [
+          "/rolling_queue Enabled",
+      ]
+    },
+   {
+     "name": "maps",
+     "type": "Admin",
+     "description": "Enable maps for a Specific game",
+     "usage": [
+      "/maps [map_selection] [game]",
+     ],
+     "examples": [
+         "/maps Random Custom",
+     ]
+   },
+   {
+     "name": "add_map",
+     "type": "Admin",
+     "description": "Add a map to your server map pool",
+     "usage": [
+      "/add_map [name] (game_mode) [image_url] [game]",
+     ],
+     "examples": [
+         "/add_map Rust Domination https://i.imgur/abcdef.jpg Custom",
+     ]
+   },
+   {
+     "name": "disable_maps",
+     "type": "Admin",
+     "description": "Disable the map feature",
+     "usage": [
+      "/disable_maps [game]",
+     ],
+     "examples": [
+         "/disable_maps Custom",
+     ]
+   },
+   {
+     "name": "remove_map",
+     "type": "Admin",
+     "description": "Remove a map",
+     "usage": [
+      "/remove_map [map_name]",
+     ],
+     "examples": [
+         "/remove_map Rust",
+     ]
+   },
+    {
+      "name": "show_mmr",
+      "type": "Admin",
+      "description": "Show players MMR next to their names in the queue",
+      "usage": [
+       "/show_mrr [preference]",
+      ],
+      "examples": [
+          "/show_mmr Enabled",
+      ]
+    },
+    {
+      "name": "starting_mmr",
+      "type": "Admin",
+      "description": "Adjust a players starting MMR",
+      "usage": [
+       "/starting_mmr [player] [mmr] [game]",
+      ],
+      "examples": [
+          "/starting_mmr @Faker ~4000 League of Legends",
+      ]
+    },
+    {
+      "name": "best_of_series",
+      "type": "Admin",
+      "description": "Toggle the best of series 3 or 5 feature.",
+      "usage": [
+       "/best_of_series [preference] [channel] [series_type]",
+      ],
+      "examples": [
+          "/best_of_series True #queue 5",
+      ]
+    },
 
   // ~ Set-up
   {
@@ -477,84 +697,197 @@ const commands = [
     ]
   },
   {
-    "name": "champion",
+    "name": "abandon",
     "type": "General",
-    "description": "Select your champion. Only works inside a lobby channel",
+    "description": "Initiate a vote to cancel an ongoing game",
     "usage": [
-      "/champion [name]",
+      "/abandon",
     ],
     "examples": [
-      "/champion Teemo",
+      "/abandon",
     ]
   },
   {
-    "name": "hero",
+    "name": "challenges",
     "type": "General",
-    "description": "Select your hero. Only works inside a lobby channel",
+    "description": "View all challenges available for InHouseQueue. Free and Premium.",
     "usage": [
-      "/hero [name]",
+      "/challenges",
     ],
     "examples": [
-      "/hero Tracer",
+      "/challenges",
     ]
   },
   {
-    "name": "agent",
+    "name": "my_challenges",
     "type": "General",
-    "description": "Select your agent. Only works inside a lobby channel",
+    "description": "View your challenge progress",
     "usage": [
-      "/agent [name]",
+      "/my_challenges",
     ],
     "examples": [
-      "/agent Astra",
+      "/my_challenges",
     ]
   },
   {
-    "name": "top",
+    "name": "refresh_challenges",
     "type": "General",
-    "description": "View players with the highest win rates on a particular character",
+    "description": "Refresh your challenges incase they did not update",
     "usage": [
-      "/top [game] [name]",
+      "/refresh_challenges",
     ],
     "examples": [
-      "/top League of Legends Thresh",
+      "/refresh_challenges",
     ]
   },
-
+  {
+    "name": "list_maps",
+    "type": "General",
+    "description": "List all maps available on the server",
+    "usage": [
+      "/list_maps",
+    ],
+    "examples": [
+      "/list_maps",
+    ]
+  },
   // ~ Games
+//   {
+//     "name": "champion",
+//     "type": "LoL",
+//     "description": "Select your champion. Only works inside a lobby channel",
+//     "usage": [
+//       "/champion [name]",
+//     ],
+//     "examples": [
+//       "/champion Teemo",
+//     ]
+//   },
+
+  // ~ Premium
   {
-    "name": "champion",
-    "type": "LoL",
-    "description": "Select your champion. Only works inside a lobby channel",
+    "name": "set_status",
+    "type": "Premium",
+    "description": "Set the Activity of your Bot. (Tier 3 only)",
     "usage": [
-      "/champion [name]",
+      "/set_status [status]",
     ],
     "examples": [
-      "/champion Teemo",
+      "/set_status Just chilling",
     ]
   },
   {
-    "name": "hero",
-    "type": "Overwatch",
-    "description": "Select your hero. Only works inside a lobby channel",
+    "name": "update_banner ",
+    "type": "Premium",
+    "description": "Update the Queue Banner image",
     "usage": [
-      "/hero [name]",
+      "/update_banner [url]",
     ],
     "examples": [
-      "/hero Tracer",
+      "/update_banner https://i.imgur.com/123123lhasd",
     ]
   },
   {
-    "name": "agent",
-    "type": "Valorant",
-    "description": "Select your agent. Only works inside a lobby channel",
+    "name": "update_color ",
+    "type": "Premium",
+    "description": "Update the color of your Queue embed (Hexcode only)",
     "usage": [
-      "/agent [name]",
+      "/update_color [color]",
     ],
     "examples": [
-      "/agent Astra",
+      "/update_color #000000",
     ]
-  }
+  },
+  {
+    "name": "rename_teams ",
+    "type": "Premium",
+    "description": "Rename team names to replace 'Blue' & 'Red'",
+    "usage": [
+      "/rename_teams [blue] [red] [queue_channel]",
+    ],
+    "examples": [
+      "/rename_teams Team eSports Team Gaming #queue",
+    ]
+  },
+  {
+    "name": "list_teams ",
+    "type": "Premium",
+    "description": "View the all team names for your server.",
+    "usage": [
+      "/list_teams",
+    ],
+    "examples": [
+      "/list_teams",
+    ]
+  },
+  {
+    "name": "ready_penalty ",
+    "type": "Premium",
+    "description": "Award timed queue bans for players who don't ready up",
+    "usage": [
+      "/ready_penalty [preference] (duration_1) (duration_2) (duration_3)",
+    ],
+    "examples": [
+      "/ready_penalty True 5minutes 30minutes 60minutes",
+    ]
+  },
+  {
+    "name": "reset_server_penalties ",
+    "type": "Premium",
+    "description": "Remove all queue bans from the server",
+    "usage": [
+      "/reset_server_penalties",
+    ],
+    "examples": [
+      "reset_server_penalties",
+    ]
+  },
+  {
+    "name": "reset_user_penalty ",
+    "type": "Premium",
+    "description": "Remove all queue bans from a Member",
+    "usage": [
+      "/reset_user_penalty [member]",
+    ],
+    "examples": [
+      "/reset_user_penalty @Faker",
+    ]
+  },
+  {
+    "name": "best_of_series",
+    "type": "Premium",
+    "description": "Toggle the best of series 3 or 5 feature.",
+    "usage": [
+     "/best_of_series [preference] [channel] [series_type]",
+    ],
+    "examples": [
+        "/best_of_series True #queue 5",
+    ]
+  },
+//   {
+//     "name": "hero",
+//     "type": "Overwatch",
+//     "description": "Select your hero. Only works inside a lobby channel",
+//     "usage": [
+//       "/hero [name]",
+//     ],
+//     "examples": [
+//       "/hero Tracer",
+//     ]
+//   },
+//   {
+//     "name": "agent",
+//     "type": "Valorant",
+//     "description": "Select your agent. Only works inside a lobby channel",
+//     "usage": [
+//       "/agent [name]",
+//     ],
+//     "examples": [
+//       "/agent Astra",
+//     ]
+//   }
+// removing these for now - leaving as an example in case i ever add game specific commands
+// full search for "League of Legends commands" in this repo
 ] as const;
 
 // export commands

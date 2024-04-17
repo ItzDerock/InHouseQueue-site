@@ -1,0 +1,49 @@
+name: Deploy Production
+env:
+  REPO_NAME: ${{ github.event.repository.name }}
+  REPO_OWNER: ${{ github.repository_owner }}
+
+on:
+  workflow_dispatch:
+  release:
+    types: [created]
+
+jobs:
+  build_and_tag:
+    runs-on: ubuntu-latest
+    environment: Production
+    services:
+      docker:
+        image: docker:19.03.5-dind
+        options: --privileged
+
+    steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+          with:
+            ref: live
+
+        - name: Build Docker image
+          run: |
+            docker build -t inhousequeue-site \
+            --build-arg DATABASE_URL=${{ secrets.DATABASE_URL }} \
+            --build-arg NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }} \
+            --build-arg DISCORD_CLIENT_ID=${{ secrets.DISCORD_CLIENT_ID }} \
+            --build-arg DISCORD_CLIENT_SECRET=${{ secrets.DISCORD_CLIENT_SECRET }} \
+            --build-arg UPSTASH_REDIS_REST_URL=${{ secrets.UPSTASH_REDIS_REST_URL }} \
+            --build-arg UPSTASH_REDIS_REST_TOKEN=${{ secrets.UPSTASH_REDIS_REST_TOKEN }} \
+            .
+
+        - name: Login to Amazon ECR
+          uses: aws-actions/configure-aws-credentials@v4
+          with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: us-east-1
+
+        - name: Tag and push Docker image
+          run: |
+            export ECR_REPOSITORY=${{ secrets.ECR_REPO }}
+            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $ECR_REPOSITORY
+            docker tag inhousequeue-site:latest $ECR_REPOSITORY:latest
+            docker push $ECR_REPOSITORY:latest

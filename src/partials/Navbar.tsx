@@ -19,12 +19,8 @@ const links = [
     href: "https://discord.gg/NDKMeT6GE7"
   },
   {
-    name: "GitHub",
-    href: "https://github.com/HenrySpartGlobal/InHouseQueue"
-  },
-  {
-    name: "Status",
-    href: "https://inhousequeue.statuspage.io/"
+    name: "Premium",
+    href: "https://inhousequeue.xyz/premium"
   },
   {
     name: "Documentation",

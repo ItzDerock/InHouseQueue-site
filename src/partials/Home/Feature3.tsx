@@ -11,18 +11,10 @@ export default function Feature3() {
     >
       {/* checkmarks */}
       <ol className="checkmark-list space-y-3 text-left">
-        <li data-aos="fade-up" data-aos-delay={0}>
-          <span className="font-bold">Server Performance Tracking:</span>{" "}
-          Can a quick overview on how your server is performing.
-          Total games, Total players and other admin related information are all available
-          with a single command.
-        </li>
-
         <li data-aos="fade-up" data-aos-delay={100}>
-          <span className="font-bold">Casual Server Customization:</span> Tailor
+          <span className="font-bold">Server Customization:</span> Tailor
           the bot to your server&apos;s needs, whether you&apos;re a casual
-          player or a competitive gamer. Choose captains, join queues without
-          specifying roles, and let the bot handle the rest!
+          player or a competitive gamer.
         </li>
 
         <li data-aos="fade-up" data-aos-delay={200}>
@@ -38,18 +30,7 @@ export default function Feature3() {
         </li>
 
         <li data-aos="fade-up" data-aos-delay={400}>
-          <span className="font-bold">Team Size customization</span> Customize the bot to your specific
-          Games. From 1v1 to 8v8!
-        </li>
-
-        <p data-aos="fade-up" data-aos-delay={300}>
-          <span className="font-bold">Coming Soon!</span>
-        </p>
-
-        <li data-aos="fade-up" data-aos-delay={400}>
-          <span className="font-bold">Best of 3/5 Series:</span> Organize
-          intense scrimmages with a best-of series for those serious about
-          competition.
+          <span className="font-bold">Team Size customization</span> No matter the game, we have you covered. From 1v1s to 8v8s!
         </li>
 
         <li data-aos-delay={500} data-aos="fade-up">
