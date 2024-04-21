@@ -853,6 +853,17 @@ const commands = [
       "/reset_user_penalty @Faker",
     ]
   },
+  {
+    "name": "best_of_series",
+    "type": "Premium",
+    "description": "Toggle the best of series 3 or 5 feature.",
+    "usage": [
+     "/best_of_series [preference] [channel] [series_type]",
+    ],
+    "examples": [
+        "/best_of_series True #queue 5",
+    ]
+  },
 //   {
 //     "name": "hero",
 //     "type": "Overwatch",

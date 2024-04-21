@@ -7,8 +7,8 @@ import StatCard from "../../components/StatCard/StatCard";
 export default function StatCards() {
   // Directly use the hardcoded values in your JSX
   return (
-    <div className="relative w-full z-30">
-      <div className="flex -translate-y-24 flex-row flex-wrap z-30 w-full align-middle justify-center gap-9">
+    <div className="relative z-30 mb-8 w-full">
+      <div className="z-30 flex w-full flex-row flex-wrap justify-center gap-9 align-middle md:-translate-y-24">
         <StatCard
           count={2000}
           label="Servers"
@@ -28,3 +28,4 @@ export default function StatCards() {
     </div>
   );
 }
+
