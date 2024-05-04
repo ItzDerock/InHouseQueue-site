@@ -575,6 +575,17 @@ const commands = [
           "/sub @Faker @Peanut 1c44c992",
       ]
     },
+    {
+      "name": "set_timeout",
+      "type": "Admin",
+      "description": "Sets the queue inactivity timeout for the server.",
+      "usage": [
+       "/set_timeout [hour]",
+      ],
+      "examples": [
+          "/set_timeout 1Hour",
+      ]
+    },
 
   // ~ Set-up
   {
