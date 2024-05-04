@@ -565,14 +565,14 @@ const commands = [
       ]
     },
     {
-      "name": "best_of_series",
+      "name": "sub",
       "type": "Admin",
-      "description": "Toggle the best of series 3 or 5 feature.",
+      "description": "Substitutes one player for another in an in-progress game.",
       "usage": [
-       "/best_of_series [preference] [channel] [series_type]",
+       "/sub [player_1] [player_2] [gameid]",
       ],
       "examples": [
-          "/best_of_series True #queue 5",
+          "/sub @Faker @Peanut 1c44c992",
       ]
     },
 
@@ -821,7 +821,7 @@ const commands = [
     ]
   },
   {
-    "name": "ready_penalty ",
+    "name": "ready_penalty",
     "type": "Premium",
     "description": "Award timed queue bans for players who don't ready up",
     "usage": [
