@@ -586,6 +586,17 @@ const commands = [
           "/set_timeout 1Hour",
       ]
     },
+    {
+      "name": "create_draft",
+      "type": "Admin",
+      "description": "Create a fresh draft link for a game (Lol only).",
+      "usage": [
+       "/create_draft [gameid]",
+      ],
+      "examples": [
+          "/create_draft d3441a8c",
+      ]
+    },
 
   // ~ Set-up
   {
