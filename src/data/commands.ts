@@ -444,25 +444,25 @@ const commands = [
       ]
     },
     {
-      "name": "set_queue",
+      "name": "set_queue_mode",
       "type": "Admin",
       "description": "Lock a queue to a specific game mode",
       "usage": [
-       "/set_queue [channel] [gamemode]",
+       "/set_queue_mode [channel] [gamemode]",
       ],
       "examples": [
-          "/set_queue #queue MMR Queue",
+          "/set_queue_mode #queue MMR Queue",
       ]
     },
     {
-      "name": "unset_queue",
+      "name": "unset_queue_mode",
       "type": "Admin",
       "description": "Remove specific game mode lock from a queue channel",
       "usage": [
-       "/unset_queue [channel]",
+       "/unset_queue_mode [channel]",
       ],
       "examples": [
-          "/set_queue #queue",
+          "/unset_queue_mode #queue",
       ]
     },
     {
