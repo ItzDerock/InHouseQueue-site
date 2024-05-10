@@ -773,6 +773,28 @@ const commands = [
       "/list_maps",
     ]
   },
+  {
+    "name": "match_history",
+    "type": "General",
+    "description": "View a players Match History",
+    "usage": [
+      "/match_history [game] [member]",
+    ],
+    "examples": [
+      "/match_history Custom @Faker",
+    ]
+  },
+  {
+    "name": "stats",
+    "type": "General",
+    "description": "View a players Stats",
+    "usage": [
+      "/stats [game] [member]",
+    ],
+    "examples": [
+      "/stats Custom @Faker",
+    ]
+  },
   // ~ Games
 //   {
 //     "name": "champion",
