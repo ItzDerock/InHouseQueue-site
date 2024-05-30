@@ -12,7 +12,7 @@ type Categories = (typeof commands)[number]["type"] | "All";
 // the description for each category
 const categoryDescriptions = {
   All: "All Commands",
-  Admin: "You must have Administrator permissions to run these commands",
+  Admin: "You must have Administrator or Manage Channels permissions to run these commands",
   "Set-Up": "Set up your server to use InHouseQueue Bot!",
   General: "General commands that all members can use.",
   Premium: "Premium only commands",
