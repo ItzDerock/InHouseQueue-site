@@ -487,17 +487,6 @@ const commands = [
           "/set_voice General",
       ]
     },
-    {
-      "name": "rolling_queue",
-      "type": "Admin",
-      "description": "Toggle rolling queue",
-      "usage": [
-       "/rolling_queue [preference]",
-      ],
-      "examples": [
-          "/rolling_queue Enabled",
-      ]
-    },
    {
      "name": "maps",
      "type": "Admin",
@@ -598,58 +587,58 @@ const commands = [
       ]
     },
     {
-      "name": "season_start",
+      "name": "season start",
       "type": "Admin",
       "description": "Start a new season in the server.",
       "usage": [
-        "/season_start [days] [game] [channel] [season_name] [role]"
+        "/season start [days] [game] [channel] [season_name] [role]"
       ],
       "examples": [
-        "/season_start 30 Valorant #announcements Spring_Split @season_role"
+        "/season start 30 Valorant #announcements Spring_Split @season_role"
       ]
     },
     {
-      "name": "season_extend",
+      "name": "season extend",
       "type": "Admin",
       "description": "Extend the current season.",
       "usage": [
-        "/season_extend [game] [days]"
+        "/season extend [game] [days]"
       ],
       "examples": [
-        "/season_extend Valorant 10"
+        "/season extend Valorant 10"
       ]
     },
     {
-      "name": "season_shorten",
+      "name": "season shorten",
       "type": "Admin",
       "description": "Shorten the current season.",
       "usage": [
-        "/season_shorten [game] [days]"
+        "/season shorten [game] [days]"
       ],
       "examples": [
-        "/season_shorten Overwatch 5"
+        "/season shorten Overwatch 5"
       ]
     },
     {
-      "name": "season_end",
+      "name": "season end",
       "type": "Admin",
       "description": "End the current season early.",
       "usage": [
-        "/season_end [game]"
+        "/season end [game]"
       ],
       "examples": [
-        "/season_end League Of Legends"
+        "/season end League Of Legends"
       ]
     },
     {
-      "name": "season_stats",
+      "name": "season stats",
       "type": "Admin",
       "description": "View the current season stats.",
       "usage": [
-        "/season_stats [game]"
+        "/season stats [game]"
       ],
       "examples": [
-        "/season_stats Custom"
+        "/season stats Custom"
       ]
     },
 
