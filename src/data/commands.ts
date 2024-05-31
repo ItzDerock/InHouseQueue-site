@@ -641,6 +641,17 @@ const commands = [
         "/season stats Custom"
       ]
     },
+    {
+      "name": "captain first_pick",
+      "type": "Admin",
+      "description": "Set what captain picks first",
+      "usage": [
+        "/captain first_pick [first_pick]"
+      ],
+      "examples": [
+        "/captain first_pick Blue side"
+      ]
+    },
 
   // ~ Set-up
   {
