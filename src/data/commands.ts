@@ -652,6 +652,17 @@ const commands = [
         "/captain first_pick Blue side"
       ]
     },
+    {
+      "name": "all_time_leaderboard",
+      "type": "Admin",
+      "description": "Create and manage a dynamic, persistent leaderboard that tracks the lifetime performance of players based on total wins.",
+      "usage": [
+        "/all_time_leaderboard [channel] [game]"
+      ],
+      "examples": [
+        "/all_time_leaderboard #leaderboard_channel League Of Legends"
+      ]
+    },
 
   // ~ Set-up
   {
