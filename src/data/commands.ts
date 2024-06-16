@@ -52,25 +52,25 @@ const commands = [
     ]
   },
   {
-    "name": "queue_preference",
+    "name": "queue join_limit",
     "type": "Admin",
     "description": "Decide if players can be in multiple queues at once.",
     "usage": [
-      "/queue_preference [options] "
+      "/queue join_limit [options] "
     ],
     "examples": [
-      "/queue_preference Single Queue"
+      "/queue join_limit Single Queue"
     ]
   },
   {
-    "name": "sbmm",
+    "name": "mmr toggle",
     "type": "Admin",
-    "description": "Toggle Skill",
+    "description": "Toggle Skill-Based matchmaking",
     "usage": [
-      "/sbmm [options]"
+      "/mmr toggle [options]"
     ],
     "examples": [
-      "/sbmm Disable"
+      "/mmr toggle Disable"
     ]
   },
   {
@@ -89,13 +89,13 @@ const commands = [
     "type": "Admin",
     "description": "Give a Discord role the permissions to run a specific admin command",
     "usage": [
-      "/grant_queue_commands [role] [command]",
-      "/grant_server_commands [role] [command]",
-      "/grant_game_commands [role] [command]",
-      "/grant_leaderboard_commands [role] [command]"
+      "/grant queue_commands [role] [command]",
+      "/grant server_commands [role] [command]",
+      "/grant game_commands [role] [command]",
+      "/grant leaderboard_commands [role] [command]"
     ],
     "examples": [
-      "/grant_queue_commands @Moderators Reset a queue"
+      "/grant queue_commands @Moderators Reset a queue"
     ]
   },
   {
@@ -103,35 +103,35 @@ const commands = [
     "type": "Admin",
     "description": "Remove the admin command from a discord role you previously set",
     "usage": [
-      "/revoke_queue_commands [role] [command]",
-      "/revoke_server_commands [role] [command]",
-      "/revoke_game_commands [role] [command]",
-      "/revoke_leaderboard [role] [command]"
+      "/revoke queue_commands [role] [command]",
+      "/revoke server_commands [role] [command]",
+      "/revoke game_commands [role] [command]",
+      "/revoke leaderboard [role] [command]"
     ],
     "examples": [
-      "/revoke_queue_commands @Moderators Reset a queue"
+      "/revoke queue_commands @Moderators Reset a queue"
     ]
   },
   {
-    "name": "user_dequeue",
+    "name": "user dequeue",
     "type": "Admin",
     "description": "Remove single user from an ongoing queue",
     "usage": [
-      "/user_dequeue [member]"
+      "/user dequeue [member]"
     ],
     "examples": [
-      "/user_dequeue @John"
+      "/user dequeue @John"
     ]
   },
   {
-    "name": "duo_queue",
+    "name": "queue duo",
     "type": "Admin",
     "description": "Toggle Duo queuing",
     "usage": [
-      "/duo_queue [options]"
+      "/queue duo [options]"
     ],
     "examples": [
-      "/duo_queue Enable"
+      "/queue duo Enable"
     ]
   },
   {
@@ -146,36 +146,36 @@ const commands = [
     ]
   },
   {
-    "name": "purge_user",
+    "name": "purge user",
     "type": "Admin",
     "description": "Remove a member who has left the server from the database",
     "usage": [
-      "/purge_user [userid]"
+      "/purge user [userid]"
     ],
     "examples": [
-      "/purge_user 12345678912312"
+      "/purge user 12345678912312"
         ]
   },
   {
-    "name": "purge_inactive",
+    "name": "purge inactive",
     "type": "Admin",
     "description": "Purge anyone from the leaderboard with 0 wins, 0 losses, and 0 MVP points.",
     "usage": [
-      "/purge_inactive"
+      "/purge inactive"
     ],
     "examples": [
-      "/purge_inactive"
+      "/purge inactive"
         ]
   },
   {
-    "name": "update_ign",
+    "name": "user update_ign",
     "type": "Admin",
     "description": "Update the IGN of any player",
     "usage": [
-      "/update_ign [ign] [member] [game]"
+      "/user update_ign [ign] [member] [game]"
     ],
     "examples": [
-      "/update_ign Faker John League of Legends"
+      "/user update_ign Faker John League of Legends"
     ]
   },
   {
@@ -187,40 +187,39 @@ const commands = [
     ],
     "examples": [
       "/require True League of Legends IGN",
-      "/require True League of Legends Character Required"
     ]
   },
   {
-    "name": "queue_role",
+    "name": "queue rol",
     "type": "Admin",
     "description": "Users must have this role before being able to queue",
     "usage": [
-      "/queue_role [role] [game]"
+      "/queue role [role] [game]"
     ],
     "examples": [
-      "/queue_role @InHouseQueue League of Legends"
+      "/queue role @InHouseQueue League of Legends"
     ]
   },
   {
-    "name": "fill",
+    "name": "queue fill",
     "type": "Admin",
     "description": "Enable Fill. Players queueing fill will be assigned a random available role",
     "usage": [
-      "/fill [condition]"
+      "/queue fill [condition]"
     ],
     "examples": [
-      "/fill True"
+      "/queue fill True"
     ]
   },
   {
-    "name": "casual",
+    "name": "queue casual",
     "type": "Admin",
     "description": "Enable Casual mode. No predefined roles, just 1 queue button for quick casual InHouse games",
     "usage": [
-      "/casual [condition]"
+      "/queue casual [condition]"
     ],
     "examples": [
-      "/casual True"
+      "/queue casual True"
     ]
   },
   {
@@ -235,69 +234,146 @@ const commands = [
     ]
   },
   {
-    "name": "schedule",
+    "name": "queue schedule",
     "type": "Admin",
     "description": "Schedule when the queue opens and closes automatically (Timezones: UTC, EST, EDT)",
     "usage": [
-      "/schedule",
+      "/queue schedule",
     ],
     "examples": [
-      "/schedule",
+      "/queue schedule",
     ]
   },
   {
-    "name": "delete_schedule",
+    "name": "queue delete_schedule",
     "type": "Admin",
     "description": "Delete a previously set schedule",
     "usage": [
-      "/delete_schedule",
+      "/queue delete_schedule",
     ],
     "examples": [
-      "/delete_schedule",
+      "/queue delete_schedule",
     ]
   },
   {
-    "name": "feature",
+    "name": "defaults mvp_voting",
     "type": "Admin",
-    "description": "Toggle certain features",
+    "description": "Toggle MVP Voting",
     "usage": [
-      "/feature [condition] [feature]",
+      "/defaults mvp_voting [condition]",
     ],
     "examples": [
-      "/feature True MVP Voting",
+      "/defaults mvp_voting True",
     ]
   },
   {
-   "name": "captain_queue",
+    "name": "defaults opgg",
+    "type": "Admin",
+    "description": "Toggle Automatic op.gg link (LoL only)",
+    "usage": [
+      "/defaults opgg [condition]",
+    ],
+    "examples": [
+      "/defaults opgg True",
+    ]
+  },
+  {
+    "name": "defaults lol_draft",
+    "type": "Admin",
+    "description": "Toggle LoL draft link (LoL only)",
+    "usage": [
+      "/defaults lol_draft [condition]"
+    ],
+    "examples": [
+      "/defaults lol_draft True"
+    ]
+  },
+  {
+    "name": "voice create_vc",
+    "type": "Admin",
+    "description": "Toggle Voice channel creation",
+    "usage": [
+      "/voice create_vc [condition]"
+    ],
+    "examples": [
+      "/voice create_vc True"
+    ]
+  },
+  {
+    "name": "defaults show_lobby",
+    "type": "Admin",
+    "description": "Limit the game lobby visibility",
+    "usage": [
+      "/defaults show_lobby [condition]"
+    ],
+    "examples": [
+      "/defaults show_lobby True"
+    ]
+  },
+  {
+    "name": "defaults queue_role",
+    "type": "Admin",
+    "description": "Toggle requiring the queue role",
+    "usage": [
+      "/defaults queue_role [condition]"
+    ],
+    "examples": [
+      "/defaults queue_role True"
+    ]
+  },
+  {
+    "name": "defaults match_info",
+    "type": "Admin",
+    "description": "Toggle Match Information sent in the lobby",
+    "usage": [
+      "/defaults match_info [condition]"
+    ],
+    "examples": [
+      "/defaults match_info True"
+    ]
+  },
+  {
+    "name": "defaults mute_spectators",
+    "type": "Admin",
+    "description": "Toggle Mute spectators in VC",
+    "usage": [
+      "/defaults mute_spectators [condition]"
+    ],
+    "examples": [
+      "/defaults mute_spectators True"
+    ]
+  },
+  {
+   "name": "captain queue",
    "type": "Admin",
    "description": "Toggle Captain mode",
     "usage": [
-      "/captain_queue [condition]",
+      "/captain queue [condition]",
     ],
     "examples": [
-      "/captain_queue True",
+      "/captain queue True",
     ]
   },
    {
-    "name": "add_mmr",
+    "name": "mmr add",
     "type": "Admin",
     "description": "Increase a members MMR by an approximate percentage %",
      "usage": [
-       "/add_mmr [member] [percentage]",
+       "/mmr add [member] [percentage]",
      ],
      "examples": [
-       "/add_mmr @Faker 100",
+       "/mmr add @Faker 100",
      ]
   },
    {
-    "name": "remove_mmr",
+    "name": "mmr remove",
     "type": "Admin",
     "description": "Decrease a members MMR by an approximate percentage %",
      "usage": [
-       "/remove_mmr [member] [percentage]",
+       "/mmr remove [member] [percentage]",
      ],
      "examples": [
-       "/remove_mmr @Faker 100",
+       "/mmr remove @Faker 100",
      ]
    },
    {
@@ -323,25 +399,25 @@ const commands = [
     ]
   },
   {
-     "name": "add_lobby_info",
+     "name": "lobby add_info",
      "type": "Admin",
      "description": "Set/Update Lobby Instructions or details for players.",
      "usage": [
-      "/add_lobby_info [title] [description]",
+      "/lobby add_info [title] [description]",
      ],
      "examples": [
-       "/add_lobby_info Rules No toxicity in voice calls",
+       "/lobby add_info Rules No toxicity in voice calls",
      ]
   },
   {
-     "name": "set_timer",
+     "name": "queue ready_timeout",
      "type": "Admin",
      "description": "Update the Read up timer limit (Minutes)",
      "usage": [
-      "/set_timer [minutes]",
+      "/queue ready_timeout [minutes]",
      ],
      "examples": [
-       "/set_timer 2",
+       "/queue ready_timeout 2",
      ]
   },
    {
@@ -378,58 +454,58 @@ const commands = [
       ]
     },
     {
-      "name": "start_challenges",
+      "name": "challenges start",
       "type": "Admin",
       "description": "Initiate challenges in your server. Let the fun begin!",
       "usage": [
-       "/start_challenges [game]",
+       "/challenges start [game]",
       ],
       "examples": [
-          "/start_challenges Custom",
+          "/challenges start Custom",
       ]
     },
     {
-      "name": "reset_challenges",
+      "name": "reset challenges",
       "type": "Admin",
       "description": "Reset everyone's challenge progress.",
       "usage": [
-       "/reset_challenges",
+       "/reset challenges",
       ],
       "examples": [
-          "/reset_challenges",
+          "/reset challenges",
       ]
     },
     {
-      "name": "pause_challenges",
+      "name": "challenges pause",
       "type": "Admin",
       "description": "Pause the progression of challenges in your server",
       "usage": [
-       "/pause_challenges",
+       "/challenges pause",
       ],
       "examples": [
-          "/pause_challenges",
+          "/challenges pause",
       ]
     },
     {
-      "name": "top_ten_preference",
+      "name": "leaderboard top_ten_order",
       "type": "Admin",
       "description": "Determine how the Top10 leaderboard is Ranked",
       "usage": [
-       "/top_ten_preference [pref]",
+       "/leaderboard top_ten_order [pref]",
       ],
       "examples": [
-          "/top_ten_preference MMR",
+          "/leaderboard top_ten_order MMR",
       ]
     },
      {
-      "name": "captain_pick_type",
+      "name": "captain pick_order",
       "type": "Admin",
       "description": "Fully customize the captain pick system",
       "usage": [
-       "/captain_pick_type",
+       "/captain pick_order",
       ],
       "examples": [
-          "/captain_pick_type",
+          "/captain pick_order",
       ]
     },
      {
@@ -444,25 +520,25 @@ const commands = [
       ]
     },
     {
-      "name": "set_queue_mode",
+      "name": "queue mode",
       "type": "Admin",
       "description": "Lock a queue to a specific game mode",
       "usage": [
-       "/set_queue_mode [channel] [gamemode]",
+       "/queue mode [channel] [gamemode]",
       ],
       "examples": [
-          "/set_queue_mode #queue MMR Queue",
+          "/queue mode #queue MMR Queue",
       ]
     },
     {
-      "name": "unset_queue_mode",
+      "name": "queue clear_mode",
       "type": "Admin",
       "description": "Remove specific game mode lock from a queue channel",
       "usage": [
-       "/unset_queue_mode [channel]",
+       "/queue clear_mode [channel]",
       ],
       "examples": [
-          "/unset_queue_mode #queue",
+          "/queue clear_mode #queue",
       ]
     },
     {
@@ -477,113 +553,113 @@ const commands = [
       ]
     },
     {
-      "name": "set_voice",
+      "name": "voice set",
       "type": "Admin",
       "description": "Set a Voice channel to Auto-moves players to/from team channels",
       "usage": [
-       "/set_voice [voice]",
+       "/voice set [voice]",
       ],
       "examples": [
-          "/set_voice General",
+          "/voice set General",
       ]
     },
    {
-     "name": "maps",
+     "name": "maps enable",
      "type": "Admin",
      "description": "Enable maps for a Specific game",
      "usage": [
-      "/maps [map_selection] [game]",
+      "/maps enable [map_selection] [game]",
      ],
      "examples": [
-         "/maps Random Custom",
+         "/maps enable Random Custom",
      ]
    },
    {
-     "name": "add_map",
+     "name": "maps add",
      "type": "Admin",
      "description": "Add a map to your server map pool",
      "usage": [
-      "/add_map [name] (game_mode) [image_url] [game]",
+      "/maps add [name] (game_mode) [image_url] [game]",
      ],
      "examples": [
-         "/add_map Rust Domination https://i.imgur/abcdef.jpg Custom",
+         "/maps add Rust Domination https://i.imgur/abcdef.jpg Custom",
      ]
    },
    {
-     "name": "disable_maps",
+     "name": "maps disable",
      "type": "Admin",
      "description": "Disable the map feature",
      "usage": [
-      "/disable_maps [game]",
+      "/maps disable [game]",
      ],
      "examples": [
-         "/disable_maps Custom",
+         "/maps disable Custom",
      ]
    },
    {
-     "name": "remove_map",
+     "name": "maps remove",
      "type": "Admin",
      "description": "Remove a map",
      "usage": [
-      "/remove_map [map_name]",
+      "/maps remove [map_name]",
      ],
      "examples": [
-         "/remove_map Rust",
+         "/maps remove Rust",
      ]
    },
     {
-      "name": "show_mmr",
+      "name": "mmr show",
       "type": "Admin",
       "description": "Show players MMR next to their names in the queue",
       "usage": [
-       "/show_mrr [preference]",
+       "/mmr show [preference]",
       ],
       "examples": [
-          "/show_mmr Enabled",
+          "/mmr show Enabled",
       ]
     },
     {
-      "name": "starting_mmr",
+      "name": "mmr set_starting",
       "type": "Admin",
       "description": "Adjust a players starting MMR",
       "usage": [
-       "/starting_mmr [player] [mmr] [game]",
+       "/mmr set_starting [player] [mmr] [game]",
       ],
       "examples": [
-          "/starting_mmr @Faker ~4000 League of Legends",
+          "/mmr set_starting @Faker ~4000 League of Legends",
       ]
     },
     {
-      "name": "sub",
+      "name": "game sub",
       "type": "Admin",
       "description": "Substitutes one player for another in an in-progress game.",
       "usage": [
-       "/sub [player_1] [player_2] [gameid]",
+       "/game sub [player_1] [player_2] [gameid]",
       ],
       "examples": [
-          "/sub @Faker @Peanut 1c44c992",
+          "/game sub @Faker @Peanut 1c44c992",
       ]
     },
     {
-      "name": "set_timeout",
+      "name": "queue timeout",
       "type": "Admin",
       "description": "Sets the queue inactivity timeout for the server.",
       "usage": [
-       "/set_timeout [hour]",
+       "/queue timeout [hour]",
       ],
       "examples": [
-          "/set_timeout 1Hour",
+          "/queue timeout 1Hour",
       ]
     },
     {
-      "name": "create_draft",
+      "name": "game create_draft",
       "type": "Admin",
       "description": "Create a fresh draft link for a game (Lol only).",
       "usage": [
-       "/create_draft [gameid]",
+       "/game create_draft [gameid]",
       ],
       "examples": [
-          "/create_draft d3441a8c",
+          "/game create_draft d3441a8c",
       ]
     },
     {
@@ -754,12 +830,12 @@ const commands = [
     "type": "General",
     "description": "Display a specific leaderboard.",
     "usage": [
-      "/leaderboard_[game] [options]"
+      "/leaderboard [game] [options]"
     ],
     "examples": [
-      "/leaderboard_lol mmr",
-      "/leaderboard_lol mvp",
-      "/leaderboard_lol"
+      "/leaderboard lol mmr",
+      "/leaderboard lol mvp",
+      "/leaderboard lol"
     ]
   },
   {
@@ -767,10 +843,10 @@ const commands = [
     "type": "General",
     "description": "Display a player's rank in the server.",
     "usage": [
-      "/rank_[game] [user]"
+      "/rank [game] [user]"
     ],
     "examples": [
-      "/rank_lol Faker"
+      "/rank lol Faker"
     ]
   },
   {
@@ -796,36 +872,36 @@ const commands = [
     ]
   },
   {
-    "name": "challenges",
+    "name": "challenges all",
     "type": "General",
     "description": "View all challenges available for InHouseQueue. Free and Premium.",
     "usage": [
-      "/challenges",
+      "/challenges all",
     ],
     "examples": [
-      "/challenges",
+      "/challenges all",
     ]
   },
   {
-    "name": "my_challenges",
+    "name": "challenges personal",
     "type": "General",
     "description": "View your challenge progress",
     "usage": [
-      "/my_challenges",
+      "/challenges show_all",
     ],
     "examples": [
-      "/my_challenges",
+      "/challenges show_all",
     ]
   },
   {
-    "name": "refresh_challenges",
+    "name": "challenges refresh",
     "type": "General",
     "description": "Refresh your challenges incase they did not update",
     "usage": [
-      "/refresh_challenges",
+      "/challenges refresh",
     ],
     "examples": [
-      "/refresh_challenges",
+      "/challenges refresh",
     ]
   },
   {
@@ -876,73 +952,73 @@ const commands = [
 
   // ~ Premium
   {
-    "name": "set_status",
+    "name": "premium set_status",
     "type": "Premium",
     "description": "Set the Activity of your Bot. (Tier 3 only)",
     "usage": [
-      "/set_status [status]",
+      "/premium set_status [status]",
     ],
     "examples": [
-      "/set_status Just chilling",
+      "/premium set_status Just chilling",
     ]
   },
   {
-    "name": "update_banner ",
+    "name": "premium update_banner",
     "type": "Premium",
     "description": "Update the Queue Banner image",
     "usage": [
-      "/update_banner [url]",
+      "/premium update_banner [url]",
     ],
     "examples": [
-      "/update_banner https://i.imgur.com/123123lhasd",
+      "/premium update_banner https://i.imgur.com/123123lhasd",
     ]
   },
   {
-    "name": "update_color ",
+    "name": "premium update_color ",
     "type": "Premium",
     "description": "Update the color of your Queue embed (Hexcode only)",
     "usage": [
-      "/update_color [color]",
+      "/premium update_color [color]",
     ],
     "examples": [
-      "/update_color #000000",
+      "/premium update_color #000000",
     ]
   },
   {
-    "name": "rename_teams ",
+    "name": "premium rename_teams ",
     "type": "Premium",
     "description": "Rename team names to replace 'Blue' & 'Red'",
     "usage": [
-      "/rename_teams [blue] [red] [queue_channel]",
+      "/premium rename_teams [blue] [red] [queue_channel]",
     ],
     "examples": [
-      "/rename_teams Team eSports Team Gaming #queue",
+      "/premium rename_teams Team eSports Team Gaming #queue",
     ]
   },
   {
-    "name": "list_teams ",
+    "name": "premium list_teams ",
     "type": "Premium",
     "description": "View the all team names for your server.",
     "usage": [
-      "/list_teams",
+      "/premium list_teams",
     ],
     "examples": [
-      "/list_teams",
+      "/premium list_teams",
     ]
   },
   {
-    "name": "ready_penalty",
+    "name": "premium ready_penalty",
     "type": "Premium",
     "description": "Award timed queue bans for players who don't ready up",
     "usage": [
-      "/ready_penalty [preference] (duration_1) (duration_2) (duration_3)",
+      "/premium ready_penalty [preference] (duration_1) (duration_2) (duration_3)",
     ],
     "examples": [
-      "/ready_penalty True 5minutes 30minutes 60minutes",
+      "/premium ready_penalty True 5minutes 30minutes 60minutes",
     ]
   },
   {
-    "name": "reset_server_penalties ",
+    "name": "premium reset_server_penalties",
     "type": "Premium",
     "description": "Remove all queue bans from the server",
     "usage": [
@@ -953,7 +1029,7 @@ const commands = [
     ]
   },
   {
-    "name": "reset_user_penalty ",
+    "name": "premium reset_user_penalty ",
     "type": "Premium",
     "description": "Remove all queue bans from a Member",
     "usage": [
@@ -964,7 +1040,7 @@ const commands = [
     ]
   },
   {
-    "name": "best_of_series",
+    "name": "premium best_of_series",
     "type": "Premium",
     "description": "Toggle the best of series 3 or 5 feature.",
     "usage": [
