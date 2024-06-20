@@ -344,6 +344,17 @@ const commands = [
     ]
   },
   {
+    "name": "defaults send_ready_up_dm",
+    "type": "Admin",
+    "description": "Specify if the bot will DM players when a game is found",
+    "usage": [
+      "/defaults send_ready_up_dm [condition]"
+    ],
+    "examples": [
+      "/defaults send_ready_up_dm True"
+    ]
+  },
+  {
    "name": "captain queue",
    "type": "Admin",
    "description": "Toggle Captain mode",
