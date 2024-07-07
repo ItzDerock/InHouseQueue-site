@@ -851,6 +851,17 @@ const commands = [
       "/test_mode True"
     ]
   },
+  {
+    "name": "server logs",
+    "type": "Set-Up",
+    "description": "Create a log channel",
+    "usage": [
+      "/server logs [channel]"
+    ],
+    "examples": [
+      "/server logs #admin-log-channel"
+    ]
+  },
 
   // ~ General
   {
