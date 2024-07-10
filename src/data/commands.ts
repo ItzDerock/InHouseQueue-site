@@ -794,6 +794,18 @@ const commands = [
         "/user remove_loss @player 5 League Of Legends"
       ]
     },
+    {
+      "name": "queue duo_mmr_limit",
+      "type": "Admin",
+      "description": "Set the MMR threshold for the duo queue in a specific channel.",
+      "usage": [
+        "/queue duo_mmr_limit [mmr_value] [queue_channel]"
+      ],
+      "examples": [
+        "/queue duo_mmr_limit 1500 #queue",
+        "/queue duo_mmr_limit 2000 #queue"
+      ]
+    },
 
   // ~ Set-up
   {
