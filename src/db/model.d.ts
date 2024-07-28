@@ -25,6 +25,8 @@ export interface MmrRating {
   sigma: string | null;
   counter: number | null;
   game: string | null;
+  queue_channel_id: number | null;
+  time: number | null;
 }
 
 export interface Points {
@@ -33,6 +35,13 @@ export interface Points {
   wins: number | null;
   losses: number | null;
   game: string | null;
+  queue_channel_id: number | null;
+}
+
+export interface QueueChannels {
+  guild_id: number | null;
+  channel_id: number | null;
+  unique_leaderboard: boolean | null;
 }
 
 export interface DB {
@@ -40,4 +49,5 @@ export interface DB {
   igns: Igns;
   mmr_rating: MmrRating;
   points: Points;
+  queuechannels: QueueChannels;
 }

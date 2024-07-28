@@ -46,7 +46,13 @@ export async function fetchLeaderboardRaw(
   let builder = db
     .selectFrom("mmr_rating")
     .where("mmr_rating.guild_id", "=", guildId)
-    // join with mmr_rating, same user_id and guild_id
+    .where("mmr_rating.time", "=",
+      (qb) => qb.selectFrom("mmr_rating as latest_mmr")
+        .select(sql<number>`MAX(${sql.ref('latest_mmr.time')})`.as("max_time"))
+        .whereRef("latest_mmr.user_id", "=", "mmr_rating.user_id")
+        .where("latest_mmr.guild_id", "=", guildId)
+    )
+    // join with points, same user_id and guild_id
     .leftJoin("points", (eb) => eb.on(b => b.and([
       b(b.ref("points.user_id"), "=", b.ref("mmr_rating.user_id")),
       b(b.ref("points.guild_id"), "=", b.ref("mmr_rating.guild_id"))
