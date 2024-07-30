@@ -9,10 +9,10 @@ const commands = [
       "/reset leaderboard",
       "/reset user [member]",
       "/reset queue [gameid]",
-      "/reset mmr [member](optional)"
+      "/reset mmr (member) (queue_channel)"
       ],
     "examples": [
-      "/reset leaderboard",
+      "/reset leaderboard #pro-queue",
       "/reset user @John",
       "/reset queue 03134ff5",
       "/reset mmr @John"
@@ -370,7 +370,7 @@ const commands = [
     "type": "Admin",
     "description": "Increase a members MMR by an approximate percentage %",
      "usage": [
-       "/mmr add [member] [percentage]",
+       "/mmr add [member] [percentage] (queue_channel) ",
      ],
      "examples": [
        "/mmr add @Faker 100",
@@ -381,7 +381,7 @@ const commands = [
     "type": "Admin",
     "description": "Decrease a members MMR by an approximate percentage %",
      "usage": [
-       "/mmr remove [member] [percentage]",
+       "/mmr remove [member] [percentage] (queue_channel)",
      ],
      "examples": [
        "/mmr remove @Faker 100",
@@ -403,7 +403,7 @@ const commands = [
     "type": "Admin",
     "description": "Check and display enabled InHouseQueue permissions in a specific channel",
     "usage": [
-      "/check_permissions [#channelname] (optional)",
+      "/check_permissions (#channelname)",
     ],
     "examples": [
       "/check_permissions #general",
@@ -634,7 +634,7 @@ const commands = [
       "type": "Admin",
       "description": "Adjust a players starting MMR",
       "usage": [
-       "/mmr set_starting [player] [mmr] [game]",
+       "/mmr set_starting [player] [mmr] [game] (queue_channel)",
       ],
       "examples": [
           "/mmr set_starting @Faker ~4000 League of Legends",
@@ -806,6 +806,17 @@ const commands = [
         "/queue duo_mmr_limit 2000 #queue"
       ]
     },
+    {
+      "name": "queue set_unique_leaderboard",
+      "type": "Admin",
+      "description": "Set a queue channel to have its own individual leaderboard",
+      "usage": [
+        "/queue set_unique_leaderboard [queue_channel] [game]"
+      ],
+      "examples": [
+        "/queue set_unique_leaderboard #queue Custom",
+      ]
+    },
 
   // ~ Set-up
   {
@@ -908,7 +919,7 @@ const commands = [
     "type": "General",
     "description": "Display a specific leaderboard.",
     "usage": [
-      "/leaderboard [game] [options]"
+      "/leaderboard [game] [options] (queue_channel)"
     ],
     "examples": [
       "/leaderboard lol mmr",
@@ -921,10 +932,10 @@ const commands = [
     "type": "General",
     "description": "Display a player's rank in the server.",
     "usage": [
-      "/rank [game] [user]"
+      "/rank [game] [user] (queue_channel)"
     ],
     "examples": [
-      "/rank lol Faker"
+      "/rank lol Faker (queue_channel)"
     ]
   },
   {
