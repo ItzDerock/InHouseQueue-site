@@ -1037,6 +1037,18 @@ const commands = [
       "/stats Custom @Faker",
     ]
   },
+  {
+    "name": "leaderboard role",
+    "type": "General",
+    "description": "View leaderboard based on Role",
+    "usage": [
+      "/leaderboard role [game] [based_on] [time]",
+    ],
+    "examples": [
+      "/leaderboard role LOL Total Wins 1Month",
+    ]
+  },
+
   // ~ Games
 //   {
 //     "name": "champion",
