@@ -179,18 +179,18 @@ const commands = [
     ]
   },
   {
-    "name": "require",
+    "name": "require_ign",
     "type": "Admin",
-    "description": "Set queue requirements based on the specified options",
+    "description": "Enable or disable the requirement for players to provide IGN.",
     "usage": [
-      "/require [condition] [game] [feature]"
+      "/require_ign [condition]"
     ],
     "examples": [
-      "/require True League of Legends IGN",
+      "/require_ign True",
     ]
   },
   {
-    "name": "queue rol",
+    "name": "queue role",
     "type": "Admin",
     "description": "Users must have this role before being able to queue",
     "usage": [
