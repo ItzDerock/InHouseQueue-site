@@ -835,10 +835,10 @@ const commands = [
     "type": "Set-Up",
     "description": "Setup your server Automatically!",
     "usage": [
-      "/setup [game]"
+      "/setup"
     ],
     "examples": [
-      "/setup Overwatch"
+      "/setup"
     ]
   },
   {
