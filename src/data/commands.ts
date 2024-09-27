@@ -1163,6 +1163,18 @@ const commands = [
         "/best_of_series True #queue 5",
     ]
   },
+  {
+  "name": "premium ready_penalty_info",
+  "type": "Premium",
+  "description": "Displays the current penalty durations and users with active offenses, showing if the penalty system is ENABLED or DISABLED.",
+  "usage": [
+    "/premium ready_penalty_info"
+  ],
+  "examples": [
+    "/premium ready_penalty_info"
+  ]
+ },
+
 //   {
 //     "name": "hero",
 //     "type": "Overwatch",
