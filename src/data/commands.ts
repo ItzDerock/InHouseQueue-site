@@ -366,6 +366,17 @@ const commands = [
     ]
   },
   {
+    "name": "defaults set_nickname_to_ign",
+    "type": "Admin",
+    "description": "Set users Nickname to their IGN",
+    "usage": [
+      "/defaults set_nickname_to_ign [condition]"
+    ],
+    "examples": [
+      "/defaults set_nickname_to_ign True"
+    ]
+  },
+  {
    "name": "captain queue",
    "type": "Admin",
    "description": "Toggle Captain mode",
