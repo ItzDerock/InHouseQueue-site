@@ -390,25 +390,39 @@ const commands = [
    {
     "name": "mmr add",
     "type": "Admin",
-    "description": "Increase a members MMR by an approximate percentage %",
+    "description": "Increase a member's MMR by a flat amount for a specified game",
      "usage": [
-       "/mmr add [member] [percentage] (queue_channel) ",
+       "/mmr add [member] [amount] [game] (queue_channel)",
      ],
      "examples": [
-       "/mmr add @Faker 100",
+       "/mmr add @Faker 100 'League Of Legends'",
+       "/mmr add @Player 50 'Valorant' #queue-channel"
      ]
   },
    {
     "name": "mmr remove",
     "type": "Admin",
-    "description": "Decrease a members MMR by an approximate percentage %",
+    "description": "Decrease a member's MMR by a flat amount for a specified game.",
      "usage": [
-       "/mmr remove [member] [percentage] (queue_channel)",
+        "/mmr remove [member] [amount] [game] (queue_channel)"
      ],
      "examples": [
-       "/mmr remove @Faker 100",
+         "/mmr remove @Faker 100 'League Of Legends'",
+         "/mmr remove @Player 50 'Overwatch' #queue-channel"
      ]
    },
+    {
+      "name": "mmr set",
+      "type": "Admin",
+      "description": "Set a member's MMR to a specific value for a specified game.",
+      "usage": [
+        "/mmr set [member] [new_mmr] [game] (queue_channel)"
+      ],
+      "examples": [
+        "/mmr set @Faker 1500 'League Of Legends'",
+        "/mmr set @Player 2000 'Custom' #queue-channel"
+      ]
+    },
    {
      "name": "server_stats",
      "type": "Admin",
