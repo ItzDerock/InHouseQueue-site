@@ -710,6 +710,18 @@ const commands = [
       ]
     },
     {
+      "name": "game ongoing_games_category",
+      "type": "Admin",
+      "description": "Select or Create a Category where Voice and Lobby will be created for Matches.",
+      "usage": [
+       "/game ongoing_games_category [game] (category)",
+      ],
+      "examples": [
+          "/game ongoing_games_category Valorant",
+          "/game ongoing_games_category Overwatch InHouses",
+      ]
+    },
+    {
       "name": "season start",
       "type": "Admin",
       "description": "Start a new season in the server.",
