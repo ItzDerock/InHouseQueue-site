@@ -1214,15 +1214,16 @@ const commands = [
  {
   "name": "premium webhook_url",
   "type": "Premium",
-  "description": "Update the webhook URL for your premium guild.",
+  "description": "Update or delete the webhook URL for your premium guild.",
   "usage": [
-    "/premium webhook_url [url]"
+    "/premium webhook_url [url]",
+    "/premium webhook_url delete:true"
   ],
   "examples": [
-    "/premium webhook_url https://example.com/webhook"
+    "/premium webhook_url https://example.com/webhook",
+    "/premium webhook_url True"
   ]
  },
-
 
 //   {
 //     "name": "hero",
