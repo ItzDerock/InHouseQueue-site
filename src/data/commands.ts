@@ -1211,6 +1211,18 @@ const commands = [
     "/premium ready_penalty_info"
   ]
  },
+ {
+  "name": "premium webhook_url",
+  "type": "Premium",
+  "description": "Update the webhook URL for your premium guild.",
+  "usage": [
+    "/premium webhook_url [url]"
+  ],
+  "examples": [
+    "/premium webhook_url https://example.com/webhook"
+  ]
+ },
+
 
 //   {
 //     "name": "hero",
