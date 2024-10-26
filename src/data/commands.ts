@@ -963,27 +963,27 @@ const commands = [
     "examples": []
   },
   {
-    "name": "leaderboard",
+    "name": "leaderboard view",
     "type": "General",
     "description": "Display a specific leaderboard.",
     "usage": [
-      "/leaderboard [game] [options] (queue_channel)"
+      "/leaderboard view [game] [options] (queue_channel)"
     ],
     "examples": [
-      "/leaderboard lol mmr",
-      "/leaderboard lol mvp",
-      "/leaderboard lol"
+      "/leaderboard view lol mmr",
+      "/leaderboard view  lol mvp",
+      "/leaderboard view lol"
     ]
   },
   {
-    "name": "rank",
+    "name": "rank view",
     "type": "General",
     "description": "Display a player's rank in the server.",
     "usage": [
-      "/rank [game] [user] (queue_channel)"
+      "/rank view [game] [user] (queue_channel)"
     ],
     "examples": [
-      "/rank lol Faker (queue_channel)"
+      "/rank view lol @Faker (queue_channel)"
     ]
   },
   {
@@ -991,10 +991,10 @@ const commands = [
     "type": "General",
     "description": "Set your In Game Name",
     "usage": [
-      "/ign [ign] [game]"
+      "/ign [game] [ign]"
     ],
     "examples": [
-      "/ign Faker League of Legends"
+      "/ign League of Legends Faker"
     ]
   },
   {
