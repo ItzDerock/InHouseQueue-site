@@ -1224,6 +1224,39 @@ const commands = [
     "/premium webhook_url True"
   ]
  },
+  {
+  "name": "premium decay",
+  "type": "Premium",
+  "description": "Open Up the Menu for Managing Decay",
+  "usage": [
+    "/premium decay [game]",
+  ],
+  "examples": [
+    "premium decay Overwatch",
+  ]
+ },
+  {
+  "name": "premium apply_decay",
+  "type": "Premium",
+  "description": "Manually apply Decay to players, if you don't want to wait.",
+  "usage": [
+    "/premium apply_decay [game] [queue_channel]",
+  ],
+  "examples": [
+    "premium apply_decay Overwatch #queue",
+  ]
+ },
+   {
+  "name": "premium ignore_decay",
+  "type": "Premium",
+  "description": "Select which member will NOT lose MMR from decay. ",
+  "usage": [
+    "/premium ignore_decay [user] [game]",
+  ],
+  "examples": [
+    "premium ignore_decay @Faker Overwatch",
+  ]
+ },
 
 //   {
 //     "name": "hero",
