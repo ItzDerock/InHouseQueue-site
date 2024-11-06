@@ -34,7 +34,7 @@ export default function Footer(props: { withBorder?: boolean }) {
                 </a>
               </li>
               <li>
-                <a href="https://discord.com/invite/8DZQcpxnbB">
+                <a href="https://discord.gg/rT9cZD3tkA">
                   Support
                 </a>
               </li>
