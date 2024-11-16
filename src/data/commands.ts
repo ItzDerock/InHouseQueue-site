@@ -1257,6 +1257,17 @@ const commands = [
     "premium ignore_decay @Faker Overwatch",
   ]
  },
+ {
+  "name": "premium custom_bot",
+  "type": "Premium",
+  "description": "Create your Custom White label bot",
+  "usage": [
+    "/premium custom_bot [bot_token]",
+  ],
+  "examples": [
+    "premium custom_bot MTAy....",
+  ]
+ },
 
 //   {
 //     "name": "hero",

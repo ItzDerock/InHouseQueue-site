@@ -51,9 +51,9 @@ const PLAN_DETAILS = [
     features: [
       "Premium Bot Support",
       "Private Patreon Channel Access",
+      "Custom Queue Banner Image",
       "Custom Queue Embed Color",
       "Discord Role",
-      "Private Channel Access",
     ],
   },
 
@@ -82,8 +82,8 @@ const PLAN_DETAILS = [
         description: "Enable Best of series for the extremely competitive",
       },
       {
-        title: "InHouseQueue Seasons",
-        description: "Fully automated seasons. Dedicated leaderboards, queues and MMR. (Coming Soon)",
+        title: "InHouseQueue Decay System",
+        description: "Boost your server engagement. Players lose MMR for inactivity. Fully customisable",
       },
       {
         title: "Premium Challenges",
@@ -95,9 +95,9 @@ const PLAN_DETAILS = [
       "Hide player names",
       "Queue dodge Penalties",
       "Best of 3 / Best of 5",
-      "InHouseQueue Seasons",
+      "InHouseQueue Decay System",
       "Premium Challenges (Coming Soon)",
-      "ALL Tier 1 Benefits (Coming Soon)",
+      "ALL Tier 1 Benefits",
     ],
   },
 
