@@ -29,7 +29,7 @@ export default function Footer(props: { withBorder?: boolean }) {
                 </Link>
               </li>
               <li>
-                <a href="https://discord.com/api/oauth2/authorize?client_id=1001168331996409856&permissions=1101927804016&scope=bot">
+                <a href="https://discord.com/api/oauth2/authorize?client_id=1001168331996409856&permissions=2433051696&scope=bot">
                   Invite
                 </a>
               </li>
