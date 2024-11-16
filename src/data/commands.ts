@@ -865,6 +865,43 @@ const commands = [
         "/queue set_unique_leaderboard #queue Custom",
       ]
     },
+    {
+      "name": "queue suspend",
+      "type": "Admin",
+      "description": "Suspend a user from queueing temporarily.",
+      "usage": [
+        "/queue suspend [user] [duration] [reason]"
+      ],
+      "examples": [
+        "/queue suspend @User123 1d Spamming inappropriate content",
+        "/queue suspend @User456 2h Violation of rules",
+        "/queue suspend @User789"
+      ]
+    },
+    {
+      "name": "queue unsuspend",
+      "type": "Admin",
+      "description": "Remove a user's suspension from queueing.",
+      "usage": [
+        "/queue unsuspend [user] [reason]"
+      ],
+      "examples": [
+        "/queue unsuspend @User123 Apology accepted",
+        "/queue unsuspend @User456",
+        "/queue unsuspend @User789 Mistaken identity"
+      ]
+    },
+    {
+      "name": "queue suspensions",
+      "type": "Admin",
+      "description": "Display the list of currently suspended users.",
+      "usage": [
+        "/queue suspensions"
+      ],
+      "examples": [
+        "/queue suspensions"
+      ]
+    },
 
   // ~ Set-up
   {
