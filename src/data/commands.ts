@@ -377,6 +377,17 @@ const commands = [
     ]
   },
   {
+    "name": "defaults allow_spectators",
+    "type": "Admin",
+    "description": "Allow spectators to join voice lobbies",
+    "usage": [
+      "/defaults allow_spectators [condition]"
+    ],
+    "examples": [
+      "/defaults allow_spectators True"
+    ]
+  },
+  {
    "name": "captain queue",
    "type": "Admin",
    "description": "Toggle Captain mode",
