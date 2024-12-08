@@ -938,25 +938,25 @@ const commands = [
     ]
   },
   {
-    "name": "setwinnerlog",
+    "name": "create_match_history",
     "type": "Set-Up",
     "description": "Game results are sent to this channel. You may only have 1 match history channel per server.",
     "usage": [
-      "/setwinnerlog [#channelname] [game]"
+      "/create_match_history [#channelname] [game]"
     ],
     "examples": [
-      "/setwinnerlog #match-history Valorant"
+      "/create_match_history #match-history Valorant"
     ]
   },
   {
-    "name": "top_ten",
+    "name": "create_leaderboard",
     "type": "Set-Up",
     "description": "Set up a Dynamic top ten leaderboard",
     "usage": [
-      "/top_ten [#channelname] [game]"
+      "/create_leaderboard [#channelname] [game]"
     ],
     "examples": [
-      "/top_ten #leaderboard Overwatch"
+      "/create_leaderboard #leaderboard Overwatch"
     ]
   },
   {
