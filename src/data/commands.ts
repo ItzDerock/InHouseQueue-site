@@ -1165,10 +1165,10 @@ const commands = [
     "type": "Premium",
     "description": "Update the Queue Banner image",
     "usage": [
-      "/premium update_banner [url]",
+      "/premium update_banner [url] (queue_channel)",
     ],
     "examples": [
-      "/premium update_banner https://i.imgur.com/123123lhasd",
+      "/premium update_banner https://i.imgur.com/123123lhasd #queue",
     ]
   },
   {
@@ -1176,10 +1176,10 @@ const commands = [
     "type": "Premium",
     "description": "Update the color of your Queue embed (Hexcode only)",
     "usage": [
-      "/premium update_color [color]",
+      "/premium update_color [color] (queue_channel)",
     ],
     "examples": [
-      "/premium update_color #000000",
+      "/premium update_color #000000 #queue",
     ]
   },
   {
