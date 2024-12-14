@@ -461,10 +461,10 @@ const commands = [
      "type": "Admin",
      "description": "Set/Update Lobby Instructions or details for players.",
      "usage": [
-      "/lobby add_info [title] [description]",
+      "/lobby add_info [title] [description] (queue_channel)",
      ],
      "examples": [
-       "/lobby add_info Rules No toxicity in voice calls",
+       "/lobby add_info Rules No toxicity in voice calls #queue",
      ]
   },
   {
