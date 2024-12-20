@@ -450,10 +450,10 @@ const commands = [
     "type": "Admin",
     "description": "Check and display enabled InHouseQueue permissions in a specific channel",
     "usage": [
-      "/check_permissions (#channelname)",
+      "/check_permissions",
     ],
     "examples": [
-      "/check_permissions #general",
+      "/check_permissions",
     ]
   },
   {
