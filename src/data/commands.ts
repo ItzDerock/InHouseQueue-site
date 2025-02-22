@@ -240,17 +240,6 @@ const commands = [
     ]
   },
   {
-    "name": "queue delete_schedule",
-    "type": "Admin",
-    "description": "Delete a previously set schedule",
-    "usage": [
-      "/queue delete_schedule",
-    ],
-    "examples": [
-      "/queue delete_schedule",
-    ]
-  },
-  {
     "name": "defaults mvp_voting",
     "type": "Admin",
     "description": "Toggle MVP Voting",
