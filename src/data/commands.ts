@@ -188,10 +188,11 @@ const commands = [
     "type": "Admin",
     "description": "Users must have this role before being able to queue",
     "usage": [
-      "/queue role [role] [game]"
+      "/queue role [role] [game] (queue_channel)"
     ],
     "examples": [
-      "/queue role @InHouseQueue League of Legends"
+      "/queue role @InHouseQueue League of Legends #inhouses-main",
+      "/queue role @InHouseQueue Overwatch"
     ]
   },
   {
