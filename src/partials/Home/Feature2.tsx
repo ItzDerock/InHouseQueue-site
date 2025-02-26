@@ -20,7 +20,7 @@ export default function Feature2() {
             "Dedicated server site leaderboard",
             "Duo Queue",
             "Captain Queue",
-            "Customize Team sizes (1v1 - 8v8)",
+            "Customize Team sizes (1v1 - 11v11)",
             "So much more...",
           ].map((item, index) => (
             <li

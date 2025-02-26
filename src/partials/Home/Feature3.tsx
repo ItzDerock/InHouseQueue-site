@@ -30,7 +30,7 @@ export default function Feature3() {
         </li>
 
         <li data-aos="fade-up" data-aos-delay={400}>
-          <span className="font-bold">Team Size customization</span> No matter the game, we have you covered. From 1v1s to 8v8s!
+          <span className="font-bold">Team Size customization</span> No matter the game, we have you covered. From 1v1s to 11v11s!
         </li>
 
         <li data-aos-delay={500} data-aos="fade-up">
