@@ -26,6 +26,19 @@ services:
     networks:
       - inhouse-network
 
+  website-stats:
+    build:
+      context: ../website-stats  # https://github.com/InHouseQueue/website-stats
+      dockerfile: Dockerfile
+    image: website-stats
+    container_name: website-stats
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    networks:
+      - inhouse-network
+    ports:
+      - "5000:5000"
+
 networks:
   inhouse-network:
     external: true
