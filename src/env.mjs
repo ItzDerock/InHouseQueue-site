@@ -11,6 +11,7 @@ const server = z.object({
   DISCORD_CLIENT_ID: z.string(),
   DISCORD_CLIENT_SECRET: z.string(),
   DISABLE_GUILD_CHECKING: z.string().optional(),
+  STATS_ENDPOINT: z.string(),
 });
 
 /**
@@ -33,6 +34,7 @@ const processEnv = {
   DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID,
   DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
   DISABLE_GUILD_CHECKING: process.env.DISABLE_GUILD_CHECKING,
+  STATS_ENDPOINT: process.env.STATS_ENDPOINT,
 };
 
 // Don't touch the part below

@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@next/third-parties": "^15.1.7",
     "@react-hookz/web": "^24.0.4",
     "@svgr/webpack": "^8.1.0",
     "@upstash/redis": "^1.29.0",

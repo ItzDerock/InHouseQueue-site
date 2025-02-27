@@ -5,6 +5,7 @@ import tailwindConfig from "../../tailwind.config.cjs";
 import banner from "../assets/banner.webp";
 import AOSInit from "../components/AOSInit";
 import Footer from "../partials/Footer";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 // get the tailwind config for colors
 const config = resolveConfig(tailwindConfig);
@@ -73,6 +74,9 @@ export default function App({ children }: { children: React.ReactNode }) {
 
       {/* initalize aos */}
       <AOSInit />
+
+      {/* google analytics */}
+      <GoogleAnalytics gaId="G-G24C6G7TM3" />
     </html>
   );
 }
