@@ -32,6 +32,7 @@ jobs:
             --build-arg DISCORD_CLIENT_SECRET=${{ secrets.DISCORD_CLIENT_SECRET }} \
             --build-arg UPSTASH_REDIS_REST_URL=${{ secrets.UPSTASH_REDIS_REST_URL }} \
             --build-arg UPSTASH_REDIS_REST_TOKEN=${{ secrets.UPSTASH_REDIS_REST_TOKEN }} \
+            --build-arg STATS_ENDPOINT="http://127.0.0.1:5000/stats" \
             .
 
         - name: Login to Amazon ECR

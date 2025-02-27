@@ -14,6 +14,7 @@ services:
       NEXTAUTH_URL: ${NEXTAUTH_URL}
       DISCORD_CLIENT_ID: ${DISCORD_CLIENT_ID}
       DISCORD_CLIENT_SECRET: ${DISCORD_CLIENT_SECRET}
+      STATS_ENDPOINT: ${STATS_ENDPOINT}
     volumes:
       - ./src:/app/src
     logging:

@@ -7,6 +7,7 @@ ARG DISCORD_CLIENT_ID
 ARG DISCORD_CLIENT_SECRET
 ARG UPSTASH_REDIS_REST_URL
 ARG UPSTASH_REDIS_REST_TOKEN
+ARG STATS_ENDPOINT
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -19,7 +20,8 @@ COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
 RUN \
   if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
   elif [ -f package-lock.json ]; then npm ci; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile; \
+  elif [ -f pnpm-lock.yaml ]; then \
+    corepack enable && corepack prepare pnpm@9.0.2 --activate && pnpm install --frozen-lockfile --force; \
   else echo "Lockfile not found." && exit 1; \
   fi
 

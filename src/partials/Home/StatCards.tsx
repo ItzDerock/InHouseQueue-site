@@ -32,6 +32,8 @@ async function fetchStatistics() {
   } catch (err) {
     console.error("Failed to fetch statistics: ", err);
     return null;
+  } finally {
+  console.log("Fetched statistics");
   }
 }
 
