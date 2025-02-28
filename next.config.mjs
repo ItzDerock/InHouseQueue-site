@@ -13,16 +13,17 @@ const config = {
   experimental: {},
   output: 'standalone',
 
-  // svgr
-  // webpack: (config) => {
-  //   config.module.rules.push({
-  //     test: /\.svg$/i,
-  //     issuer: /\.[jt]sx?$/,
-  //     use: ["@svgr/webpack"],
-  //   });
-
-  //   return config;
-  // }
+  images: {
+    remotePatterns: [
+      // allow loading avatar images from Discord's CDN
+      {
+        protocol: 'https',
+        hostname: 'cdn.discordapp.com',
+        port: '',
+        pathname: '/avatars/**',
+      }
+    ]
+  }
 };
 
 export default withBundleAnalyzer({

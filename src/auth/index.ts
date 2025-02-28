@@ -1,8 +1,9 @@
-import type { DefaultSession, NextAuthOptions } from "next-auth";
+import { getServerSession, type DefaultSession, type NextAuthOptions } from "next-auth";
 import type { DiscordProfile } from "next-auth/providers/discord";
 import DiscordProvider from "next-auth/providers/discord";
 import { env } from "../env.mjs";
 import type { RESTGetAPICurrentUserGuildsResult } from "discord-api-types/v10";
+import type { GetServerSidePropsContext, NextApiRequest, NextApiResponse } from "next";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -28,7 +29,7 @@ declare module "next-auth" {
   }
 }
 
-export const authOptions: NextAuthOptions = {
+export const authOptions = {
   session: {
     strategy: "jwt",
   },
@@ -95,6 +96,20 @@ export const authOptions: NextAuthOptions = {
       session.user.guilds = token.guilds as string[];
       return session;
     },
-
   }
+} satisfies NextAuthOptions;
+
+/**
+ * Utility function to get the server session without having to pass around the config object.
+ * @see https://next-auth.js.org/configuration/nextjs
+ * @param args immediately passed to `getServerSession`
+ * @returns the server session
+ */
+export function auth(
+  ...args:
+    | [GetServerSidePropsContext["req"], GetServerSidePropsContext["res"]]
+    | [NextApiRequest, NextApiResponse]
+    | []
+) {
+  return getServerSession(...args, authOptions)
 }
