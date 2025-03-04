@@ -518,6 +518,18 @@ const commands = [
       ]
     },
     {
+      "name": "reset mvp",
+      "type": "Admin",
+      "description": "Reset MVP votes for everyone, or a member.",
+      "usage": [
+       "/reset mvp (member)",
+      ],
+      "examples": [
+          "/reset mvp @Henry",
+          "/reset mvp",
+      ]
+    },
+    {
       "name": "challenges pause",
       "type": "Admin",
       "description": "Pause the progression of challenges in your server",
