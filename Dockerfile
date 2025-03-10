@@ -81,6 +81,6 @@ ENV PORT 3000
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
 CMD \
   # if INVALIDATE_SECRET is not set, generate a random secret
-  INVALIDATE_SECRET=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) \
+  INVALIDATE_SECRET=${INVALIDATE_SECRET:-$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)} \
   HOSTNAME="0.0.0.0" \
   node server.js
