@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   bot:
@@ -26,10 +26,12 @@ services:
       - "3000:3000"
     networks:
       - inhouse-network
+    depends_on:
+      - website-stats
 
   website-stats:
     build:
-      context: ../website-stats  # https://github.com/InHouseQueue/website-stats
+      context: ../website-stats # https://github.com/InHouseQueue/website-stats
       dockerfile: Dockerfile
     image: website-stats
     container_name: website-stats
@@ -43,7 +45,6 @@ services:
 networks:
   inhouse-network:
     external: true
-
 
 volumes:
   redis-data:

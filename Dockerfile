@@ -21,7 +21,7 @@ RUN \
   if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
   elif [ -f package-lock.json ]; then npm ci; \
   elif [ -f pnpm-lock.yaml ]; then \
-    corepack enable && corepack prepare pnpm@9.0.2 --activate && pnpm install --frozen-lockfile --force; \
+  corepack enable && corepack prepare pnpm@9.0.2 --activate && pnpm install --frozen-lockfile --force; \
   else echo "Lockfile not found." && exit 1; \
   fi
 
@@ -37,12 +37,16 @@ COPY . .
 # Uncomment the following line in case you want to disable telemetry during the build.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
+ENV SKIP_ENV_VALIDATION=1
+
 RUN \
   if [ -f yarn.lock ]; then yarn run build; \
   elif [ -f package-lock.json ]; then npm run build; \
   elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm run build; \
   else echo "Lockfile not found." && exit 1; \
   fi
+
+ENV SKIP_ENV_VALIDATION=
 
 # Production image, copy all the files and run next
 FROM base AS runner
@@ -75,4 +79,8 @@ ENV PORT 3000
 
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
-CMD HOSTNAME="0.0.0.0" node server.js
+CMD \
+  # if INVALIDATE_SECRET is not set, generate a random secret
+  INVALIDATE_SECRET=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) \
+  HOSTNAME="0.0.0.0" \
+  node server.js

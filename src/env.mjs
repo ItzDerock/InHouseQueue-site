@@ -12,6 +12,24 @@ const server = z.object({
   DISCORD_CLIENT_SECRET: z.string(),
   DISABLE_GUILD_CHECKING: z.string().optional(),
   STATS_ENDPOINT: z.string(),
+
+  INVALIDATE_SECRET: z
+    .string()
+    .default(() => {
+      // allow none in development and not build time
+      if (process.env.NODE_ENV === "production") {
+        throw new Error("REVALIDATE_SECRET must be set in production");
+      }
+
+      // Generate a random secret key using webcrypto
+      console.log("No REVALIDATE_SECRET provided, generating one");
+      const rng = new Uint32Array(32);
+      crypto.getRandomValues(rng);
+      return [...rng]
+        .map((bytes) => bytes.toString(16).padStart(2, "0"))
+        .join("");
+    })
+    .transform((str) => `Bearer ${str}`),
 });
 
 /**
@@ -35,6 +53,7 @@ const processEnv = {
   DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
   DISABLE_GUILD_CHECKING: process.env.DISABLE_GUILD_CHECKING,
   STATS_ENDPOINT: process.env.STATS_ENDPOINT,
+  INVALIDATE_SECRET: process.env.INVALIDATE_SECRET,
 };
 
 // Don't touch the part below
@@ -55,7 +74,7 @@ if (!!process.env.SKIP_ENV_VALIDATION == false) {
   if (parsed.success === false) {
     console.error(
       "❌ Invalid environment variables:",
-      parsed.error.flatten().fieldErrors
+      parsed.error.flatten().fieldErrors,
     );
     throw new Error("Invalid environment variables");
   }
@@ -71,7 +90,7 @@ if (!!process.env.SKIP_ENV_VALIDATION == false) {
         throw new Error(
           process.env.NODE_ENV === "production"
             ? "❌ Attempted to access a server-side environment variable on the client"
-            : `❌ Attempted to access server-side environment variable '${prop}' on the client`
+            : `❌ Attempted to access server-side environment variable '${prop}' on the client`,
         );
       /*  @ts-ignore - can't type this properly in jsdoc */
       return target[prop];
