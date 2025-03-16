@@ -10,7 +10,7 @@ import withBundleAnalyzer from "@next/bundle-analyzer";
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
-  experimental: {},
+  experimental: { instrumentationHook: true },
   output: 'standalone',
 
   images: {
