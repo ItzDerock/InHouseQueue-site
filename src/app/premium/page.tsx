@@ -1,5 +1,4 @@
 import Banner from "../../components/Banner";
-import banner from "../../assets/banner.webp";
 import Navbar from "../../partials/Navbar";
 import { Fragment, type ReactNode } from "react";
 import Button from "../../components/Button";
@@ -153,8 +152,8 @@ const PLAN_DETAILS = [
       },
     ],
     features: [
-    "Whitelabel InHouseQueue Bot",
-     "ALL Tier 1 and Tier 2 Benefits",
+      "Whitelabel InHouseQueue Bot",
+      "ALL Tier 1 and Tier 2 Benefits",
     ],
   },
 
@@ -196,7 +195,7 @@ export default function SubscriptionPage() {
   return (
     <>
       <Navbar absolute />
-      <Banner image={banner} height="67vh" />
+      <Banner height="67vh" />
 
       <div className="relative z-30 w-full p-8">
         <div className="z-50 mx-auto flex max-w-7xl -translate-y-36 flex-col gap-4 xl:grid xl:grid-cols-3">
@@ -264,26 +263,26 @@ export default function SubscriptionPage() {
                   {
                     // if the plan has highlights, render them
                     planDetail.highlights &&
-                      planDetail.highlights.length > 0 && (
-                        <div className="flex flex-col gap-2">
-                          {
-                            // for each highlight, render a highlight card
-                            planDetail.highlights.map((highlight, index) => (
-                              <div key={index}>
-                                {/* highlight title */}
-                                <h1 className="font-bold text-white">
-                                  {highlight.title}
-                                </h1>
+                    planDetail.highlights.length > 0 && (
+                      <div className="flex flex-col gap-2">
+                        {
+                          // for each highlight, render a highlight card
+                          planDetail.highlights.map((highlight, index) => (
+                            <div key={index}>
+                              {/* highlight title */}
+                              <h1 className="font-bold text-white">
+                                {highlight.title}
+                              </h1>
 
-                                {/* highlight description */}
-                                <p className="text-white text-opacity-80">
-                                  {highlight.description}
-                                </p>
-                              </div>
-                            ))
-                          }
-                        </div>
-                      )
+                              {/* highlight description */}
+                              <p className="text-white text-opacity-80">
+                                {highlight.description}
+                              </p>
+                            </div>
+                          ))
+                        }
+                      </div>
+                    )
                   }
 
                   {/* extra features */}
