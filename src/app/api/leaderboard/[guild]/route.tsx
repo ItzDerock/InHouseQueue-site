@@ -38,6 +38,7 @@ export async function GET(
   const sortDirection = searchParams.get("sortDirection") ?? "desc";
   const page = parseInt(searchParams.get("page") ?? "0");
   const searchFor = searchParams.get("searchFor");
+  const game = searchParams.get("game");
 
   // validate
   if (!SORT_BY_VALUES.includes(sortBy)) {
@@ -46,6 +47,8 @@ export async function GET(
       error: {
         message: "Invalid sortBy value",
       },
+    }, {
+      status: 400
     });
   }
 
@@ -55,6 +58,8 @@ export async function GET(
       error: {
         message: "Invalid sortDirection value",
       },
+    }, {
+      status: 400
     });
   }
 
@@ -64,6 +69,8 @@ export async function GET(
       error: {
         message: "Invalid offset value",
       },
+    }, {
+      status: 400
     });
   }
 
@@ -73,6 +80,8 @@ export async function GET(
       error: {
         message: "Invalid guild ID",
       },
+    }, {
+      status: 400
     });
   }
 
@@ -84,6 +93,8 @@ export async function GET(
       error: {
         message: "Not logged in",
       },
+    }, {
+      status: 401
     });
   }
 
@@ -96,6 +107,8 @@ export async function GET(
       error: {
         message: "Not in guild",
       },
+    }, {
+      status: 403
     });
   }
 
@@ -113,7 +126,10 @@ export async function GET(
       sortDirection: sortDirection as "asc" | "desc",
       limit: 10,
       offset: page * 10,
-      searchFor: searchFor ?? undefined,
+      filters: {
+        searchTerm: searchFor ?? undefined,
+        game,
+      }
     }),
     {
       status: 200,

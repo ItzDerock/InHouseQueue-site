@@ -1,3 +1,5 @@
+import type { DBGame } from "../enums";
+
 export enum FetchLeaderboardSortType {
   Wins = "wins",
   Losses = "losses",
@@ -7,13 +9,31 @@ export enum FetchLeaderboardSortType {
 
 export type FetchLeaderboardInput = {
   guild_id: bigint;
-  /** If provided, this function will only fetch rows that contain the given text. */
-  searchFor?: string;
   sortBy?: FetchLeaderboardSortType;
   sortDirection?: 'asc' | 'desc';
   limit?: number;
   offset?: number;
   withPageCount?: boolean;
+
+  filters?: Partial<{
+    /**
+     * Global refers to a queue_channel_id of 0, which is the global leaderboard.
+     * Otherwise, this should be the channel id of the queue.
+     */
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    queueId: "global" | (string & {});
+
+    /**
+     * Will only return rows that contain the given text
+     */
+    searchTerm: string;
+
+    /**
+     * Determines what videogame to show the leaderboard for.
+     * By default, it's whatever is first in the database.
+     */
+    game: DBGame;
+  }>,
 }
 
 export type LeaderboardEntry = {

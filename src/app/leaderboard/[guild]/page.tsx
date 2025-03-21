@@ -1,14 +1,20 @@
-import Banner from "../../../components/Banner";
-import Navbar from "../../../partials/Navbar";
-import LeaderboardBanner from "../../../assets/leaderboard.jpg";
-import { LeaderboardCards } from "../../../partials/Leaderboard/Cards";
+import Banner from "@/components/Banner";
+import Navbar from "@/partials/Navbar";
+import LeaderboardBanner from "@/assets/leaderboard.jpg";
+import { LeaderboardCards } from "./_components/Cards";
 import { notFound } from "next/navigation";
-import { fetchLeaderboard } from "../../../db/queries/leaderboard";
+import {
+  fetchLeaderboard,
+  fetchLeaderboardOptions,
+} from "@/db/queries/leaderboard";
 import { getServerSession } from "next-auth";
-import Redirect from "../../../auth/Redirect";
-import { Table } from "../../../partials/Leaderboard/Table";
-import { authOptions } from "../../../auth";
-import { env } from "../../../env.mjs";
+import Redirect from "@/auth/Redirect";
+import { Table } from "./_components/Table";
+import { authOptions } from "@/auth";
+import { env } from "@/env.mjs";
+import { LeaderboardFilters } from "./_components/Filters";
+import { LeaderboardSearch } from "./_components/Search";
+import { Leaderboard } from "./_components/Leaderboard";
 
 export default async function LeaderboardPage({
   params,
@@ -44,19 +50,22 @@ export default async function LeaderboardPage({
   }
 
   // fetch the data
-  const data = await fetchLeaderboard({
-    guild_id: BigInt(guild),
-    limit: 10,
-    withPageCount: true,
-  });
+  const [leaderboard, meta] = await Promise.all([
+    fetchLeaderboard({
+      guild_id: BigInt(guild),
+      limit: 10,
+      withPageCount: true,
+    }),
+    fetchLeaderboardOptions(guild),
+  ]);
 
   // if no data, 404
-  if (data.total === 0) {
-    return notFound();
+  if (leaderboard.total === 0) {
+    // return notFound();
   }
 
   // get the top3
-  const top3 = data.data.slice(0, 3);
+  const top3 = leaderboard.data.slice(0, 3);
 
   return (
     <>
@@ -75,13 +84,13 @@ export default async function LeaderboardPage({
         <LeaderboardCards entries={top3} />
       </div>
 
-      {/* table */}
-      <Table
-        guildId={guild}
-        defaultEntries={data.data}
-        total={data.total}
-        fetched={data.fetched}
-      />
+      <div className="mx-auto max-w-screen-lg">
+        <LeaderboardSearch />
+        <LeaderboardFilters meta={meta} />
+
+        {/* table */}
+        <Leaderboard guildId={guild} initialData={undefined} />
+      </div>
     </>
   );
 }
