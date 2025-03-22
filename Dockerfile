@@ -8,6 +8,7 @@ ARG DISCORD_CLIENT_SECRET
 ARG UPSTASH_REDIS_REST_URL
 ARG UPSTASH_REDIS_REST_TOKEN
 ARG STATS_ENDPOINT
+ARG REVALIDATE_SECRET
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -46,7 +47,7 @@ RUN \
   else echo "Lockfile not found." && exit 1; \
   fi
 
-ENV SKIP_ENV_VALIDATION=
+ENV SKIP_ENV_VALIDATION=1
 
 # Production image, copy all the files and run next
 FROM base AS runner
