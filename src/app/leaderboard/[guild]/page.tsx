@@ -1,26 +1,34 @@
-import Banner from "../../../components/Banner";
-import Navbar from "../../../partials/Navbar";
-import LeaderboardBanner from "../../../assets/leaderboard.jpg";
-import { LeaderboardCards } from "../../../partials/Leaderboard/Cards";
+import Banner from "@/components/Banner";
+import Navbar from "@/partials/Navbar";
+import LeaderboardBanner from "@/assets/leaderboard.jpg";
 import { notFound } from "next/navigation";
-import { fetchLeaderboard } from "../../../db/queries/leaderboard";
+import {
+  fetchLeaderboard,
+  fetchLeaderboardOptions,
+} from "@/db/queries/leaderboard";
 import { getServerSession } from "next-auth";
-import Redirect from "../../../auth/Redirect";
-import { Table } from "../../../partials/Leaderboard/Table";
-import { authOptions } from "../../../auth";
-import { env } from "../../../env.mjs";
+import Redirect from "@/auth/Redirect";
+import { authOptions } from "@/auth";
+import { env } from "@/env.mjs";
+import { Leaderboard } from "./_components/Leaderboard";
+import { SortDirection } from "@/components/SortIcon";
+import {
+  buildLeaderboardQueryParams,
+  parseQueryParameters,
+} from "./_components/LeaderboardUtils";
 
 export default async function LeaderboardPage({
   params,
+  searchParams,
 }: {
   params: { guild: string };
+  searchParams: Record<string, string | string[] | undefined>;
 }) {
   // check session
   const session = await getServerSession(authOptions);
   if (!session) {
     // redirect to login
     return <Redirect />;
-    // return redirect("/api/auth/signin/discord");
   }
 
   if (
@@ -43,20 +51,28 @@ export default async function LeaderboardPage({
     return notFound();
   }
 
-  // fetch the data
-  const data = await fetchLeaderboard({
-    guild_id: BigInt(guild),
-    limit: 10,
-    withPageCount: true,
-  });
+  // parse the query parameters
+  const options = parseQueryParameters(searchParams, true);
 
-  // if no data, 404
-  if (data.total === 0) {
-    return notFound();
-  }
-
-  // get the top3
-  const top3 = data.data.slice(0, 3);
+  // fetch the data so it is already ready on the client
+  const [leaderboard, meta] = await Promise.all([
+    fetchLeaderboard({
+      guild_id: BigInt(guild),
+      limit: 10,
+      withPageCount: true,
+      sortDirection:
+        options.sortDir === SortDirection.None
+          ? SortDirection.Desc
+          : options.sortDir,
+      sortBy: options.sortBy,
+      filters: {
+        game: options.game,
+        queueId: options.leaderboard,
+        searchTerm: "",
+      },
+    }),
+    fetchLeaderboardOptions(guild),
+  ]);
 
   return (
     <>
@@ -70,17 +86,16 @@ export default async function LeaderboardPage({
         <Banner image={LeaderboardBanner} height="36vh" />
       </div>
 
-      {/* cards */}
-      <div className="relative">
-        <LeaderboardCards entries={top3} />
-      </div>
-
-      {/* table */}
-      <Table
+      <Leaderboard
         guildId={guild}
-        defaultEntries={data.data}
-        total={data.total}
-        fetched={data.fetched}
+        initialData={{
+          data: leaderboard,
+          optionsHash: buildLeaderboardQueryParams({
+            ...options,
+            searchFor: "",
+          }).toString(),
+        }}
+        meta={meta}
       />
     </>
   );

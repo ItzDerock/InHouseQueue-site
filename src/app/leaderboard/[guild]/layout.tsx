@@ -2,6 +2,7 @@
 
 import { SessionProvider } from "next-auth/react";
 import AuthHeader from "./_components/AuthHeader";
+import { ProgressProvider } from "@bprogress/next/app";
 
 export default function LeaderboardLayout({
   children,
@@ -10,11 +11,13 @@ export default function LeaderboardLayout({
 }) {
   return (
     <SessionProvider>
-      <AuthHeader />
-      {/* The auth header needs to push everything down,
+      <ProgressProvider color="#f65426">
+        <AuthHeader />
+        {/* The auth header needs to push everything down,
           so wrap in an relative container to "reset"
           the origin for future absolute containers */}
-      <div className="relative">{children}</div>
+        <div className="relative">{children}</div>
+      </ProgressProvider>
     </SessionProvider>
   );
 }
