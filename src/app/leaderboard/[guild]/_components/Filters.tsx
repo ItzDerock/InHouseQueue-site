@@ -29,7 +29,7 @@ export function LeaderboardFilters(props: LeaderboardFiltersProps) {
   const updateGame = useLeaderboardStore((state) => state.setGame);
 
   return (
-    <div className="mb-4 flex flex-row gap-4">
+    <div className="mb-4 flex flex-col md:flex-row gap-4">
       <Select value={channel} onValueChange={updateChannel}>
         <SelectTrigger>
           <SelectValue placeholder="Global Leaderboard" />

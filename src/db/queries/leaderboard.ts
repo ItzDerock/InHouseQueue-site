@@ -300,8 +300,6 @@ export async function fetchLeaderboardRaw(
 
 export const fetchLeaderboard = cache(fetchLeaderboardRaw, {
   cacheKey: (params) => {
-    return false; // TODO: REMOVE AFTER DEV
-
     // don't cache searches
     if (params.filters?.searchTerm) return false;
 

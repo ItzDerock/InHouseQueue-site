@@ -1,10 +1,12 @@
+/** eslint-disable react-hooks/exhaustive-deps */
+/** eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import useSWRInfinite from "swr/infinite";
 import useLeaderboardStore from "./State";
 import { useEffect, useMemo, useState } from "react";
+import type { LeaderboardEntry } from "@/db/queries/leaderboard.types";
 import {
-  LeaderboardEntry,
   type LeaderboardMetadata,
   type LeaderboardResponse,
 } from "@/db/queries/leaderboard.types";
@@ -14,6 +16,7 @@ import { LeaderboardFilters } from "./Filters";
 import { LeaderboardSearch } from "./Search";
 import type { DBGame } from "@/db/enums";
 import { buildLeaderboardQueryParams } from "./LeaderboardUtils";
+import { useProgress } from "@bprogress/next";
 
 export function Leaderboard(props: {
   guildId: string;
@@ -23,6 +26,7 @@ export function Leaderboard(props: {
   };
   meta: LeaderboardMetadata;
 }) {
+  const progress = useProgress();
   const state = useLeaderboardStore();
 
   /**
@@ -56,19 +60,21 @@ export function Leaderboard(props: {
     LeaderboardResponse,
     unknown
   >(
-    (pageIndex, previous: LeaderboardResponse) => {
-      // only load more if there is more data available
-      if (previous && previous.data.length < 10 && previous.total < 10) {
-        return null;
-      }
-
+    (pageIndex) => {
       return `/api/leaderboard/${props.guildId}?${queryParams.toString()}&page=${pageIndex}`;
     },
     {
       fallbackData: useInitial ? [props.initialData.data] : undefined,
       fetcher: async (...args: Parameters<typeof fetch>) => {
         (args[1] ??= {}).credentials = "include";
-        return fetch(...args).then((res) => res.json());
+        progress.start();
+        try {
+          return await fetch(...args).then(
+            (res) => res.json() as Promise<LeaderboardResponse>,
+          );
+        } finally {
+          progress.stop();
+        }
       },
     },
   );
@@ -79,13 +85,31 @@ export function Leaderboard(props: {
   );
 
   useEffect(() => {
-    if (data && state.searchFor?.trim() !== "") {
-      setTop3(data[0]?.data.slice(0, 3) ?? []);
+    if (data && state.searchFor?.trim() === "") {
+      // Only update top3 if the data has actually changed
+      const newData = data[0]?.data.slice(0, 3) ?? [];
+      if (top3.length !== newData.length ||
+        !top3.every((item, index) => item === newData[index])) {
+        setTop3(newData);
+      }
     }
-  }, [data, state.searchFor]);
+  }, [data]);
 
   const lastElement = useMemo(() => data?.at(-1), [data]);
-  const isMore = useMemo(() => (data?.at(-1)?.data.length ?? 0) <= 10, [data]);
+  const isMore = useMemo(() => {
+    if (data === undefined) return false;
+    if (data.length === 0) return false;
+    const lastElement = data.at(-1)!;
+
+    // if there is a search filter, we don't know the total, so just check if last element is full
+    if (state.searchFor) return lastElement.data.length === 10;
+
+    // to know if we reached the end, calculate the amount we have fetched vs the total
+    const total = data.at(-1)!.total;
+    const fetched = data.reduce((acc, val) => acc + val.data.length, 0);
+
+    return fetched < total;
+  }, [data, state.searchFor]);
 
   return (
     <>
@@ -94,7 +118,7 @@ export function Leaderboard(props: {
         {top3 && top3.length > 0 && <LeaderboardCards entries={top3} />}
       </div>
 
-      <div className="mx-auto max-w-screen-lg">
+      <div className="mx-auto max-w-screen-lg px-4">
         <LeaderboardSearch />
         <LeaderboardFilters meta={props.meta} />
 

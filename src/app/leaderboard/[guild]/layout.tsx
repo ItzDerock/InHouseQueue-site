@@ -11,7 +11,7 @@ export default function LeaderboardLayout({
 }) {
   return (
     <SessionProvider>
-      <ProgressProvider>
+      <ProgressProvider color="#f65426">
         <AuthHeader />
         {/* The auth header needs to push everything down,
           so wrap in an relative container to "reset"
