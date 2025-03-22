@@ -2,10 +2,11 @@
 
 import useSWRInfinite from "swr/infinite";
 import useLeaderboardStore from "./State";
-import { useEffect, useMemo } from "react";
-import type {
-  LeaderboardMetadata,
-  LeaderboardResponse,
+import { useEffect, useMemo, useState } from "react";
+import {
+  LeaderboardEntry,
+  type LeaderboardMetadata,
+  type LeaderboardResponse,
 } from "@/db/queries/leaderboard.types";
 import { LeaderboardTable, LeaderboardTableEntries } from "./Table";
 import { LeaderboardCards } from "./Cards";
@@ -46,8 +47,7 @@ export function Leaderboard(props: {
     // check against initial data
     // if the options hash is the same, use the initial data
     // otherwise, force a query
-    const useInitial =
-      props.initialData.optionsHash === query.toString();
+    const useInitial = props.initialData.optionsHash === query.toString();
 
     return [query, useInitial];
   }, [state, props.initialData]);
@@ -62,7 +62,7 @@ export function Leaderboard(props: {
         return null;
       }
 
-      return `/api/leaderboard/${props.guildId}?${queryParams.toString()}&page=${++pageIndex}`;
+      return `/api/leaderboard/${props.guildId}?${queryParams.toString()}&page=${pageIndex}`;
     },
     {
       fallbackData: useInitial ? [props.initialData.data] : undefined,
@@ -73,9 +73,17 @@ export function Leaderboard(props: {
     },
   );
 
-  console.log(data)
+  // update top3 when data changes only if no search is active
+  const [top3, setTop3] = useState<LeaderboardEntry[]>(
+    props.initialData.data.data.slice(0, 3),
+  );
 
-  const top3 = useMemo(() => data?.at(0)?.data.slice(0, 3), [data]);
+  useEffect(() => {
+    if (data && state.searchFor?.trim() !== "") {
+      setTop3(data[0]?.data.slice(0, 3) ?? []);
+    }
+  }, [data, state.searchFor]);
+
   const lastElement = useMemo(() => data?.at(-1), [data]);
   const isMore = useMemo(() => (data?.at(-1)?.data.length ?? 0) <= 10, [data]);
 

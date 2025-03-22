@@ -2,9 +2,18 @@
 
 import { IoMdSearch } from "react-icons/io";
 import useLeaderboardStore from "./State";
+import { useEffect } from "react";
+import { useDebouncedState } from "@react-hookz/web";
 
 export function LeaderboardSearch() {
   const updateSearch = useLeaderboardStore((state) => state.setSearchFor);
+  const [searchTerm, setSearchTerm] = useDebouncedState("", 500);
+
+  // update search term when debounced
+  // prevent request spam
+  useEffect(() => {
+    updateSearch(searchTerm);
+  }, [searchTerm, updateSearch]);
 
   return (
     <div className="relative mx-auto mb-4 mt-7 w-full">
@@ -13,7 +22,7 @@ export function LeaderboardSearch() {
         placeholder="Search for player. (User ID or IGN)"
         className="w-full rounded-md border border-gray-600 bg-background-main p-2 text-white"
         onChange={(e) => {
-          updateSearch(e.target.value);
+          setSearchTerm(e.target.value);
         }}
       />
 

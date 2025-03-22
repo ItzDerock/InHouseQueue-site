@@ -97,6 +97,7 @@ export async function fetchLeaderboardRaw(
   const guildId = options.guild_id;
   const orderBy = orderByMap[options.sortBy ?? "wins"];
   const game = options.filters.game;
+  const search = options.filters.searchTerm.trim();
 
   const queueChannelId =
     options.filters?.queueId !== "global" && options.filters?.queueId
@@ -233,7 +234,20 @@ export async function fetchLeaderboardRaw(
     ]);
 
   // grab the requested data
+  // only apply the search filter for grabbing data, and not when getting the page count.
   const requestedData = builder
+    .$if(search != "", (qb) =>
+      qb.where((eb) =>
+        eb.or(
+          [
+            eb("igns.ign", "like", `%${search}%`),
+            search.match(/^[0-9]{19,23}$/)
+              ? eb("mmr_rating.user_id", "=", BigInt(search))
+              : undefined,
+          ].filter(isDefined),
+        ),
+      ),
+    )
     .limit(options.limit)
     .offset(options.offset)
     .execute();
