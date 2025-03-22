@@ -10,20 +10,23 @@ import withBundleAnalyzer from "@next/bundle-analyzer";
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
-  experimental: { instrumentationHook: true },
-  output: 'standalone',
+  experimental: {
+    instrumentationHook: true,
+    serverComponentsExternalPackages: ["@node-rs/xxhash"],
+  },
+  output: "standalone",
 
   images: {
     remotePatterns: [
       // allow loading avatar images from Discord's CDN
       {
-        protocol: 'https',
-        hostname: 'cdn.discordapp.com',
-        port: '',
-        pathname: '/avatars/**',
-      }
-    ]
-  }
+        protocol: "https",
+        hostname: "cdn.discordapp.com",
+        port: "",
+        pathname: "/avatars/**",
+      },
+    ],
+  },
 };
 
 export default withBundleAnalyzer({

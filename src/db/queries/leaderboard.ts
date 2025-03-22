@@ -8,12 +8,13 @@
 import { type NotNull, sql } from "kysely";
 import { db } from "..";
 import { cache } from "../../cache";
-import crypto from "node:crypto";
 import {
   type FetchLeaderboardInput,
   type LeaderboardResponse,
 } from "./leaderboard.types";
 import { isDefined } from "@/utils";
+import objectHash from "object-hash";
+import xxhash from "@node-rs/xxhash";
 
 // patch json serialization with bigints
 // eslint-disable-next-line @typescript-eslint/no-redeclare, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
@@ -303,11 +304,15 @@ export const fetchLeaderboard = cache(fetchLeaderboardRaw, {
     // don't cache searches
     if (params.filters?.searchTerm) return false;
 
-    // hash the params so we get a unique id for the given options
-    const hash = crypto
-      .createHash("sha1")
-      .update(JSON.stringify(params))
-      .digest("base64");
+    // hash the params
+    // doesn't need to be cryptographically secure
+    // so use xxhash which is fast
+    const hash = xxhash.xxh3.xxh64(objectHash(params, {
+      algorithm: "passthrough",
+      // prevent hashing of __proto__ and .constructor
+      respectType: false,
+    }));
+
     return `leaderboard:${hash}`;
   },
   staleTime: /* 30 Seconds */ 30,
