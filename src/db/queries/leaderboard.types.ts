@@ -15,7 +15,7 @@ export type FetchLeaderboardInput = {
   offset?: number;
   withPageCount?: boolean;
 
-  filters?: Partial<{
+  filters: {
     /**
      * Global refers to a queue_channel_id of 0, which is the global leaderboard.
      * Otherwise, this should be the channel id of the queue.
@@ -32,8 +32,8 @@ export type FetchLeaderboardInput = {
      * Determines what videogame to show the leaderboard for.
      * By default, it's whatever is first in the database.
      */
-    game: DBGame;
-  }>,
+    game: DBGame | "all";
+  },
 }
 
 export type LeaderboardEntry = {
@@ -49,4 +49,15 @@ export type LeaderboardResponse = {
   data: LeaderboardEntry[];
   total: number | bigint;
   fetched: number;
+}
+
+export type LeaderboardMetadata = {
+  channels: {
+    channel_id: bigint;
+    unique_leaderboard: boolean | null;
+  }[];
+
+  games: {
+    game: string;
+  }[];
 }

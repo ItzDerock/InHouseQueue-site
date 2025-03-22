@@ -1,3 +1,4 @@
+
 import { getServerSession } from "next-auth";
 import { type NextRequest, NextResponse } from "next/server";
 import { authOptions } from "../../../../auth";
@@ -6,9 +7,8 @@ import { FetchLeaderboardSortType } from "../../../../db/queries/leaderboard.typ
 import { env } from "../../../../env.mjs";
 import { getRealIP } from "../../../../utils";
 import { initRateLimit } from "../../../../utils/rate-limit";
-
-const SORT_BY_VALUES = Object.values(FetchLeaderboardSortType) as string[];
-const SORT_DIR_VALUES = ["asc", "desc"];
+import z from "zod";
+import { DBGame } from "@/db/enums";
 
 const searchRateLimit = initRateLimit((request) => ({
   id: `search:${getRealIP(request)}`,
@@ -22,6 +22,19 @@ const leaderboardRateLimit = initRateLimit((request) => ({
   timeframe: 60,
 }));
 
+const querySchema = z.object({
+  sortBy: z.nativeEnum(FetchLeaderboardSortType)
+    .optional()
+    .default(FetchLeaderboardSortType.MMR),
+  sortDirection: z.enum(["asc", "desc"])
+    .optional()
+    .default("desc"),
+  page: z.coerce.number().int().min(0).default(0),
+  searchFor: z.string().optional(),
+  game: z.nativeEnum(DBGame).or(z.literal("all")).optional(),
+  leaderboard: z.string().regex(/^([0-9]{19,22})|(global)$/)
+});
+
 export async function GET(
   request: NextRequest,
   {
@@ -32,42 +45,17 @@ export async function GET(
     };
   }
 ) {
-  // get query params
-  const searchParams = new URL(request.url).searchParams;
-  const sortBy = searchParams.get("sortBy") ?? FetchLeaderboardSortType.MMR;
-  const sortDirection = searchParams.get("sortDirection") ?? "desc";
-  const page = parseInt(searchParams.get("page") ?? "0");
-  const searchFor = searchParams.get("searchFor");
-  const game = searchParams.get("game");
 
-  // validate
-  if (!SORT_BY_VALUES.includes(sortBy)) {
+  const query = querySchema.safeParse(
+    Object.fromEntries(new URL(request.url).searchParams.entries())
+  );
+
+  if (!query.success) {
     return NextResponse.json({
       data: [],
       error: {
-        message: "Invalid sortBy value",
-      },
-    }, {
-      status: 400
-    });
-  }
-
-  if (!SORT_DIR_VALUES.includes(sortDirection)) {
-    return NextResponse.json({
-      data: [],
-      error: {
-        message: "Invalid sortDirection value",
-      },
-    }, {
-      status: 400
-    });
-  }
-
-  if (isNaN(page) || page < 0) {
-    return NextResponse.json({
-      data: [],
-      error: {
-        message: "Invalid offset value",
+        message: "Invalid parameters",
+        validationErrors: query.error.errors
       },
     }, {
       status: 400
@@ -85,7 +73,6 @@ export async function GET(
     });
   }
 
-  // check session
   const session = await getServerSession(authOptions);
   if (!session || !session.user) {
     return NextResponse.json({
@@ -112,8 +99,7 @@ export async function GET(
     });
   }
 
-  // check rate limit
-  const rateLimited = searchFor
+  const rateLimited = query.data.searchFor
     ? await searchRateLimit(request)
     : await leaderboardRateLimit(request);
 
@@ -122,13 +108,14 @@ export async function GET(
   return NextResponse.json(
     await fetchLeaderboard({
       guild_id: BigInt(params.guild),
-      sortBy: sortBy as FetchLeaderboardSortType,
-      sortDirection: sortDirection as "asc" | "desc",
+      sortBy: query.data.sortBy,
+      sortDirection: query.data.sortDirection,
       limit: 10,
-      offset: page * 10,
+      offset: query.data.page * 10,
       filters: {
-        searchTerm: searchFor ?? undefined,
-        game,
+        searchTerm: query.data.searchFor ?? "",
+        game: query.data.game ?? DBGame.LeagueOfLegends,
+        queueId: query.data.leaderboard,
       }
     }),
     {

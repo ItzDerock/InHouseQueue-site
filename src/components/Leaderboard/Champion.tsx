@@ -1,4 +1,4 @@
-import { type LeaderboardCardProps } from "../../partials/Leaderboard/Cards";
+import type { LeaderboardCardProps } from "@/app/leaderboard/[guild]/_components/Cards";
 
 export default function ChampionRankCard(props: LeaderboardCardProps) {
   return (

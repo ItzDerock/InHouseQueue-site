@@ -1,72 +1,8 @@
-import { DBGame } from "@/db/enums";
-import { FetchLeaderboardSortType } from "@/db/queries/leaderboard.types";
 import { create } from "zustand";
 import { useEffect } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { z } from "zod";
-import { SortDirection } from "@/components/SortIcon";
-
-/**
- * State for leaderboard pages
- */
-type LeaderboardState = {
-  searchFor: string | null;
-  sortDir: SortDirection;
-  sortBy: FetchLeaderboardSortType;
-  leaderboard: string;
-  game: string;
-  page: number;
-};
-
-/**
- * Actions that can be performed on the state
- */
-type LeaderboardActions = {
-  setSearchFor: (value: LeaderboardState["searchFor"]) => void;
-  setSortDir: (value: LeaderboardState["sortDir"]) => void;
-  setSortBy: (value: LeaderboardState["sortBy"]) => void;
-  setLeaderboard: (value: LeaderboardState["leaderboard"]) => void;
-  setGame: (value: LeaderboardState["game"]) => void;
-  setPage: (value: LeaderboardState["page"]) => void;
-};
-
-/**
- * The parameters to persist in the URL query
- */
-const PARAMS_TO_PERSIST = [
-  "sortDir",
-  "sortBy",
-  "leaderboard",
-  "game",
-  "page",
-] as const;
-
-/**
- * Zod validators for each state to be persisted
- */
-const VALIDATORS = {
-  searchFor: z.string().default(""),
-  sortDir: z.nativeEnum(SortDirection),
-  sortBy: z.nativeEnum(FetchLeaderboardSortType),
-  leaderboard: z
-    .string()
-    .regex(/^([0-9]{15,20})|(global)$/)
-    .default("global"),
-  game: z.nativeEnum(DBGame),
-  page: z.coerce.number(),
-} as const;
-
-/**
- * Default options for the state
- */
-const defaultValues = {
-  searchFor: "",
-  sortDir: SortDirection.None,
-  sortBy: FetchLeaderboardSortType.MMR,
-  leaderboard: "global",
-  game: DBGame.LeagueOfLegends,
-  page: 0,
-} satisfies LeaderboardState;
+import { useSearchParams } from "next/navigation";
+import type { LeaderboardState, LeaderboardActions } from "./LeaderboardUtils";
+import { defaultValues, PARAMS_TO_PERSIST, VALIDATORS } from "./LeaderboardUtils";
 
 /**
  * Shared state for leaderboard configuration
@@ -90,8 +26,6 @@ const useLeaderboardStore = create<LeaderboardState & LeaderboardActions>(
  * Utility hook to sync query params with state
  */
 export const useLeaderboardQueryParams = () => {
-  // const pathname = usePathname();
-  // const router = useRouter();
   const searchParams = useSearchParams();
   const state = useLeaderboardStore();
 
@@ -121,6 +55,8 @@ export const useLeaderboardQueryParams = () => {
         }
       }
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /**
@@ -141,6 +77,8 @@ export const useLeaderboardQueryParams = () => {
     // ^ This causes a refresh, so instead we use replaceState
     // https://stackoverflow.com/questions/62845014/change-url-without-page-refresh-next-js
     window.history.replaceState({}, "", "?" + params.toString());
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state]);
 
   return state;

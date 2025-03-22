@@ -5,16 +5,15 @@
    @typescript-eslint/no-explicit-any,
    @typescript-eslint/no-unsafe-argument */
 
-import { NotNull, sql } from "kysely";
+import { type NotNull, sql } from "kysely";
 import { db } from "..";
 import { cache } from "../../cache";
 import crypto from "node:crypto";
 import {
-  FetchLeaderboardSortType,
   type FetchLeaderboardInput,
   type LeaderboardResponse,
 } from "./leaderboard.types";
-import { DBGame } from "../enums";
+import { isDefined } from "@/utils";
 
 // patch json serialization with bigints
 // eslint-disable-next-line @typescript-eslint/no-redeclare, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
@@ -30,23 +29,12 @@ const orderByMap = {
   winrate: "winrate",
 } as const;
 
-interface LeaderboardResult {
-  ign: string | null;
-  user_id: string;
-  wins: number;
-  losses: number;
-  mmr: number;
-  winrate: number;
-}
-
 /**
  * Fetches a guild's leaderboard, retrieving all the unique game and queue channel id options
  */
 export const fetchLeaderboardOptions = cache(
   async (guildId: string | bigint) => {
-    // cannot safely store guild id's as a number because might be bigger than Number.MAX_SAFE_INTEGER
-    // but the database is stored as a number, so type cast.
-    const guildIdNumber = BigInt(guildId) as unknown as number;
+    const guildIdNumber = BigInt(guildId);
 
     const channelsQuery = db
       .selectFrom("queuechannels")
@@ -79,6 +67,8 @@ export const fetchLeaderboardOptions = cache(
       gamesQuery.execute(),
     ]);
 
+    console.log("Recieved channels: ", channels);
+
     return {
       channels,
       games,
@@ -104,13 +94,13 @@ export async function fetchLeaderboardRaw(
     ...opts,
   } as const;
 
-  const guildId = options.guild_id as unknown as number;
+  const guildId = options.guild_id;
   const orderBy = orderByMap[options.sortBy ?? "wins"];
-  const game = options.filters?.game ?? DBGame.LeagueOfLegends;
+  const game = options.filters.game;
 
   const queueChannelId =
     options.filters?.queueId !== "global" && options.filters?.queueId
-      ? (BigInt(options.filters?.queueId) as unknown as number)
+      ? BigInt(options.filters?.queueId)
       : undefined;
 
   console.log(
@@ -125,16 +115,16 @@ export async function fetchLeaderboardRaw(
       .selectFrom("queuechannels")
       .select("unique_leaderboard")
       .where("guild_id", "=", guildId)
-      .where("channel_id", "=", BigInt(queueChannelId) as unknown as number)
+      .where("channel_id", "=", queueChannelId)
       .executeTakeFirst();
 
-    isUniqueLeaderboard = uniqueCheck?.unique_leaderboard === true;
+    isUniqueLeaderboard = !!uniqueCheck?.unique_leaderboard;
   }
 
-  console.log(isUniqueLeaderboard)
+  console.log(`Channel ${queueChannelId} is unique? ${isUniqueLeaderboard}`);
 
   // Start building the query
-  let builder = db
+  const builder = db
     .selectFrom("mmr_rating")
     .where("mmr_rating.guild_id", "=", guildId)
     // Filter for the latest mmr rating per user
@@ -144,26 +134,31 @@ export async function fetchLeaderboardRaw(
         .select((eb) => eb.fn.max("latest_mmr.time").as("max_time"))
         .whereRef("latest_mmr.user_id", "=", "mmr_rating.user_id")
         .where((eb) =>
-          eb.and([
-            eb("latest_mmr.guild_id", "=", guildId),
-            eb("latest_mmr.game", "=", game),
+          eb.and(
+            [
+              eb("latest_mmr.guild_id", "=", guildId),
 
-            // if unique leaderboard, filter by queue channel id
-            isUniqueLeaderboard && queueChannelId
-              ? eb("latest_mmr.queue_channel_id", "=", queueChannelId)
-              : eb.or([
-                eb("latest_mmr.queue_channel_id", "=", 0),
-                eb(
-                  "latest_mmr.queue_channel_id",
-                  "in",
-                  qb
-                    .selectFrom("queuechannels")
-                    .select("queuechannels.channel_id")
-                    .where("queuechannels.guild_id", "=", guildId)
-                    .where("queuechannels.unique_leaderboard", "=", false),
-                ),
-              ]),
-          ]),
+              // if a game is specified, filter by it
+              game !== "all" ? eb("latest_mmr.game", "=", game) : undefined,
+
+              // if unique leaderboard, filter by queue channel id
+              isUniqueLeaderboard && queueChannelId
+                ? eb("latest_mmr.queue_channel_id", "=", queueChannelId)
+                : eb.or([
+                  eb("latest_mmr.queue_channel_id", "=", 0n),
+                  eb("latest_mmr.queue_channel_id", "is", null),
+                  eb(
+                    "latest_mmr.queue_channel_id",
+                    "not in",
+                    qb
+                      .selectFrom("queuechannels")
+                      .select("queuechannels.channel_id")
+                      .where("queuechannels.guild_id", "=", guildId)
+                      .where("queuechannels.unique_leaderboard", "=", true),
+                  ),
+                ]),
+            ].filter(isDefined),
+          ),
         ),
     )
     // Join with summed points for global leaderboard (non-unique queues)
@@ -181,15 +176,16 @@ export async function fetchLeaderboardRaw(
             isUniqueLeaderboard && queueChannelId
               ? eb("points.queue_channel_id", "=", queueChannelId)
               : eb.or([
-                eb("points.queue_channel_id", "=", 0),
+                eb("points.queue_channel_id", "=", 0n),
+                eb("points.queue_channel_id", "is", null),
                 eb(
                   "points.queue_channel_id",
-                  "in",
+                  "not in",
                   qb
                     .selectFrom("queuechannels")
                     .select("queuechannels.channel_id")
                     .where("queuechannels.guild_id", "=", guildId)
-                    .where("queuechannels.unique_leaderboard", "=", false),
+                    .where("queuechannels.unique_leaderboard", "=", true),
                 ),
               ]),
           )
@@ -206,11 +202,11 @@ export async function fetchLeaderboardRaw(
     // Calculate winrate and mmr
     .select((eb) => [
       // (total_wins + 0.0) / (GREATEST(total_wins + total_losses, 1.0) + 0.0)
-      sql<string>`(${eb.ref("merged_points.total_wins")} + 0.0) / (GREATEST(${eb.ref(
+      sql<number>`(${eb.ref("merged_points.total_wins")} + 0.0) / (GREATEST(${eb.ref(
         "merged_points.total_wins",
       )} + ${eb.ref("merged_points.total_losses")}, 1.0) + 0.0)`.as("winrate"),
       // (mu - 2 * sigma) * 100
-      sql<string>`(${eb.ref("mmr_rating.mu")} - 2 * ${eb.ref(
+      sql<number>`(${eb.ref("mmr_rating.mu")} - 2 * ${eb.ref(
         "mmr_rating.sigma",
       )}) * 100`.as("mmr"),
     ])
@@ -237,7 +233,10 @@ export async function fetchLeaderboardRaw(
     ]);
 
   // grab the requested data
-  const requestedData = builder.limit(options.limit).offset(options.offset);
+  const requestedData = builder
+    .limit(options.limit)
+    .offset(options.offset)
+    .execute();
 
   // count total pages
   const pages = options.withPageCount
@@ -247,14 +246,12 @@ export async function fetchLeaderboardRaw(
       .clearLimit()
       .clearOrderBy()
       .select([db.fn.count("mmr_rating.user_id").distinct().as("total")])
+      .execute()
     : undefined;
 
   // execute the queries
   const startTime = Date.now();
-  const [data, totalEntries] = await Promise.all([
-    requestedData.execute(),
-    pages?.execute(),
-  ]);
+  const [data, totalEntries] = await Promise.all([requestedData, pages]);
 
   console.log(data); // TODO: Remove after dev
 
@@ -276,9 +273,9 @@ export async function fetchLeaderboardRaw(
   );
 
   return {
-    data: data.map((row: LeaderboardResult) => ({
-      ign: row.ign ?? row.user_id,
-      user_id: row.user_id,
+    data: data.map((row) => ({
+      ign: row.ign ?? row.user_id!.toString(),
+      user_id: row.user_id!.toString(),
       wins: row.wins,
       losses: row.losses,
       mmr: row.mmr,

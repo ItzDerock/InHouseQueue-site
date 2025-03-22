@@ -1,7 +1,6 @@
 import Banner from "@/components/Banner";
 import Navbar from "@/partials/Navbar";
 import LeaderboardBanner from "@/assets/leaderboard.jpg";
-import { LeaderboardCards } from "./_components/Cards";
 import { notFound } from "next/navigation";
 import {
   fetchLeaderboard,
@@ -9,24 +8,27 @@ import {
 } from "@/db/queries/leaderboard";
 import { getServerSession } from "next-auth";
 import Redirect from "@/auth/Redirect";
-import { Table } from "./_components/Table";
 import { authOptions } from "@/auth";
 import { env } from "@/env.mjs";
-import { LeaderboardFilters } from "./_components/Filters";
-import { LeaderboardSearch } from "./_components/Search";
 import { Leaderboard } from "./_components/Leaderboard";
+import { SortDirection } from "@/components/SortIcon";
+import {
+  buildLeaderboardQueryParams,
+  parseQueryParameters,
+} from "./_components/LeaderboardUtils";
 
 export default async function LeaderboardPage({
   params,
+  searchParams,
 }: {
   params: { guild: string };
+  searchParams: Record<string, string | string[] | undefined>;
 }) {
   // check session
   const session = await getServerSession(authOptions);
   if (!session) {
     // redirect to login
     return <Redirect />;
-    // return redirect("/api/auth/signin/discord");
   }
 
   if (
@@ -49,23 +51,28 @@ export default async function LeaderboardPage({
     return notFound();
   }
 
-  // fetch the data
+  // parse the query parameters
+  const options = parseQueryParameters(searchParams, true);
+
+  // fetch the data so it is already ready on the client
   const [leaderboard, meta] = await Promise.all([
     fetchLeaderboard({
       guild_id: BigInt(guild),
       limit: 10,
       withPageCount: true,
+      sortDirection:
+        options.sortDir === SortDirection.None
+          ? SortDirection.Desc
+          : options.sortDir,
+      sortBy: options.sortBy,
+      filters: {
+        game: options.game,
+        queueId: options.leaderboard,
+        searchTerm: "",
+      },
     }),
     fetchLeaderboardOptions(guild),
   ]);
-
-  // if no data, 404
-  if (leaderboard.total === 0) {
-    // return notFound();
-  }
-
-  // get the top3
-  const top3 = leaderboard.data.slice(0, 3);
 
   return (
     <>
@@ -79,18 +86,17 @@ export default async function LeaderboardPage({
         <Banner image={LeaderboardBanner} height="36vh" />
       </div>
 
-      {/* cards */}
-      <div className="relative">
-        <LeaderboardCards entries={top3} />
-      </div>
-
-      <div className="mx-auto max-w-screen-lg">
-        <LeaderboardSearch />
-        <LeaderboardFilters meta={meta} />
-
-        {/* table */}
-        <Leaderboard guildId={guild} initialData={undefined} />
-      </div>
+      <Leaderboard
+        guildId={guild}
+        initialData={{
+          data: leaderboard,
+          optionsHash: buildLeaderboardQueryParams({
+            ...options,
+            searchFor: "",
+          }).toString(),
+        }}
+        meta={meta}
+      />
     </>
   );
 }

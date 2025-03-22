@@ -8,17 +8,11 @@ import {
   SelectValue,
 } from "@/components/ui/Select";
 import useLeaderboardStore from "./State";
+import type { LeaderboardMetadata } from "@/db/queries/leaderboard.types";
+import { type DBGame, GameToFriendlyName } from "@/db/enums";
 
 type LeaderboardFiltersProps = {
-  meta: {
-    channels: {
-      channel_id: number;
-      unique_leaderboard: boolean | null;
-    }[];
-    games: {
-      game: string;
-    }[];
-  };
+  meta: LeaderboardMetadata;
 };
 
 /**
@@ -64,7 +58,9 @@ export function LeaderboardFilters(props: LeaderboardFiltersProps) {
           <SelectItem value="all">All Games</SelectItem>
           {props.meta.games.map((game) => (
             <SelectItem key={game.game} value={game.game}>
-              {game.game}
+              {game.game in GameToFriendlyName
+                ? GameToFriendlyName[game.game as DBGame]
+                : game.game}
             </SelectItem>
           ))}
         </SelectContent>
