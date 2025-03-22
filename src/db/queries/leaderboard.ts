@@ -253,10 +253,8 @@ export async function fetchLeaderboardRaw(
   const startTime = Date.now();
   const [data, totalEntries] = await Promise.all([requestedData, pages]);
 
-  console.log(data); // TODO: Remove after dev
-
   // get the total pages
-  let totalEntriesParsed: number | bigint = 0;
+  let totalEntriesParsed: number | bigint = -1;
   if (totalEntries) {
     const element = totalEntries[0];
     if (element) {

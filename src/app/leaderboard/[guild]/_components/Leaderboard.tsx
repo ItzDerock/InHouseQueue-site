@@ -8,7 +8,6 @@ import type {
   LeaderboardResponse,
 } from "@/db/queries/leaderboard.types";
 import { LeaderboardTable, LeaderboardTableEntries } from "./Table";
-import { SortDirection } from "@/components/SortIcon";
 import { LeaderboardCards } from "./Cards";
 import { LeaderboardFilters } from "./Filters";
 import { LeaderboardSearch } from "./Search";
@@ -53,7 +52,7 @@ export function Leaderboard(props: {
     return [query, useInitial];
   }, [state, props.initialData]);
 
-  const { data, isLoading, mutate, error } = useSWRInfinite<
+  const { data, isLoading, error, setSize } = useSWRInfinite<
     LeaderboardResponse,
     unknown
   >(
@@ -63,7 +62,7 @@ export function Leaderboard(props: {
         return null;
       }
 
-      return `/api/leaderboard/${props.guildId}?${queryParams.toString()}&page=${pageIndex}`;
+      return `/api/leaderboard/${props.guildId}?${queryParams.toString()}&page=${++pageIndex}`;
     },
     {
       fallbackData: useInitial ? [props.initialData.data] : undefined,
@@ -73,6 +72,8 @@ export function Leaderboard(props: {
       },
     },
   );
+
+  console.log(data)
 
   const top3 = useMemo(() => data?.at(0)?.data.slice(0, 3), [data]);
   const lastElement = useMemo(() => data?.at(-1), [data]);
@@ -93,7 +94,7 @@ export function Leaderboard(props: {
         <LeaderboardTable
           error={error ? String(error) : undefined}
           total={lastElement?.total ?? 0}
-          loadMore={mutate}
+          loadMore={() => setSize((size) => size + 1)}
           isLoading={isLoading}
           isMore={isMore}
           entries={data ?? []}

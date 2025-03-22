@@ -112,6 +112,7 @@ export async function GET(
       sortDirection: query.data.sortDirection,
       limit: 10,
       offset: query.data.page * 10,
+      withPageCount: true,
       filters: {
         searchTerm: query.data.searchFor ?? "",
         game: query.data.game ?? DBGame.LeagueOfLegends,

@@ -151,7 +151,9 @@ export function LeaderboardTable(props: {
         <div className="flex w-full flex-row flex-wrap justify-between px-4 py-2 text-white">
           <p className="block w-fit">
             <>
-              Showing {props.entries.length}/{props.total} entries.
+              Showing{" "}
+              {props.entries.reduce((acc, x) => (acc += x.data.length), 0)}/
+              {props.total} entries.
             </>
           </p>
           <p className="block w-fit">
@@ -198,10 +200,10 @@ export function LeaderboardTableEntries(props: {
 
   return props.entries.map((group, i) => (
     <Fragment key={i}>
-      {group.data.map((entry, i) => (
-        <tr key={`${i} ${entry.ign}`} className="[&>*]:border-table-border">
+      {group.data.map((entry, j) => (
+        <tr key={`${j} ${entry.ign}`} className="[&>*]:border-table-border">
           <td className="whitespace-nowrap border border-l-0 px-4 py-2">
-            {searchFor === "" ? i + 1 : "?"}
+            {searchFor === "" ? i * 10 + j + 1 : "?"}
           </td>
           <td className="w-full border px-4 py-2">
             {entry.ign}
