@@ -13,15 +13,13 @@ export default function Feature2() {
       <ol className="checkmark-list">
         {
           [
-            "Unique In-Game role assignment",
-            "Unlock built in Achievements",
-            "Spectators Buttons",
-            "Track your stats and match history",
-            "Dedicated server site leaderboard",
-            "Duo Queue",
-            "Captain Queue",
-            "Customize Team sizes (1v1 - 11v11)",
-            "So much more...",
+            "Simplistic & Aesthetic",
+            "Customizable & Flexible",
+            "MMR Decay System",
+            "InHouseQueue Seasons",
+            "Suspension and Ban System",
+            "Unique Captains Mode",
+            "Much more...",
           ].map((item, index) => (
             <li
               key={index}
