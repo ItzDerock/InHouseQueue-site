@@ -123,8 +123,6 @@ export async function fetchLeaderboardRaw(
     isUniqueLeaderboard = !!uniqueCheck?.unique_leaderboard;
   }
 
-  console.log(`Channel ${queueChannelId} is unique? ${isUniqueLeaderboard}`);
-
   // Start building the query
   const builder = db
     .selectFrom("mmr_rating")

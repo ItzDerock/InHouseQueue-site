@@ -78,13 +78,13 @@ export default async function LeaderboardPage({
     <>
       <Navbar absolute />
 
-      {/* On desktops, make it so you can see the full banner, otherwise we need to explicity set a size. */}
-      <div className="z-0 hidden md:block">
-        <Banner image={LeaderboardBanner} height="image-height" />
-      </div>
-      <div className="z-0 md:hidden">
-        <Banner image={LeaderboardBanner} height="36vh" />
-      </div>
+      <Banner
+        image={LeaderboardBanner}
+        text="Leaderboard"
+        imageClassName="object-top"
+        textSize="clamp(4rem, 17vw, 10rem)"
+        textClassName="-translate-y-48"
+      />
 
       <Leaderboard
         guildId={guild}
