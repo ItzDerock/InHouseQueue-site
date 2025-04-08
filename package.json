@@ -19,6 +19,7 @@
     "aos": "^2.3.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.6.3",
     "kysely": "^0.27.6",
     "lucide-react": "^0.482.0",
     "mysql2": "^3.9.4",

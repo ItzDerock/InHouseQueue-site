@@ -5,7 +5,7 @@
 /* set default font to Inter */
 @layer base {
   html {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
 }
 
@@ -21,14 +21,46 @@
 
   /* checkmarks */
   .checkmark-list li::before {
-    @apply fill-primary mx-auto align-middle;
-    content: url(
-      "data:image/svg+xml,%3Csvg fill='%23F65426' stroke-width='0' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' height='1em' width='1em' style='overflow: visible;'%3E%3Cpath d='M438.6 105.4c12.5 12.5 12.5 32.7 0 45.2l-256 256c-12.5 12.5-32.7 12.5-45.2 0L9.372 278.6c-12.496-12.5-12.496-32.7 0-45.2 12.498-12.5 32.758-12.5 45.258 0L159.1 338.7l234.3-233.3c12.5-12.52 32.7-12.52 45.2 0z'%3E%3C/path%3E%3C/svg%3E"
-    );
+    @apply mx-auto fill-primary align-middle;
+    content: url("data:image/svg+xml,%3Csvg fill='%23F65426' stroke-width='0' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' height='1em' width='1em' style='overflow: visible;'%3E%3Cpath d='M438.6 105.4c12.5 12.5 12.5 32.7 0 45.2l-256 256c-12.5 12.5-32.7 12.5-45.2 0L9.372 278.6c-12.496-12.5-12.496-32.7 0-45.2 12.498-12.5 32.758-12.5 45.258 0L159.1 338.7l234.3-233.3c12.5-12.52 32.7-12.52 45.2 0z'%3E%3C/path%3E%3C/svg%3E");
     margin-right: 0.5rem;
   }
 
   footer a:hover {
     @apply text-white;
+  }
+
+  /* for testimonials, when hovering over <em>, make the bg change color on hover */
+
+  .testimonial em {
+    text-decoration-line: underline;
+    text-decoration-color: theme("colors.primary");
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+    background-color: transparent;
+
+    /* Inherit text color initially */
+    color: inherit;
+
+    /* Define transitions: target background-color and color */
+    /* text-decoration properties are NOT smoothly animatable */
+    transition:
+      background-color 0.3s ease-in-out,
+      color 0.3s ease-in-out;
+
+    /* Optional: Add slight padding for the background hover state */
+    /* padding: 0 0.1em; */
+  }
+
+  .testimonial em:hover {
+    /* --- Hover State: Background Highlight --- */
+    /* Turn OFF the text-decoration */
+    text-decoration-line: none;
+
+    /* Apply the background color using theme() */
+    background-color: theme("colors.primary");
+
+    /* Change text color for contrast */
+    color: theme("colors.white"); /* Or black, depending on your primary */
   }
 }
